@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initiative X — The Operating System for Independent Hospitality</title>
+    <meta name="description" content="IX certifies, connects, and funds real hospitality businesses. Shared infrastructure, staff ownership, and direct investor access to operating assets.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           DESIGN TOKENS
+           ======================================== */
+        :root {
+            /* Institutional */
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --white: #FFFFFF;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --warm-bg: #F8F6F3;
+
+            /* Hospitality */
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --cream: #F4F0EB;
+            --caramel: #D4A574;
+            --caramel-light: #E0B98A;
+
+            /* Spacing */
+            --section-padding: 140px;
+            --container-max: 1200px;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            line-height: 1.15;
+        }
+
+        .label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--bronze);
+        }
+
+        .editorial {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* ========================================
+           LAYOUT
+           ======================================== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: var(--section-padding) 0;
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 14px 32px;
+            border-radius: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--cream);
+            color: var(--black);
+            border-color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--warm-light);
+            border-color: var(--warm-light);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .btn-dark:hover {
+            background: var(--charcoal);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--pale-grey);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .btn-outline-light:hover {
+            border-color: var(--bronze);
+            color: var(--white);
+        }
+
+        /* ========================================
+           NAV
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: rgba(10, 10, 10, 0.85);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav.scrolled {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-mark {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .ix-circle-small {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--bronze);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--bronze);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--light-grey);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--black) !important;
+            background: var(--cream);
+            padding: 9px 22px;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--warm-light) !important;
+        }
+
+        /* Mobile menu */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--pale-grey);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* ========================================
+           HERO
+           ======================================== */
+        .hero {
+            background: var(--black);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 32px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle radial gradient */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(155, 139, 110, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+        }
+
+        .ix-circle-hero {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--bronze);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--bronze);
+            letter-spacing: 0.08em;
+            margin: 0 auto 20px;
+            animation: heroPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes heroPulse {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+
+        .hero-brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--light-grey);
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            color: var(--white);
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.125rem);
+            color: var(--light-grey);
+            line-height: 1.75;
+            margin-bottom: 48px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 64px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-top: 48px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .hero-stat-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--light-grey);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ========================================
+           SECTION: THE PROBLEM
+           ======================================== */
+        .problem {
+            background: var(--white);
+            padding: var(--section-padding) 0;
+        }
+
+        .section-header {
+            margin-bottom: 72px;
+        }
+
+        .section-header .label {
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border: 1px solid var(--pale-grey);
+            padding: 40px 36px;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: var(--warm-light);
+        }
+
+        .problem-card h3 {
+            font-size: 1.125rem;
+            color: var(--teal);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            font-size: 0.9375rem;
+            color: var(--mid-grey);
+            line-height: 1.75;
+        }
+
+        /* ========================================
+           SECTION: HOW IX WORKS
+           ======================================== */
+        .how-it-works {
+            background: var(--cream);
+            padding: var(--section-padding) 0;
+        }
+
+        .how-it-works .section-header h2 {
+            color: var(--black);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .how-card {
+            background: var(--white);
+            padding: 48px 40px;
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .how-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        }
+
+        .how-card-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .how-card-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .how-card .label {
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .how-card h3 {
+            font-size: 1.25rem;
+            color: var(--black);
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .how-card p {
+            font-size: 0.9375rem;
+            color: var(--mid-grey);
+            line-height: 1.75;
+        }
+
+        /* Accent bars */
+        .how-card--venues::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--teal);
+        }
+
+        .how-card--members::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--caramel);
+        }
+
+        .how-card--investors::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--bronze);
+        }
+
+        /* ========================================
+           SECTION: UKIYO
+           ======================================== */
+        .ukiyo {
+            background: var(--charcoal);
+            padding: var(--section-padding) 0;
+        }
+
+        .ukiyo .label {
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .ukiyo h2 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .ukiyo-sub {
+            font-size: 1rem;
+            color: var(--light-grey);
+            margin-bottom: 64px;
+            line-height: 1.7;
+        }
+
+        .ukiyo-stats {
+            display: flex;
+            gap: 64px;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+        }
+
+        .ukiyo-stat {
+            text-align: left;
+        }
+
+        .ukiyo-stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--white);
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .ukiyo-stat-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--light-grey);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .ukiyo-quote {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--warm-light);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            padding-left: 24px;
+            border-left: 2px solid var(--bronze);
+            max-width: 680px;
+        }
+
+        .ukiyo-description {
+            font-size: 0.9375rem;
+            color: var(--light-grey);
+            line-height: 1.8;
+            max-width: 640px;
+        }
+
+        /* ========================================
+           SECTION: CONTACT / CTA
+           ======================================== */
+        .contact {
+            background: var(--black);
+            padding: var(--section-padding) 0 80px;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 120px;
+        }
+
+        .cta-card {
+            padding: 48px 36px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+        }
+
+        .cta-card:hover {
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        .cta-card .label {
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .cta-card h3 {
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .cta-card p {
+            font-size: 0.9375rem;
+            color: var(--light-grey);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 48px 0;
+        }
+
+        .footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-ix {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(155, 139, 110, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--bronze);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-grey);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 100px;
+            }
+
+            .problem-grid,
+            .how-grid,
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero-stats {
+                gap: 40px;
+            }
+
+            .ukiyo-stats {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.97);
+                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 32px;
+                gap: 24px;
+                border-top: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 24px 64px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-sub {
+                font-size: 0.9375rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 56px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 28px;
+                align-items: center;
+            }
+
+            .section-header {
+                margin-bottom: 48px;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .ukiyo h2 {
+                font-size: 2.4rem;
+            }
+
+            .ukiyo-stats {
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 90px 20px 56px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .problem-card,
+            .how-card,
+            .cta-card {
+                padding: 32px 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ NAV ============ -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="#" class="nav-mark">
+                <div class="ix-circle-small">IX</div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#ukiyo">UKIYO</a></li>
+                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="ix-circle-hero fade-in">IX</div>
+            <p class="hero-brand-name fade-in fade-in-delay-1">Initiative X</p>
+            <h1 class="fade-in fade-in-delay-2">The operating system for independent hospitality</h1>
+            <p class="hero-sub fade-in fade-in-delay-3">IX certifies, connects, and funds real hospitality businesses &mdash; giving operators shared infrastructure, staff real ownership, and investors direct access to operating assets.</p>
+            <div class="hero-ctas fade-in fade-in-delay-4">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#ecosystem" class="btn btn-ghost">Learn More</a>
+            </div>
+            <div class="hero-stats fade-in fade-in-delay-4">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">1</span>
+                    <span class="hero-stat-label">IX-Certified Venue</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">&pound;1.4M</span>
+                    <span class="hero-stat-label">Year One Revenue</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">10</span>
+                    <span class="hero-stat-label">Certification Pillars</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ THE PROBLEM ============ -->
+    <section class="problem" id="ecosystem">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">The Problem</span>
+                <h2>Independent hospitality is broken</h2>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card fade-in fade-in-delay-1">
+                    <h3>No shared infrastructure</h3>
+                    <p>Independent venues build everything from scratch. Every system, every supplier relationship, every process &mdash; reinvented each time.</p>
+                </div>
+                <div class="problem-card fade-in fade-in-delay-2">
+                    <h3>Staff have no stake</h3>
+                    <p>The people who build your business have no ownership in its success. High turnover. No alignment. No long-term commitment.</p>
+                </div>
+                <div class="problem-card fade-in fade-in-delay-3">
+                    <h3>Investors can't access it</h3>
+                    <p>Hospitality is one of the largest asset classes in the world, but fractional investment in operating venues doesn't exist.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IX WORKS ============ -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">How It Works</span>
+                <h2>One ecosystem. Three ways in.</h2>
+            </div>
+            <div class="how-grid">
+                <!-- Venues -->
+                <div class="how-card how-card--venues fade-in fade-in-delay-1">
+                    <div class="how-card-icon">
+                        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="22" width="40" height="24" rx="1" stroke="#3F5A5A" stroke-width="1.5" fill="none"/>
+                            <path d="M6 22L26 8L46 22" stroke="#3F5A5A" stroke-width="1.5" fill="none"/>
+                            <rect x="20" y="32" width="12" height="14" rx="1" stroke="#3F5A5A" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="label" style="color: var(--teal);">For Venues</span>
+                    <h3>Certified operations. Shared infrastructure.</h3>
+                    <p>IX certifies your operations against 10 pillars, connects you to shared procurement, and gives your staff ownership through IXT. You keep your brand. We provide the infrastructure.</p>
+                </div>
+                <!-- Members -->
+                <div class="how-card how-card--members fade-in fade-in-delay-2">
+                    <div class="how-card-icon">
+                        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="26" cy="18" r="10" stroke="#D4A574" stroke-width="1.5" fill="none"/>
+                            <path d="M10 46C10 36.059 17.163 28 26 28C34.837 28 42 36.059 42 46" stroke="#D4A574" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="label" style="color: var(--caramel);">For Members</span>
+                    <h3>One membership. Every venue.</h3>
+                    <p>One membership works across every IX-certified venue. Earn IXT when you visit, dine, or engage. Four tiers: Explorer, Member, Insider, Patron.</p>
+                </div>
+                <!-- Investors -->
+                <div class="how-card how-card--investors fade-in fade-in-delay-3">
+                    <div class="how-card-icon">
+                        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="40" height="40" rx="2" stroke="#9B8B6E" stroke-width="1.5" fill="none"/>
+                            <path d="M14 34L22 24L30 30L38 16" stroke="#9B8B6E" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="38" cy="16" r="3" stroke="#9B8B6E" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="label" style="color: var(--bronze);">For Investors</span>
+                    <h3>Real assets. Real returns.</h3>
+                    <p>A fund backed by real, operating hospitality businesses. Quarterly NAV. Audited returns. Not speculative tokens &mdash; real assets generating real revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ UKIYO ============ -->
+    <section class="ukiyo" id="ukiyo">
+        <div class="container">
+            <span class="label fade-in">First IX-Certified Venue</span>
+            <h2 class="fade-in fade-in-delay-1">UKIYO</h2>
+            <p class="ukiyo-sub fade-in fade-in-delay-2">Japanese hand roll bar. 8 Slingsby Place, Covent Garden, London.</p>
+            <div class="ukiyo-stats fade-in fade-in-delay-3">
+                <div class="ukiyo-stat">
+                    <span class="ukiyo-stat-number">&pound;1.4M</span>
+                    <span class="ukiyo-stat-label">Year One Revenue</span>
+                </div>
+                <div class="ukiyo-stat">
+                    <span class="ukiyo-stat-number">69%</span>
+                    <span class="ukiyo-stat-label">Gross Profit</span>
+                </div>
+                <div class="ukiyo-stat">
+                    <span class="ukiyo-stat-number">10/10</span>
+                    <span class="ukiyo-stat-label">Pillars Assessed</span>
+                </div>
+            </div>
+            <blockquote class="ukiyo-quote fade-in fade-in-delay-3">
+                The first venue to prove the IX model works. Real operations, real numbers, real certification.
+            </blockquote>
+            <p class="ukiyo-description fade-in fade-in-delay-4">UKIYO is a Japanese hand roll bar in London's Covent Garden. It was the first venue to be assessed against the IX 10-pillar certification framework, demonstrating that the model works with real revenue and real operations.</p>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-card fade-in fade-in-delay-1">
+                    <span class="label">Venue Owners</span>
+                    <h3>Apply for IX Certification</h3>
+                    <p>Get assessed against our 10-pillar framework and join the IX network.</p>
+                    <a href="mailto:thibault@initiativex.co.uk?subject=IX%20Certification%20Application" class="btn btn-primary">Start Application</a>
+                </div>
+                <div class="cta-card fade-in fade-in-delay-2">
+                    <span class="label">Investors</span>
+                    <h3>Request the Deck</h3>
+                    <p>Fund-backed. Quarterly NAV. Real hospitality assets.</p>
+                    <a href="mailto:thibault@initiativex.co.uk?subject=Investor%20Deck%20Request" class="btn btn-outline-light">Request Deck</a>
+                </div>
+                <div class="cta-card fade-in fade-in-delay-3">
+                    <span class="label">Everyone Else</span>
+                    <h3>Follow the Journey</h3>
+                    <p>Stay updated as IX grows.</p>
+                    <a href="mailto:thibault@initiativex.co.uk?subject=Subscribe%20to%20IX%20Updates" class="btn btn-outline-light">Subscribe</a>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-left">
+                        <div class="footer-ix">IX</div>
+                        <span class="footer-text">Initiative X &copy; 2026</span>
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // Intersection Observer for fade-in animations
+        (function () {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.fade-in').forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+
+        // Nav scroll effect
+        (function () {
+            var nav = document.getElementById('nav');
+            var lastScroll = 0;
+
+            window.addEventListener('scroll', function () {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > 60) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                lastScroll = scrollTop;
+            });
+        })();
+
+        // Mobile nav toggle
+        (function () {
+            var toggle = document.getElementById('navToggle');
+            var links = document.getElementById('navLinks');
+
+            toggle.addEventListener('click', function () {
+                links.classList.toggle('open');
+            });
+
+            // Close on link click
+            links.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    links.classList.remove('open');
+                });
+            });
+        })();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    var offset = 80;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
