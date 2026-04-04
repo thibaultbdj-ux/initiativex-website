@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initiative X — The Operating System for Independent Hospitality</title>
+    <title>Initiative X — Where everyone has a seat at the table.</title>
     <meta name="description" content="IX certifies, connects, and funds real hospitality businesses. Shared infrastructure, staff ownership, and direct investor access to operating assets.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Initiative X — Where everyone has a seat at the table.">
+    <meta property="og:description" content="IX certifies, connects, and funds real hospitality businesses. Shared infrastructure, staff ownership, and direct investor access to operating assets.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://initiativex.co.uk">
+    <meta property="og:image" content="https://initiativex.co.uk/og-image.png">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Initiative X — Where everyone has a seat at the table.">
+    <meta name="twitter:description" content="IX certifies, connects, and funds real hospitality businesses.">
+    <meta name="twitter:image" content="https://initiativex.co.uk/og-image.png">
+
+    <!-- Favicon (SVG) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+
+    <!-- GA4 — Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -36,7 +64,6 @@
            DESIGN TOKENS
            ======================================== */
         :root {
-            /* Institutional */
             --black: #0A0A0A;
             --charcoal: #1A1A1A;
             --dark-grey: #333333;
@@ -48,16 +75,12 @@
             --bronze: #9B8B6E;
             --warm-light: #B8A88A;
             --warm-bg: #F8F6F3;
-
-            /* Hospitality */
             --teal: #3F5A5A;
             --teal-light: #4D6B6B;
             --sage: #6B8A7E;
             --cream: #F4F0EB;
             --caramel: #D4A574;
             --caramel-light: #E0B98A;
-
-            /* Spacing */
             --section-padding: 140px;
             --container-max: 1200px;
         }
@@ -264,7 +287,6 @@
             background: var(--warm-light) !important;
         }
 
-        /* Mobile menu */
         .nav-toggle {
             display: none;
             background: none;
@@ -298,7 +320,6 @@
             overflow: hidden;
         }
 
-        /* Subtle radial gradient */
         .hero::before {
             content: '';
             position: absolute;
@@ -527,13 +548,10 @@
             line-height: 1.75;
         }
 
-        /* Accent bars */
         .how-card--venues::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: var(--teal);
         }
@@ -541,9 +559,7 @@
         .how-card--members::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: var(--caramel);
         }
@@ -551,9 +567,7 @@
         .how-card--investors::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: var(--bronze);
         }
@@ -632,6 +646,31 @@
             color: var(--light-grey);
             line-height: 1.8;
             max-width: 640px;
+            margin-bottom: 40px;
+        }
+
+        .ukiyo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--caramel);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .ukiyo-link:hover {
+            color: var(--caramel-light);
+        }
+
+        .ukiyo-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .ukiyo-link:hover svg {
+            transform: translateX(4px);
         }
 
         /* ========================================
@@ -640,6 +679,14 @@
         .contact {
             background: var(--black);
             padding: var(--section-padding) 0 80px;
+        }
+
+        .contact .section-header {
+            margin-bottom: 48px;
+        }
+
+        .contact .section-header h2 {
+            color: var(--white);
         }
 
         .cta-grid {
@@ -679,6 +726,11 @@
             margin-bottom: 28px;
         }
 
+        /* Tally form popup trigger */
+        .tally-trigger {
+            cursor: pointer;
+        }
+
         /* ========================================
            FOOTER
            ======================================== */
@@ -688,6 +740,83 @@
         }
 
         .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .footer-subscribe {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-subscribe-text h3 {
+            font-size: 1.125rem;
+            color: var(--white);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .footer-subscribe-text p {
+            font-size: 0.8125rem;
+            color: var(--mid-grey);
+        }
+
+        .footer-subscribe-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-subscribe-form input[type="email"] {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 2px;
+            color: var(--white);
+            width: 280px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-subscribe-form input[type="email"]::placeholder {
+            color: var(--mid-grey);
+        }
+
+        .footer-subscribe-form input[type="email"]:focus {
+            border-color: var(--bronze);
+        }
+
+        .footer-subscribe-form button {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            background: var(--bronze);
+            color: var(--white);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            letter-spacing: 0.03em;
+        }
+
+        .footer-subscribe-form button:hover {
+            background: var(--warm-light);
+        }
+
+        .footer-subscribe-success {
+            display: none;
+            font-size: 0.875rem;
+            color: var(--sage);
+        }
+
+        .footer-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -753,13 +882,8 @@
                 gap: 24px;
             }
 
-            .hero-stats {
-                gap: 40px;
-            }
-
-            .ukiyo-stats {
-                gap: 40px;
-            }
+            .hero-stats { gap: 40px; }
+            .ukiyo-stats { gap: 40px; }
         }
 
         @media (max-width: 768px) {
@@ -767,9 +891,7 @@
                 --section-padding: 80px;
             }
 
-            .container {
-                padding: 0 24px;
-            }
+            .container { padding: 0 24px; }
 
             .nav-links {
                 display: none;
@@ -786,26 +908,16 @@
                 border-top: 1px solid rgba(255,255,255,0.06);
             }
 
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
 
             .hero {
                 padding: 100px 24px 64px;
                 min-height: auto;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-sub {
-                font-size: 0.9375rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            .hero-sub { font-size: 0.9375rem; }
 
             .hero-ctas {
                 flex-direction: column;
@@ -819,24 +931,31 @@
                 align-items: center;
             }
 
-            .section-header {
-                margin-bottom: 48px;
-            }
+            .section-header { margin-bottom: 48px; }
+            .section-header h2 { font-size: 1.75rem; }
 
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .ukiyo h2 {
-                font-size: 2.4rem;
-            }
+            .ukiyo h2 { font-size: 2.4rem; }
 
             .ukiyo-stats {
                 flex-direction: column;
                 gap: 28px;
             }
 
-            .footer .container {
+            .footer-subscribe {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-subscribe-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-subscribe-form input[type="email"] {
+                width: 100%;
+            }
+
+            .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
@@ -847,13 +966,8 @@
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 90px 20px 56px;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
+            .hero { padding: 90px 20px 56px; }
+            .container { padding: 0 20px; }
 
             .problem-card,
             .how-card,
@@ -868,13 +982,13 @@
     <!-- ============ NAV ============ -->
     <nav class="nav" id="nav">
         <div class="container">
-            <a href="#" class="nav-mark">
+            <a href="/" class="nav-mark">
                 <div class="ix-circle-small">IX</div>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#ecosystem">Ecosystem</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#ukiyo">UKIYO</a></li>
+                <li><a href="ukiyo.html">UKIYO</a></li>
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -890,7 +1004,7 @@
         <div class="hero-content">
             <div class="ix-circle-hero fade-in">IX</div>
             <p class="hero-brand-name fade-in fade-in-delay-1">Initiative X</p>
-            <h1 class="fade-in fade-in-delay-2">A vision built for everyone.</h1>
+            <h1 class="fade-in fade-in-delay-2">Where everyone has a seat at the table.</h1>
             <p class="hero-sub fade-in fade-in-delay-3">IX certifies, connects, and funds real hospitality businesses &mdash; giving operators shared infrastructure, staff real ownership, and investors direct access to operating assets.</p>
             <div class="hero-ctas fade-in fade-in-delay-4">
                 <a href="#contact" class="btn btn-primary">Get in Touch</a>
@@ -907,7 +1021,7 @@
                 </div>
                 <div class="hero-stat">
                     <span class="hero-stat-number">10</span>
-                    <span class="hero-stat-label">Certification Pillars</span>
+                    <span class="hero-stat-label">Pillars Framework</span>
                 </div>
             </div>
         </div>
@@ -945,7 +1059,6 @@
                 <h2>One ecosystem. Three ways in.</h2>
             </div>
             <div class="how-grid">
-                <!-- Venues -->
                 <div class="how-card how-card--venues fade-in fade-in-delay-1">
                     <div class="how-card-icon">
                         <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -958,7 +1071,6 @@
                     <h3>Certified operations. Shared infrastructure.</h3>
                     <p>IX certifies your operations against 10 pillars, connects you to shared procurement, and gives your staff ownership through IXT. You keep your brand. We provide the infrastructure.</p>
                 </div>
-                <!-- Members -->
                 <div class="how-card how-card--members fade-in fade-in-delay-2">
                     <div class="how-card-icon">
                         <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -970,7 +1082,6 @@
                     <h3>One membership. Every venue.</h3>
                     <p>One membership works across every IX-certified venue. Earn IXT when you visit, dine, or engage. Four tiers: Explorer, Member, Insider, Patron.</p>
                 </div>
-                <!-- Investors -->
                 <div class="how-card how-card--investors fade-in fade-in-delay-3">
                     <div class="how-card-icon">
                         <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1003,60 +1114,84 @@
                     <span class="ukiyo-stat-label">Gross Profit</span>
                 </div>
                 <div class="ukiyo-stat">
-                    <span class="ukiyo-stat-number">10/10</span>
-                    <span class="ukiyo-stat-label">Pillars Assessed</span>
+                    <span class="ukiyo-stat-number">40</span>
+                    <span class="ukiyo-stat-label">Covers</span>
                 </div>
             </div>
             <blockquote class="ukiyo-quote fade-in fade-in-delay-3">
                 The first venue to prove the IX model works. Real operations, real numbers, real certification.
             </blockquote>
             <p class="ukiyo-description fade-in fade-in-delay-4">UKIYO is a Japanese hand roll bar in London's Covent Garden. It was the first venue to be assessed against the IX 10-pillar certification framework, demonstrating that the model works with real revenue and real operations.</p>
+            <a href="ukiyo.html" class="ukiyo-link fade-in fade-in-delay-4">
+                Read the full case study
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
         </div>
     </section>
 
     <!-- ============ CONTACT / CTA ============ -->
     <section class="contact" id="contact">
         <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">Get Involved</span>
+                <h2>Three ways to join the ecosystem</h2>
+            </div>
             <div class="cta-grid">
                 <div class="cta-card fade-in fade-in-delay-1">
                     <span class="label">Venue Owners</span>
                     <h3>Apply for IX Certification</h3>
                     <p>Get assessed against our 10-pillar framework and join the IX network.</p>
-                    <a href="mailto:thibault@initiativex.co.uk?subject=IX%20Certification%20Application" class="btn btn-primary">Start Application</a>
+                    <button class="btn btn-primary tally-trigger" data-tally-open="VENUE_FORM_ID" data-tally-width="500" data-tally-overlay="1" data-tally-auto-close="3000">Start Application</button>
                 </div>
                 <div class="cta-card fade-in fade-in-delay-2">
                     <span class="label">Investors</span>
                     <h3>Request the Deck</h3>
                     <p>Fund-backed. Quarterly NAV. Real hospitality assets.</p>
-                    <a href="mailto:thibault@initiativex.co.uk?subject=Investor%20Deck%20Request" class="btn btn-outline-light">Request Deck</a>
+                    <button class="btn btn-outline-light tally-trigger" data-tally-open="INVESTOR_FORM_ID" data-tally-width="500" data-tally-overlay="1" data-tally-auto-close="3000">Request Deck</button>
                 </div>
                 <div class="cta-card fade-in fade-in-delay-3">
                     <span class="label">Everyone Else</span>
                     <h3>Follow the Journey</h3>
                     <p>Stay updated as IX grows.</p>
-                    <a href="mailto:thibault@initiativex.co.uk?subject=Subscribe%20to%20IX%20Updates" class="btn btn-outline-light">Subscribe</a>
+                    <button class="btn btn-outline-light tally-trigger" data-tally-open="SUBSCRIBE_FORM_ID" data-tally-width="500" data-tally-overlay="1" data-tally-auto-close="3000">Subscribe</button>
                 </div>
             </div>
 
             <!-- FOOTER -->
             <footer class="footer">
                 <div class="container">
-                    <div class="footer-left">
-                        <div class="footer-ix">IX</div>
-                        <span class="footer-text">Initiative X &copy; 2026</span>
+                    <div class="footer-subscribe">
+                        <div class="footer-subscribe-text">
+                            <h3>Stay in the loop</h3>
+                            <p>Monthly updates on IX, UKIYO, and the ecosystem.</p>
+                        </div>
+                        <form class="footer-subscribe-form" id="subscribeForm">
+                            <input type="email" placeholder="your@email.com" required id="subscribeEmail">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p class="footer-subscribe-success" id="subscribeSuccess">You're in. We'll be in touch.</p>
                     </div>
-                    <ul class="footer-links">
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
+                    <div class="footer-bottom">
+                        <div class="footer-left">
+                            <div class="footer-ix">IX</div>
+                            <span class="footer-text">Initiative X &copy; 2026</span>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </div>
                 </div>
             </footer>
         </div>
     </section>
 
+    <!-- Tally.so popup forms -->
+    <script src="https://tally.so/widgets/embed.js"></script>
+
     <!-- ============ JAVASCRIPT ============ -->
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for fade-in
         (function () {
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -1064,29 +1199,22 @@
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.12,
-                rootMargin: '0px 0px -40px 0px'
-            });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
             document.querySelectorAll('.fade-in').forEach(function (el) {
                 observer.observe(el);
             });
         })();
 
-        // Nav scroll effect
+        // Nav scroll
         (function () {
             var nav = document.getElementById('nav');
-            var lastScroll = 0;
-
             window.addEventListener('scroll', function () {
-                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > 60) {
+                if ((window.pageYOffset || document.documentElement.scrollTop) > 60) {
                     nav.classList.add('scrolled');
                 } else {
                     nav.classList.remove('scrolled');
                 }
-                lastScroll = scrollTop;
             });
         })();
 
@@ -1094,12 +1222,9 @@
         (function () {
             var toggle = document.getElementById('navToggle');
             var links = document.getElementById('navLinks');
-
             toggle.addEventListener('click', function () {
                 links.classList.toggle('open');
             });
-
-            // Close on link click
             links.querySelectorAll('a').forEach(function (link) {
                 link.addEventListener('click', function () {
                     links.classList.remove('open');
@@ -1107,18 +1232,39 @@
             });
         })();
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    var offset = 80;
-                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top: top, behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
                 }
             });
         });
+
+        // Footer subscribe (stores in localStorage for now, replace with real endpoint later)
+        (function () {
+            var form = document.getElementById('subscribeForm');
+            var success = document.getElementById('subscribeSuccess');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var email = document.getElementById('subscribeEmail').value;
+                    // For now, open Tally popup for subscribe
+                    if (window.Tally) {
+                        Tally.openPopup('SUBSCRIBE_FORM_ID', {
+                            width: 500,
+                            overlay: true,
+                            autoClose: 3000,
+                            hiddenFields: { email: email }
+                        });
+                    }
+                    form.style.display = 'none';
+                    success.style.display = 'block';
+                });
+            }
+        })();
     </script>
 
 </body>
