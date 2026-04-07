@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the IX Ecosystem</title>
-    <meta name="description" content="Free to join. Earn IXT, unlock discounts, and participate in the IX ecosystem.">
+    <meta name="description" content="Join the IX ecosystem. Earn IXT on every visit, access preferential pricing, and receive your digital membership card.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             padding: 40px 24px;
         }
 
@@ -65,11 +65,11 @@
         .nav-ix { width: 36px; height: 36px; border: 1.5px solid var(--bronze); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--white); letter-spacing: 0.08em; }
         .nav-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 
-        /* ===== FORM CARD ===== */
+        /* ===== FORM WRAPPER ===== */
         .form-wrapper {
             width: 100%;
-            max-width: 520px;
-            margin-top: 80px;
+            max-width: 600px;
+            margin-top: 100px;
         }
 
         .form-header {
@@ -88,10 +88,114 @@
         .form-header p {
             color: var(--light-grey);
             font-size: 1rem;
-            max-width: 400px;
+            max-width: 440px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
+        /* ===== TIER SELECTOR ===== */
+        .tier-section {
+            margin-bottom: 40px;
+        }
+
+        .tier-label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--light-grey);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .tier-picker {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .tier-option {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tier-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+        .tier-option .tier-card {
+            padding: 28px 20px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: var(--charcoal);
+            position: relative;
+        }
+
+        .tier-option input:checked + .tier-card {
+            border-color: var(--caramel);
+            background: rgba(212, 165, 116, 0.06);
+        }
+
+        .tier-card h3 {
+            font-size: 1.15rem;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .tier-card .tier-price {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--caramel);
+            margin-bottom: 16px;
+        }
+
+        .tier-card .tier-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .tier-card .tier-features li {
+            font-size: 0.8rem;
+            color: var(--light-grey);
+            line-height: 1.6;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tier-card .tier-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(155, 139, 110, 0.4);
+        }
+
+        .tier-option input:checked + .tier-card .tier-features li::before {
+            background: var(--caramel);
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--caramel);
+            padding: 3px 10px;
+            border-radius: 2px;
+        }
+
+        /* ===== FORM CARD ===== */
         .form-card {
             background: var(--charcoal);
             border: 1px solid rgba(255,255,255,0.08);
@@ -100,7 +204,7 @@
         }
 
         .form-group {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
@@ -114,8 +218,7 @@
             margin-bottom: 8px;
         }
 
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 14px 16px;
             font-family: 'Inter', sans-serif;
@@ -129,80 +232,7 @@
         }
 
         .form-group input::placeholder { color: var(--mid-grey); }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            border-color: var(--caramel);
-        }
-
-        .form-group select option {
-            background: var(--charcoal);
-            color: var(--white);
-        }
-
-        .form-group .hint {
-            font-size: 0.78rem;
-            color: var(--mid-grey);
-            margin-top: 6px;
-        }
-
-        /* ===== TIER PICKER ===== */
-        .tier-picker {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .tier-option {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .tier-option input { position: absolute; opacity: 0; width: 0; height: 0; }
-
-        .tier-option .tier-card {
-            padding: 24px 20px;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .tier-option input:checked + .tier-card {
-            border-color: var(--caramel);
-            background: rgba(212, 165, 116, 0.06);
-        }
-
-        .tier-card h3 {
-            font-size: 1.1rem;
-            color: var(--white);
-            margin-bottom: 4px;
-        }
-
-        .tier-card .tier-price {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--caramel);
-            margin-bottom: 8px;
-        }
-
-        .tier-card .tier-desc {
-            font-size: 0.78rem;
-            color: var(--mid-grey);
-            line-height: 1.5;
-        }
-
-        .tier-label {
-            display: block;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--light-grey);
-            margin-bottom: 12px;
-        }
+        .form-group input:focus { border-color: var(--caramel); }
 
         /* ===== SUBMIT ===== */
         .form-submit {
@@ -218,6 +248,7 @@
             border-radius: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 8px;
         }
 
         .form-submit:hover {
@@ -228,6 +259,24 @@
         .form-submit:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+
+        .form-submit.patron-btn {
+            background: var(--caramel);
+            border-color: var(--caramel);
+            color: var(--black);
+        }
+
+        .form-submit.patron-btn:hover {
+            background: var(--caramel-light);
+            border-color: var(--caramel-light);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--mid-grey);
         }
 
         /* ===== SUCCESS STATE ===== */
@@ -248,6 +297,7 @@
         .form-success p {
             color: var(--light-grey);
             font-size: 1rem;
+            line-height: 1.7;
         }
 
         .form-success .check {
@@ -259,6 +309,23 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
+        }
+
+        .patron-success-detail {
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .patron-success-detail h3 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .patron-success-detail p {
+            font-size: 0.88rem;
+            color: var(--mid-grey);
         }
 
         /* ===== FOOTER ===== */
@@ -277,9 +344,10 @@
         .form-footer a:hover { color: var(--white); }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
             .form-card { padding: 32px 24px; }
             .tier-picker { grid-template-columns: 1fr; }
+            .form-wrapper { margin-top: 80px; }
         }
     </style>
 </head>
@@ -298,9 +366,44 @@
         <div class="form-header">
             <span class="label">Membership</span>
             <h1>Join the IX Ecosystem</h1>
-            <p>Free to join as an Explorer. Upgrade to Patron for full access.</p>
+            <p>Earn IXT every time you visit an IX venue. Access preferential pricing, a digital membership card, and be part of something that gives back to the places you love.</p>
         </div>
 
+        <!-- TIER SELECTOR -->
+        <div class="tier-section" id="tierSection">
+            <span class="tier-label">Choose your membership</span>
+            <div class="tier-picker">
+                <label class="tier-option">
+                    <input type="radio" name="tier" value="Explorer" checked>
+                    <div class="tier-card">
+                        <h3>Explorer</h3>
+                        <div class="tier-price">Free</div>
+                        <ul class="tier-features">
+                            <li>1% IXT earned on every visit</li>
+                            <li>Access the IX network</li>
+                            <li>Digital membership card</li>
+                        </ul>
+                    </div>
+                </label>
+                <label class="tier-option">
+                    <input type="radio" name="tier" value="Patron">
+                    <div class="tier-card">
+                        <span class="tier-badge">Recommended</span>
+                        <h3>Patron</h3>
+                        <div class="tier-price">&pound;30 / month</div>
+                        <ul class="tier-features">
+                            <li>1.10% IXT earned on every visit</li>
+                            <li>Preferential pricing at IX venues</li>
+                            <li>Digital wallet card (Apple + Google)</li>
+                            <li>Priority access to events</li>
+                            <li>Investment access</li>
+                        </ul>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- FORM -->
         <div class="form-card" id="formCard">
             <form id="joinForm">
                 <div class="form-group">
@@ -318,37 +421,31 @@
                     <input type="tel" id="phone" name="phone" placeholder="+44">
                 </div>
 
-                <span class="tier-label">Choose your tier</span>
-                <div class="tier-picker">
-                    <label class="tier-option">
-                        <input type="radio" name="tier" value="Explorer" checked>
-                        <div class="tier-card">
-                            <h3>Explorer</h3>
-                            <div class="tier-price">Free</div>
-                            <div class="tier-desc">1% IXT earn on spend. Access the ecosystem.</div>
-                        </div>
-                    </label>
-                    <label class="tier-option">
-                        <input type="radio" name="tier" value="Patron">
-                        <div class="tier-card">
-                            <h3>Patron</h3>
-                            <div class="tier-price">&pound;30/mo</div>
-                            <div class="tier-desc">10% discount. Events. Investor access. Full IXT earning.</div>
-                        </div>
-                    </label>
-                </div>
-
-                <button type="submit" class="form-submit" id="submitBtn">Join the Ecosystem</button>
+                <button type="submit" class="form-submit" id="submitBtn">Join as Explorer</button>
+                <p class="form-note" id="formNote">Free forever. No card required.</p>
             </form>
         </div>
 
-        <!-- Success state -->
-        <div class="form-card form-success" id="formSuccess">
+        <!-- SUCCESS: EXPLORER -->
+        <div class="form-card form-success" id="explorerSuccess">
             <div class="check">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h2>You're in.</h2>
-            <p>Welcome to the IX ecosystem. We'll be in touch soon.</p>
+            <h2>Welcome to IX.</h2>
+            <p>You're in as an Explorer. Your digital membership card is on its way to your inbox.</p>
+        </div>
+
+        <!-- SUCCESS: PATRON (shown after Stripe redirect) -->
+        <div class="form-card form-success" id="patronSuccess">
+            <div class="check">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h2>Welcome, Patron.</h2>
+            <p>Your membership is active. Check your email for your digital wallet card — add it to Apple Wallet or Google Wallet and show it at any IX venue to earn IXT.</p>
+            <div class="patron-success-detail">
+                <h3>What happens next</h3>
+                <p>Visit an IX venue, show your card, and start earning IXT on every visit. Your balance updates automatically on your wallet card.</p>
+            </div>
         </div>
 
         <div class="form-footer">
@@ -357,33 +454,76 @@
     </div>
 
     <script>
+        // ===== DYNAMIC BUTTON TEXT =====
+        var tierRadios = document.querySelectorAll('input[name="tier"]');
+        var submitBtn = document.getElementById('submitBtn');
+        var formNote = document.getElementById('formNote');
+
+        tierRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Patron') {
+                    submitBtn.textContent = 'Continue to Payment';
+                    submitBtn.classList.add('patron-btn');
+                    formNote.innerHTML = '\u00a330/month. Cancel anytime. You\u2019ll be redirected to our secure payment page.';
+                } else {
+                    submitBtn.textContent = 'Join as Explorer';
+                    submitBtn.classList.remove('patron-btn');
+                    formNote.textContent = 'Free forever. No card required.';
+                }
+            });
+        });
+
+        // ===== CHECK FOR STRIPE RETURN =====
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('patron') === 'success') {
+            document.getElementById('formCard').style.display = 'none';
+            document.getElementById('tierSection').style.display = 'none';
+            document.getElementById('patronSuccess').classList.add('visible');
+        }
+
+        // ===== FORM SUBMISSION =====
         document.getElementById('joinForm').addEventListener('submit', function(e) {
             e.preventDefault();
             var btn = document.getElementById('submitBtn');
             btn.disabled = true;
-            btn.textContent = 'Joining...';
 
+            var selectedTier = document.querySelector('input[name="tier"]:checked').value;
             var data = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                tier: document.querySelector('input[name="tier"]:checked').value
+                tier: selectedTier
             };
 
-            // POST to n8n webhook — replace URL after setting up the workflow
-            fetch('https://initiativex.app.n8n.cloud/webhook/7799dab2-82b8-422f-8dc2-963bc90cd7ba', {
+            if (selectedTier === 'Patron') {
+                btn.textContent = 'Redirecting to payment...';
+            } else {
+                btn.textContent = 'Joining...';
+            }
+
+            fetch('https://initiativex.app.n8n.cloud/webhook/ix-join', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
-            .then(function() {
-                document.getElementById('formCard').style.display = 'none';
-                document.getElementById('formSuccess').classList.add('visible');
+            .then(function(res) { return res.json(); })
+            .then(function(response) {
+                if (selectedTier === 'Patron' && response.checkoutUrl) {
+                    window.location.href = response.checkoutUrl;
+                } else {
+                    document.getElementById('formCard').style.display = 'none';
+                    document.getElementById('tierSection').style.display = 'none';
+                    document.getElementById('explorerSuccess').classList.add('visible');
+                }
             })
             .catch(function() {
-                // Still show success — webhook may not be set up yet
                 document.getElementById('formCard').style.display = 'none';
-                document.getElementById('formSuccess').classList.add('visible');
+                document.getElementById('tierSection').style.display = 'none';
+                if (selectedTier === 'Patron') {
+                    document.getElementById('patronSuccess').classList.add('visible');
+                } else {
+                    document.getElementById('explorerSuccess').classList.add('visible');
+                }
             });
         });
     </script>
