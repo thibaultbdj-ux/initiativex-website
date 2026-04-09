@@ -383,7 +383,7 @@
         <div class="survey-header">
             <span class="label">Your Preferences</span>
             <h1>Help us know you better</h1>
-            <p>A few quick questions so we can personalise every experience. Takes about 2 minutes.</p>
+            <p>A few quick questions so we can personalise every experience. Takes about 3 minutes.</p>
         </div>
 
         <!-- PROGRESS -->
@@ -395,7 +395,7 @@
         <form id="surveyForm" novalidate>
             <!-- STEP 1: Dining Style -->
             <div class="step active" data-step="1">
-                <p class="step-label">Step 1 of 7</p>
+                <p class="step-label">Step 1 of 11</p>
                 <h2>How do you like to dine?</h2>
                 <p class="step-hint">Select all that apply.</p>
                 <div class="chip-grid" data-field="diningStyle" data-multi="true">
@@ -414,7 +414,7 @@
 
             <!-- STEP 2: Dietary -->
             <div class="step" data-step="2">
-                <p class="step-label">Step 2 of 7</p>
+                <p class="step-label">Step 2 of 11</p>
                 <h2>Any dietary requirements?</h2>
                 <p class="step-hint">Select all that apply.</p>
                 <div class="chip-grid" data-field="dietary" data-multi="true">
@@ -437,7 +437,7 @@
 
             <!-- STEP 3: Drinks -->
             <div class="step" data-step="3">
-                <p class="step-label">Step 3 of 7</p>
+                <p class="step-label">Step 3 of 11</p>
                 <h2>What do you like to drink?</h2>
                 <p class="step-hint">Select all that apply.</p>
                 <div class="chip-grid" data-field="drinkPreferences" data-multi="true">
@@ -457,7 +457,7 @@
 
             <!-- STEP 4: Occasions -->
             <div class="step" data-step="4">
-                <p class="step-label">Step 4 of 7</p>
+                <p class="step-label">Step 4 of 11</p>
                 <h2>What brings you out?</h2>
                 <p class="step-hint">Select all that apply.</p>
                 <div class="chip-grid" data-field="occasionTypes" data-multi="true">
@@ -476,7 +476,7 @@
 
             <!-- STEP 5: Atmosphere -->
             <div class="step" data-step="5">
-                <p class="step-label">Step 5 of 7</p>
+                <p class="step-label">Step 5 of 11</p>
                 <h2>What vibe do you prefer?</h2>
                 <p class="step-hint">Select all that apply.</p>
                 <div class="chip-grid" data-field="atmosphere" data-multi="true">
@@ -494,7 +494,7 @@
 
             <!-- STEP 6: Budget -->
             <div class="step" data-step="6">
-                <p class="step-label">Step 6 of 7</p>
+                <p class="step-label">Step 6 of 11</p>
                 <h2>Typical spend per person?</h2>
                 <p class="step-hint">Select one.</p>
                 <div class="option-list" data-field="budgetComfort" data-multi="false">
@@ -510,9 +510,109 @@
                 </div>
             </div>
 
-            <!-- STEP 7: How found + anything else -->
+            <!-- STEP 7: Hobbies -->
             <div class="step" data-step="7">
-                <p class="step-label">Step 7 of 7</p>
+                <p class="step-label">Step 7 of 11</p>
+                <h2>What are your hobbies?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="hobbies" data-multi="true">
+                    <span class="chip" data-value="Travel">Travel</span>
+                    <span class="chip" data-value="Cooking">Cooking</span>
+                    <span class="chip" data-value="Reading">Reading</span>
+                    <span class="chip" data-value="Music">Music</span>
+                    <span class="chip" data-value="Film">Film</span>
+                    <span class="chip" data-value="Gaming">Gaming</span>
+                    <span class="chip" data-value="Gardening">Gardening</span>
+                    <span class="chip" data-value="Photography">Photography</span>
+                    <span class="chip" data-value="Fashion">Fashion</span>
+                    <span class="chip" data-value="Tech">Tech</span>
+                    <span class="chip" data-value="Wellness">Wellness</span>
+                    <span class="chip" data-value="Volunteering">Volunteering</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 8: Art -->
+            <div class="step" data-step="8">
+                <p class="step-label">Step 8 of 11</p>
+                <h2>What art do you enjoy?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="art" data-multi="true">
+                    <span class="chip" data-value="Visual art">Visual art</span>
+                    <span class="chip" data-value="Theatre">Theatre</span>
+                    <span class="chip" data-value="Dance">Dance</span>
+                    <span class="chip" data-value="Live music">Live music</span>
+                    <span class="chip" data-value="Opera">Opera</span>
+                    <span class="chip" data-value="Literature">Literature</span>
+                    <span class="chip" data-value="Film">Film</span>
+                    <span class="chip" data-value="Sculpture">Sculpture</span>
+                    <span class="chip" data-value="Street art">Street art</span>
+                    <span class="chip" data-value="Design">Design</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 9: Sport -->
+            <div class="step" data-step="9">
+                <p class="step-label">Step 9 of 11</p>
+                <h2>Any sports you follow or play?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="sport" data-multi="true">
+                    <span class="chip" data-value="Running">Running</span>
+                    <span class="chip" data-value="Gym">Gym</span>
+                    <span class="chip" data-value="Yoga">Yoga</span>
+                    <span class="chip" data-value="Swimming">Swimming</span>
+                    <span class="chip" data-value="Tennis">Tennis</span>
+                    <span class="chip" data-value="Padel">Padel</span>
+                    <span class="chip" data-value="Football">Football</span>
+                    <span class="chip" data-value="Golf">Golf</span>
+                    <span class="chip" data-value="Cycling">Cycling</span>
+                    <span class="chip" data-value="Boxing">Boxing</span>
+                    <span class="chip" data-value="Skiing">Skiing</span>
+                    <span class="chip" data-value="Surfing">Surfing</span>
+                    <span class="chip" data-value="Climbing">Climbing</span>
+                    <span class="chip" data-value="Motorsport">Motorsport</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 10: What Drives You -->
+            <div class="step" data-step="10">
+                <p class="step-label">Step 10 of 11</p>
+                <h2>What drives you?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="whatDrivesYou" data-multi="true">
+                    <span class="chip" data-value="Community">Community</span>
+                    <span class="chip" data-value="Discovery">Discovery</span>
+                    <span class="chip" data-value="Sustainability">Sustainability</span>
+                    <span class="chip" data-value="Entrepreneurship">Entrepreneurship</span>
+                    <span class="chip" data-value="Creativity">Creativity</span>
+                    <span class="chip" data-value="Adventure">Adventure</span>
+                    <span class="chip" data-value="Family">Family</span>
+                    <span class="chip" data-value="Health">Health</span>
+                    <span class="chip" data-value="Learning">Learning</span>
+                    <span class="chip" data-value="Impact">Impact</span>
+                    <span class="chip" data-value="Freedom">Freedom</span>
+                    <span class="chip" data-value="Excellence">Excellence</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 11: How found + anything else -->
+            <div class="step" data-step="11">
+                <p class="step-label">Step 7 of 11</p>
                 <h2>How did you find IX?</h2>
                 <p class="step-hint">Select one.</p>
                 <div class="option-list" data-field="howFoundIX" data-multi="false">
@@ -552,7 +652,7 @@
 
     <script>
         var currentStep = 1;
-        var totalSteps = 7;
+        var totalSteps = 11;
         var surveyData = {};
 
         // Get member email from URL params (passed from signup confirmation email link)
