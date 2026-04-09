@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IX Concierge</title>
+    <meta name="description" content="Your personal IX concierge. Ask anything about the ecosystem, venues, bookings, and more.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --white: #FFFFFF;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --caramel: #D4A574;
+            --caramel-light: #E0B98A;
+            --cream: #F4F0EB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--light-grey);
+            line-height: 1.7;
+            background: var(--black);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; }
+
+        /* ===== NAV BAR ===== */
+        .nav {
+            padding: 16px 0;
+            background: rgba(10, 10, 10, 0.95);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            flex-shrink: 0;
+        }
+        .nav-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+        .nav-mark { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .nav-ix { width: 36px; height: 36px; border: 1.5px solid var(--bronze); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--white); letter-spacing: 0.08em; }
+        .nav-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--white); letter-spacing: 0.04em; }
+        .nav-badge { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); background: rgba(212, 165, 116, 0.10); padding: 4px 10px; border-radius: 100px; border: 1px solid rgba(212, 165, 116, 0.2); }
+
+        /* ===== IDENTIFY GATE ===== */
+        .identify-gate {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .identify-card {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .identify-card h2 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .identify-card p {
+            font-size: 0.9rem;
+            color: var(--mid-grey);
+            margin-bottom: 32px;
+        }
+
+        .identify-input {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 4px;
+            background: var(--charcoal);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            transition: border-color 0.2s ease;
+        }
+
+        .identify-input:focus {
+            outline: none;
+            border-color: var(--caramel);
+        }
+
+        .identify-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            background: var(--teal);
+            color: var(--white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .identify-btn:hover { background: var(--teal-light); }
+
+        .identify-error {
+            font-size: 0.8rem;
+            color: #E57373;
+            margin-top: 12px;
+            display: none;
+        }
+
+        /* ===== CHAT CONTAINER ===== */
+        .chat-container {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        /* ===== MESSAGES ===== */
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .messages::-webkit-scrollbar { width: 4px; }
+        .messages::-webkit-scrollbar-track { background: transparent; }
+        .messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.assistant { align-self: flex-start; }
+        .message.user { align-self: flex-end; flex-direction: row-reverse; }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .message.assistant .message-avatar {
+            border: 1.5px solid var(--bronze);
+            color: var(--white);
+        }
+
+        .message.user .message-avatar {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .message-content {
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .message.assistant .message-content {
+            background: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: var(--pale-grey);
+            border-top-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: var(--teal);
+            color: var(--white);
+            border-top-right-radius: 4px;
+        }
+
+        .message-content p { margin-bottom: 8px; }
+        .message-content p:last-child { margin-bottom: 0; }
+        .message-content strong { color: var(--white); }
+        .message-content em { font-family: 'Crimson Pro', serif; }
+
+        /* ===== TYPING INDICATOR ===== */
+        .typing {
+            display: none;
+            align-self: flex-start;
+            gap: 12px;
+            padding: 0 24px;
+        }
+
+        .typing.visible { display: flex; }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+            padding: 14px 18px;
+            background: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            border-top-left-radius: 4px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--mid-grey);
+            animation: typingBounce 1.2s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* ===== INPUT BAR ===== */
+        .input-bar {
+            padding: 16px 24px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            flex-shrink: 0;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            background: var(--charcoal);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            resize: none;
+            min-height: 48px;
+            max-height: 120px;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--caramel);
+        }
+
+        .input-field::placeholder { color: var(--mid-grey); }
+
+        .send-btn {
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 12px;
+            background: var(--caramel);
+            color: var(--black);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover { background: var(--caramel-light); }
+        .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .send-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .input-hint {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--mid-grey);
+            text-align: center;
+            margin-top: 8px;
+            letter-spacing: 0.06em;
+        }
+
+        /* ===== WELCOME MESSAGE ===== */
+        .welcome-msg {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .welcome-msg h3 {
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .welcome-msg p {
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+            max-width: 400px;
+            margin: 0 auto 24px;
+        }
+
+        .suggestion-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .suggestion-chip {
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 100px;
+            background: transparent;
+            color: var(--light-grey);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .suggestion-chip:hover {
+            border-color: var(--caramel);
+            color: var(--caramel);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .nav-badge { display: none; }
+            .message { max-width: 92%; }
+            .input-bar { padding: 12px 16px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a href="index.html" class="nav-mark">
+                    <div class="nav-ix">IX</div>
+                </a>
+                <span class="nav-title">Concierge</span>
+            </div>
+            <span class="nav-badge" id="memberBadge" style="display: none;">Explorer</span>
+        </div>
+    </nav>
+
+    <!-- IDENTIFY GATE -->
+    <div class="identify-gate" id="identifyGate">
+        <div class="identify-card">
+            <h2>Welcome back</h2>
+            <p>Enter your email to start a conversation with your IX concierge.</p>
+            <input type="email" class="identify-input" id="emailInput" placeholder="your@email.com" autocomplete="email">
+            <button class="identify-btn" id="identifyBtn" onclick="identifyMember()">Continue</button>
+            <p class="identify-error" id="identifyError">We couldn't find that email. Are you an IX member?</p>
+        </div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="chat-container" id="chatContainer">
+        <div class="messages" id="messages">
+            <div class="welcome-msg" id="welcomeMsg">
+                <h3 id="welcomeGreeting">Good evening</h3>
+                <p>I'm your IX concierge. I know your preferences and I'm here to help with anything — recommendations, bookings, or questions about the ecosystem.</p>
+                <div class="suggestion-chips">
+                    <button class="suggestion-chip" onclick="sendSuggestion('What can you recommend at UKIYO tonight?')">UKIYO tonight</button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('What is my current IXT balance?')">My IXT balance</button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('Tell me about upcoming IX events')">IX events</button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('I want to update my preferences')">Update preferences</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TYPING INDICATOR -->
+        <div class="typing" id="typingIndicator">
+            <div class="message-avatar" style="border: 1.5px solid var(--bronze); color: var(--white);">IX</div>
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="input-bar">
+            <div class="input-wrapper">
+                <textarea class="input-field" id="inputField" placeholder="Ask me anything..." rows="1" onkeydown="handleKeydown(event)"></textarea>
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+            <p class="input-hint">Your preferences shape every response</p>
+        </div>
+    </div>
+
+    <script>
+        var memberData = null;
+        var profileData = null;
+        var sessionId = null;
+        var conversationHistory = [];
+
+        // Webhook URLs
+        var CONCIERGE_WEBHOOK = 'https://initiativex.app.n8n.cloud/webhook/ix-concierge';
+        var MEMBER_LOOKUP_WEBHOOK = 'https://initiativex.app.n8n.cloud/webhook/ix-member-lookup';
+
+        // Set greeting based on time of day
+        (function() {
+            var hour = new Date().getHours();
+            var greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+            document.getElementById('welcomeGreeting').textContent = greeting;
+        })();
+
+        // Auto-identify from URL params
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var email = params.get('email');
+            if (email) {
+                document.getElementById('emailInput').value = email;
+                identifyMember();
+            }
+        })();
+
+        // Auto-resize textarea
+        document.getElementById('inputField').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // ===== MEMBER IDENTIFICATION =====
+        function identifyMember() {
+            var email = document.getElementById('emailInput').value.trim();
+            if (!email) return;
+
+            var btn = document.getElementById('identifyBtn');
+            btn.textContent = 'Looking you up...';
+            btn.disabled = true;
+
+            fetch(MEMBER_LOOKUP_WEBHOOK, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.found) {
+                    memberData = data.member;
+                    profileData = data.profile;
+                    sessionId = 'session_' + Date.now();
+
+                    // Show tier badge
+                    var badge = document.getElementById('memberBadge');
+                    badge.textContent = memberData.tier || 'Explorer';
+                    badge.style.display = 'inline-block';
+
+                    // Personalise greeting
+                    var firstName = (memberData.name || '').split(' ')[0];
+                    if (firstName) {
+                        var hour = new Date().getHours();
+                        var greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+                        document.getElementById('welcomeGreeting').textContent = greeting + ', ' + firstName;
+                    }
+
+                    // Switch to chat
+                    document.getElementById('identifyGate').style.display = 'none';
+                    document.getElementById('chatContainer').classList.add('active');
+                    document.getElementById('inputField').focus();
+                } else {
+                    document.getElementById('identifyError').style.display = 'block';
+                    btn.textContent = 'Continue';
+                    btn.disabled = false;
+                }
+            })
+            .catch(function() {
+                document.getElementById('identifyError').style.display = 'block';
+                document.getElementById('identifyError').textContent = 'Connection error. Please try again.';
+                btn.textContent = 'Continue';
+                btn.disabled = false;
+            });
+        }
+
+        // ===== SEND MESSAGE =====
+        function sendMessage() {
+            var input = document.getElementById('inputField');
+            var text = input.value.trim();
+            if (!text) return;
+
+            // Clear welcome message on first send
+            var welcome = document.getElementById('welcomeMsg');
+            if (welcome) welcome.remove();
+
+            // Add user message to UI
+            appendMessage('user', text);
+            input.value = '';
+            input.style.height = 'auto';
+
+            // Show typing
+            document.getElementById('typingIndicator').classList.add('visible');
+            scrollToBottom();
+
+            // Build context payload
+            var payload = {
+                message: text,
+                sessionId: sessionId,
+                email: memberData ? memberData.email : '',
+                memberId: memberData ? memberData.id : '',
+                memberName: memberData ? memberData.name : '',
+                tier: memberData ? memberData.tier : 'Explorer',
+                profile: profileData || {},
+                history: conversationHistory.slice(-10)
+            };
+
+            // Send to concierge webhook
+            fetch(CONCIERGE_WEBHOOK, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                document.getElementById('typingIndicator').classList.remove('visible');
+                var reply = data.reply || data.output || data.response || 'I apologise, I could not process that request.';
+                appendMessage('assistant', reply);
+
+                // Track conversation
+                conversationHistory.push({ role: 'user', content: text });
+                conversationHistory.push({ role: 'assistant', content: reply });
+
+                // Update profile if returned
+                if (data.profileUpdated) {
+                    profileData = data.profile || profileData;
+                }
+            })
+            .catch(function() {
+                document.getElementById('typingIndicator').classList.remove('visible');
+                appendMessage('assistant', 'I apologise, there was a connection issue. Please try again.');
+            });
+        }
+
+        function sendSuggestion(text) {
+            document.getElementById('inputField').value = text;
+            sendMessage();
+        }
+
+        // ===== UI HELPERS =====
+        function appendMessage(role, text) {
+            var container = document.getElementById('messages');
+            var div = document.createElement('div');
+            div.className = 'message ' + role;
+
+            var avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = role === 'assistant' ? 'IX' : (memberData ? (memberData.name || 'Y')[0].toUpperCase() : 'Y');
+
+            var content = document.createElement('div');
+            content.className = 'message-content';
+            // Simple markdown-like formatting
+            var html = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+            content.innerHTML = '<p>' + html + '</p>';
+
+            div.appendChild(avatar);
+            div.appendChild(content);
+            container.appendChild(div);
+            scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            var container = document.getElementById('messages');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function handleKeydown(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
