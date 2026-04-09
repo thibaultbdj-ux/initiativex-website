@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Preferences — IX</title>
+    <meta name="description" content="Help us personalise your IX experience. Tell us what you love.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --white: #FFFFFF;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --warm-bg: #F8F6F3;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --cream: #F4F0EB;
+            --caramel: #D4A574;
+            --caramel-light: #E0B98A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            background: var(--black);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 24px;
+        }
+
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; line-height: 1.15; }
+        .label { font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bronze); }
+        .editorial { font-family: 'Crimson Pro', serif; font-style: italic; }
+
+        /* ===== NAV BAR ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 14px; }
+        .nav-mark { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .nav-ix { width: 36px; height: 36px; border: 1.5px solid var(--bronze); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--white); letter-spacing: 0.08em; }
+        .nav-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+        /* ===== SURVEY WRAPPER ===== */
+        .survey-wrapper {
+            width: 100%;
+            max-width: 640px;
+            margin-top: 100px;
+        }
+
+        .survey-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .survey-header .label { margin-bottom: 16px; display: block; }
+
+        .survey-header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .survey-header p {
+            color: var(--light-grey);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 1px;
+            margin-bottom: 48px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--caramel);
+            border-radius: 1px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        /* ===== STEPS ===== */
+        .step {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .step.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--light-grey);
+            margin-bottom: 12px;
+        }
+
+        .step h2 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .step-hint {
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+            margin-bottom: 28px;
+        }
+
+        /* ===== CHIP SELECTOR ===== */
+        .chip-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 100px;
+            background: var(--charcoal);
+            color: var(--light-grey);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .chip:hover {
+            border-color: rgba(255,255,255,0.25);
+            color: var(--white);
+        }
+
+        .chip.selected {
+            border-color: var(--caramel);
+            background: rgba(212, 165, 116, 0.10);
+            color: var(--caramel);
+        }
+
+        /* ===== SINGLE SELECT ===== */
+        .option-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .option-item {
+            padding: 16px 20px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 4px;
+            background: var(--charcoal);
+            color: var(--light-grey);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-item:hover {
+            border-color: rgba(255,255,255,0.25);
+            color: var(--white);
+        }
+
+        .option-item.selected {
+            border-color: var(--caramel);
+            background: rgba(212, 165, 116, 0.06);
+            color: var(--caramel);
+        }
+
+        /* ===== TEXT INPUT ===== */
+        .text-field {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 4px;
+            background: var(--charcoal);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 40px;
+            transition: border-color 0.2s ease;
+        }
+
+        .text-field:focus {
+            outline: none;
+            border-color: var(--caramel);
+        }
+
+        .text-field::placeholder {
+            color: var(--mid-grey);
+        }
+
+        /* ===== BUTTONS ===== */
+        .step-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            color: var(--light-grey);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            padding: 12px 0;
+            transition: color 0.2s ease;
+        }
+
+        .btn-back:hover { color: var(--white); }
+
+        .btn-next, .btn-submit {
+            padding: 14px 36px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .btn-next {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .btn-next:hover { background: var(--teal-light); }
+
+        .btn-submit {
+            background: var(--caramel);
+            color: var(--black);
+        }
+
+        .btn-submit:hover { background: var(--caramel-light); }
+
+        .btn-next:disabled, .btn-submit:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ===== SUCCESS STATE ===== */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .success-state.visible { display: block; }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--caramel);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+        }
+
+        .success-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--caramel);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .success-state h2 {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .success-state p {
+            color: var(--light-grey);
+            font-size: 0.95rem;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== LOADING ===== */
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(10,10,10,0.2);
+            border-top-color: var(--black);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            width: 100%;
+            max-width: 640px;
+        }
+
+        .footer p {
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            body { padding: 24px 16px; }
+            .survey-wrapper { margin-top: 80px; }
+            .chip { padding: 8px 16px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-mark">
+                <div class="nav-ix">IX</div>
+                <span class="nav-name">InitiativeX</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="survey-wrapper">
+        <!-- HEADER -->
+        <div class="survey-header">
+            <span class="label">Your Preferences</span>
+            <h1>Help us know you better</h1>
+            <p>A few quick questions so we can personalise every experience. Takes about 2 minutes.</p>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- SURVEY FORM -->
+        <form id="surveyForm" novalidate>
+            <!-- STEP 1: Dining Style -->
+            <div class="step active" data-step="1">
+                <p class="step-label">Step 1 of 7</p>
+                <h2>How do you like to dine?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="diningStyle" data-multi="true">
+                    <span class="chip" data-value="Casual">Casual</span>
+                    <span class="chip" data-value="Fine">Fine dining</span>
+                    <span class="chip" data-value="Quick bites">Quick bites</span>
+                    <span class="chip" data-value="Bar">Bar</span>
+                    <span class="chip" data-value="Private">Private dining</span>
+                    <span class="chip" data-value="Group">Group</span>
+                </div>
+                <div class="step-nav">
+                    <span></span>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Dietary -->
+            <div class="step" data-step="2">
+                <p class="step-label">Step 2 of 7</p>
+                <h2>Any dietary requirements?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="dietary" data-multi="true">
+                    <span class="chip" data-value="No restrictions">No restrictions</span>
+                    <span class="chip" data-value="Vegetarian">Vegetarian</span>
+                    <span class="chip" data-value="Vegan">Vegan</span>
+                    <span class="chip" data-value="Pescatarian">Pescatarian</span>
+                    <span class="chip" data-value="Gluten-free">Gluten-free</span>
+                    <span class="chip" data-value="Dairy-free">Dairy-free</span>
+                    <span class="chip" data-value="Halal">Halal</span>
+                    <span class="chip" data-value="Kosher">Kosher</span>
+                    <span class="chip" data-value="Nut allergy">Nut allergy</span>
+                    <span class="chip" data-value="Shellfish allergy">Shellfish allergy</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Drinks -->
+            <div class="step" data-step="3">
+                <p class="step-label">Step 3 of 7</p>
+                <h2>What do you like to drink?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="drinkPreferences" data-multi="true">
+                    <span class="chip" data-value="Wine">Wine</span>
+                    <span class="chip" data-value="Cocktails">Cocktails</span>
+                    <span class="chip" data-value="Beer">Beer</span>
+                    <span class="chip" data-value="Sake">Sake</span>
+                    <span class="chip" data-value="Spirits">Spirits</span>
+                    <span class="chip" data-value="Non-alcoholic">Non-alcoholic</span>
+                    <span class="chip" data-value="Coffee">Coffee</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 4: Occasions -->
+            <div class="step" data-step="4">
+                <p class="step-label">Step 4 of 7</p>
+                <h2>What brings you out?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="occasionTypes" data-multi="true">
+                    <span class="chip" data-value="Date night">Date night</span>
+                    <span class="chip" data-value="Business">Business</span>
+                    <span class="chip" data-value="Friends">Friends</span>
+                    <span class="chip" data-value="Family">Family</span>
+                    <span class="chip" data-value="Solo">Solo</span>
+                    <span class="chip" data-value="Celebration">Celebration</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 5: Atmosphere -->
+            <div class="step" data-step="5">
+                <p class="step-label">Step 5 of 7</p>
+                <h2>What vibe do you prefer?</h2>
+                <p class="step-hint">Select all that apply.</p>
+                <div class="chip-grid" data-field="atmosphere" data-multi="true">
+                    <span class="chip" data-value="Lively">Lively</span>
+                    <span class="chip" data-value="Quiet">Quiet</span>
+                    <span class="chip" data-value="Counter">Counter seating</span>
+                    <span class="chip" data-value="Outdoor">Outdoor</span>
+                    <span class="chip" data-value="Late night">Late night</span>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 6: Budget -->
+            <div class="step" data-step="6">
+                <p class="step-label">Step 6 of 7</p>
+                <h2>Typical spend per person?</h2>
+                <p class="step-hint">Select one.</p>
+                <div class="option-list" data-field="budgetComfort" data-multi="false">
+                    <div class="option-item" data-value="Under 30pp">Under GBP 30pp</div>
+                    <div class="option-item" data-value="30-60pp">GBP 30 - 60pp</div>
+                    <div class="option-item" data-value="60-100pp">GBP 60 - 100pp</div>
+                    <div class="option-item" data-value="100+pp">GBP 100+pp</div>
+                    <div class="option-item" data-value="No limit">No limit</div>
+                </div>
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 7: How found + anything else -->
+            <div class="step" data-step="7">
+                <p class="step-label">Step 7 of 7</p>
+                <h2>How did you find IX?</h2>
+                <p class="step-hint">Select one.</p>
+                <div class="option-list" data-field="howFoundIX" data-multi="false">
+                    <div class="option-item" data-value="Friend">A friend</div>
+                    <div class="option-item" data-value="Social">Social media</div>
+                    <div class="option-item" data-value="Venue">At a venue</div>
+                    <div class="option-item" data-value="Event">An event</div>
+                    <div class="option-item" data-value="Press">Press or blog</div>
+                    <div class="option-item" data-value="Other">Other</div>
+                </div>
+
+                <h2 style="margin-top: 32px;">Anything else we should know?</h2>
+                <p class="step-hint">Favourites, dislikes, special occasions coming up — anything helps.</p>
+                <textarea class="text-field" id="notesField" placeholder="e.g. Love omakase, allergic to truffle, birthday coming up in June..."></textarea>
+
+                <div class="step-nav">
+                    <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn-submit" id="submitBtn" onclick="submitSurvey()">Complete</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2>You're all set</h2>
+            <p>We'll use your preferences to make every visit better. Welcome to the ecosystem.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>InitiativeX Ltd &middot; initiativex.co.uk</p>
+        </div>
+    </div>
+
+    <script>
+        var currentStep = 1;
+        var totalSteps = 7;
+        var surveyData = {};
+
+        // Get member email from URL params (passed from signup confirmation email link)
+        var params = new URLSearchParams(window.location.search);
+        var memberEmail = params.get('email') || '';
+        var memberId = params.get('id') || '';
+
+        // Initialise progress
+        updateProgress();
+
+        // ===== CHIP SELECTION =====
+        document.querySelectorAll('.chip').forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                var grid = this.closest('.chip-grid');
+                var isMulti = grid.getAttribute('data-multi') === 'true';
+
+                if (isMulti) {
+                    this.classList.toggle('selected');
+                } else {
+                    grid.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('selected'); });
+                    this.classList.add('selected');
+                }
+            });
+        });
+
+        // ===== OPTION LIST SELECTION =====
+        document.querySelectorAll('.option-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var list = this.closest('.option-list');
+                var isMulti = list.getAttribute('data-multi') === 'true';
+
+                if (isMulti) {
+                    this.classList.toggle('selected');
+                } else {
+                    list.querySelectorAll('.option-item').forEach(function(i) { i.classList.remove('selected'); });
+                    this.classList.add('selected');
+                }
+            });
+        });
+
+        // ===== NAVIGATION =====
+        function collectStepData() {
+            var stepEl = document.querySelector('.step[data-step="' + currentStep + '"]');
+            var grid = stepEl.querySelector('.chip-grid, .option-list');
+
+            if (grid) {
+                var field = grid.getAttribute('data-field');
+                var selected = grid.querySelectorAll('.selected');
+                var values = [];
+                selected.forEach(function(s) { values.push(s.getAttribute('data-value')); });
+
+                if (grid.getAttribute('data-multi') === 'true') {
+                    surveyData[field] = values;
+                } else {
+                    surveyData[field] = values.length > 0 ? values[0] : '';
+                }
+            }
+        }
+
+        function nextStep() {
+            collectStepData();
+            if (currentStep < totalSteps) {
+                document.querySelector('.step[data-step="' + currentStep + '"]').classList.remove('active');
+                currentStep++;
+                document.querySelector('.step[data-step="' + currentStep + '"]').classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.querySelector('.step[data-step="' + currentStep + '"]').classList.remove('active');
+                currentStep--;
+                document.querySelector('.step[data-step="' + currentStep + '"]').classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            var pct = ((currentStep - 1) / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = pct + '%';
+        }
+
+        // ===== SUBMIT =====
+        function submitSurvey() {
+            collectStepData();
+
+            // Grab notes field
+            var notes = document.getElementById('notesField').value.trim();
+            if (notes) {
+                surveyData.notes = notes;
+            }
+
+            // Add member reference
+            surveyData.email = memberEmail;
+            surveyData.memberId = memberId;
+
+            var btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Saving...';
+
+            fetch('https://initiativex.app.n8n.cloud/webhook/ix-survey', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(surveyData)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                // Show success
+                document.getElementById('surveyForm').style.display = 'none';
+                document.querySelector('.progress-bar').style.display = 'none';
+                var success = document.getElementById('successState');
+                success.classList.add('visible');
+                updateProgress();
+                document.getElementById('progressFill').style.width = '100%';
+            })
+            .catch(function(err) {
+                btn.disabled = false;
+                btn.textContent = 'Complete';
+                alert('Something went wrong. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
