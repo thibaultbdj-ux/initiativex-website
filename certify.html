@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification Application - IX</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--black:#0A0A0A;--charcoal:#1A1A1A;--dark-grey:#333;--mid-grey:#666;--light-grey:#999;--white:#FFF;--bronze:#9B8B6E;--teal:#3F5A5A}
+        body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 24px}
+        .page-header{text-align:center;margin-bottom:40px;max-width:520px}
+        .page-header h1{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px}
+        .page-header p{color:var(--light-grey);font-size:0.9rem;line-height:1.6}
+        .card{background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:40px 36px;max-width:520px;width:100%}
+        .section-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:500;color:var(--bronze);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
+        .form-group{margin-bottom:20px}
+        label{display:block;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--light-grey);margin-bottom:6px}
+        input,select,textarea{width:100%;padding:11px 14px;background:var(--black);border:1px solid var(--dark-grey);border-radius:4px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s}
+        input:focus,select:focus,textarea:focus{border-color:var(--bronze)}
+        input::placeholder,textarea::placeholder{color:#555}
+        select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+        select option{background:var(--charcoal);color:var(--white)}
+        textarea{resize:vertical;min-height:80px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .tier-select{display:flex;gap:12px;margin-bottom:24px}
+        .tier-option{flex:1;padding:14px;background:var(--black);border:1px solid var(--dark-grey);border-radius:4px;text-align:center;cursor:pointer;transition:all 0.2s}
+        .tier-option:hover{border-color:var(--mid-grey)}
+        .tier-option.selected{border-color:var(--bronze);background:rgba(155,139,110,0.08)}
+        .tier-option input{display:none}
+        .tier-option .tier-name{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:500;margin-bottom:4px}
+        .tier-option .tier-desc{font-size:0.75rem;color:var(--light-grey)}
+        .upload-area{border:1px dashed var(--dark-grey);border-radius:4px;padding:20px;text-align:center;cursor:pointer;transition:border-color 0.2s}
+        .upload-area:hover{border-color:var(--bronze)}
+        .upload-area p{color:var(--light-grey);font-size:0.85rem}
+        .upload-area input{display:none}
+        .file-list{margin-top:8px;font-size:0.8rem;color:var(--bronze)}
+        .checkbox-group{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px}
+        .checkbox-group input[type="checkbox"]{margin-top:3px;accent-color:var(--bronze)}
+        .checkbox-group label{font-size:0.85rem;text-transform:none;letter-spacing:0;color:#CCC;cursor:pointer}
+        .checkbox-group a{color:var(--bronze)}
+        .btn{width:100%;padding:14px;background:var(--teal);color:var(--white);border:none;border-radius:4px;font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;letter-spacing:0.04em;transition:opacity 0.2s;margin-top:8px}
+        .btn:hover{opacity:0.9}
+        .btn:disabled{opacity:0.5;cursor:not-allowed}
+        .result{display:none;text-align:center;padding:40px 0}
+        .result.visible{display:block}
+        .result h2{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;margin-bottom:12px}
+        .result p{color:var(--light-grey);font-size:0.9rem;line-height:1.6}
+        .error{color:#e74c3c;font-size:0.85rem;margin-top:12px;display:none}
+        .badge{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--bronze);border:1px solid var(--bronze);padding:3px 8px;border-radius:2px;display:inline-block;margin-bottom:16px}
+        @media(max-width:520px){.form-row{grid-template-columns:1fr}.card{padding:32px 24px}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <span class="badge">Patrons Only</span>
+        <h1>IX Certification Application</h1>
+        <p>Apply for Service Provider or B2B certification to unlock business-grade access to the IX network.</p>
+    </div>
+
+    <div class="card" id="formCard">
+        <form id="certForm">
+            <div class="section-title">Certification Type</div>
+            <div class="tier-select">
+                <label class="tier-option selected" id="opt-sp">
+                    <input type="radio" name="cert_type" value="service_provider" checked>
+                    <div class="tier-name">Service Provider</div>
+                    <div class="tier-desc">Supply goods or services to IX venues</div>
+                </label>
+                <label class="tier-option" id="opt-b2b">
+                    <input type="radio" name="cert_type" value="b2b">
+                    <div class="tier-name">B2B / Z Partner</div>
+                    <div class="tier-desc">Venue or business joining the IX network</div>
+                </label>
+            </div>
+
+            <div class="section-title">Your Details</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" required placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" required placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (must match your Patron account)</label>
+                <input type="email" id="email" required placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required placeholder="+44 7000 000 000">
+            </div>
+
+            <div class="section-title">Company Details</div>
+            <div class="form-group">
+                <label for="company_name">Company Name</label>
+                <input type="text" id="company_name" required placeholder="Company Ltd">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company_number">Registration Number</label>
+                    <input type="text" id="company_number" placeholder="Optional">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select</option>
+                        <option value="food_beverage">Food &amp; Beverage</option>
+                        <option value="wine_spirits">Wine &amp; Spirits</option>
+                        <option value="equipment">Equipment &amp; Supplies</option>
+                        <option value="technology">Technology</option>
+                        <option value="design_interiors">Design &amp; Interiors</option>
+                        <option value="marketing">Marketing &amp; PR</option>
+                        <option value="finance">Finance &amp; Legal</option>
+                        <option value="hospitality">Hospitality Venue</option>
+                        <option value="wellness">Wellness &amp; Lifestyle</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Business Address</label>
+                <textarea id="address" required placeholder="Full business address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="website">Website</label>
+                <input type="url" id="website" placeholder="https://yourcompany.com">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/...">
+                </div>
+                <div class="form-group">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" id="instagram" placeholder="@handle">
+                </div>
+            </div>
+
+            <div class="section-title">Verification</div>
+            <div class="form-group">
+                <label>Upload 3 signed agreements (proof of trading history)</label>
+                <div class="upload-area" id="uploadArea">
+                    <p>Click to select files (PDF, JPG, PNG)</p>
+                    <p style="font-size:0.75rem;color:#555;margin-top:4px">Max 3 files, 10MB each</p>
+                    <input type="file" id="agreements" multiple accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="fileList"></div>
+            </div>
+            <div class="form-group">
+                <label for="sponsor">Sponsor / Referrer</label>
+                <input type="text" id="sponsor" required placeholder="Name of existing IX member who can vouch for you">
+            </div>
+            <div class="form-group">
+                <label for="sponsor_email">Sponsor Email</label>
+                <input type="email" id="sponsor_email" required placeholder="sponsor@example.com">
+            </div>
+            <div class="form-group">
+                <label for="description">Tell us about your business</label>
+                <textarea id="description" placeholder="What you supply, who your clients are, why you want to join IX"></textarea>
+            </div>
+
+            <div class="section-title">Terms</div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I confirm the information provided is accurate and I agree to the IX <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and the Service Provider / B2B certification requirements.</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent" required>
+                <label for="consent">I consent to IX contacting my sponsor to verify my application and conducting standard business checks.</label>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">Submit Application</button>
+            <div class="error" id="errorMsg"></div>
+        </form>
+    </div>
+
+    <div class="card result" id="resultCard">
+        <h2>Application Received</h2>
+        <p>We will review your application and contact your sponsor within 5 working days. You will receive an email with the outcome and, if approved, a certification agreement to sign.</p>
+        <p style="margin-top:16px;color:#9B8B6E">Reference: <span id="refId"></span></p>
+    </div>
+
+    <script>
+        // Tier selection
+        document.querySelectorAll('.tier-option').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.tier-option').forEach(function(o) { o.classList.remove('selected'); });
+                opt.classList.add('selected');
+            });
+        });
+
+        // File upload
+        var uploadArea = document.getElementById('uploadArea');
+        var fileInput = document.getElementById('agreements');
+        var fileList = document.getElementById('fileList');
+        uploadArea.addEventListener('click', function() { fileInput.click(); });
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 3) {
+                alert('Maximum 3 files allowed');
+                fileInput.value = '';
+                fileList.textContent = '';
+                return;
+            }
+            var names = [];
+            for (var i = 0; i < fileInput.files.length; i++) {
+                if (fileInput.files[i].size > 10 * 1024 * 1024) {
+                    alert(fileInput.files[i].name + ' exceeds 10MB limit');
+                    fileInput.value = '';
+                    fileList.textContent = '';
+                    return;
+                }
+                names.push(fileInput.files[i].name);
+            }
+            fileList.textContent = names.join(', ');
+        });
+
+        // Form submit
+        document.getElementById('certForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('submitBtn');
+            var errEl = document.getElementById('errorMsg');
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+            errEl.style.display = 'none';
+
+            var data = {
+                cert_type: document.querySelector('input[name="cert_type"]:checked').value,
+                first_name: document.getElementById('first_name').value,
+                last_name: document.getElementById('last_name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company_name: document.getElementById('company_name').value,
+                company_number: document.getElementById('company_number').value,
+                category: document.getElementById('category').value,
+                address: document.getElementById('address').value,
+                website: document.getElementById('website').value,
+                linkedin: document.getElementById('linkedin').value,
+                instagram: document.getElementById('instagram').value,
+                sponsor: document.getElementById('sponsor').value,
+                sponsor_email: document.getElementById('sponsor_email').value,
+                description: document.getElementById('description').value
+            };
+
+            fetch('https://initiativex.app.n8n.cloud/webhook/ix-certify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(result) {
+                if (result.success) {
+                    document.getElementById('formCard').style.display = 'none';
+                    document.getElementById('refId').textContent = result.reference || 'Pending';
+                    document.getElementById('resultCard').classList.add('visible');
+                } else {
+                    errEl.textContent = result.message || 'Error submitting. Please try again.';
+                    errEl.style.display = 'block';
+                }
+                btn.disabled = false;
+                btn.textContent = 'Submit Application';
+            })
+            .catch(function() {
+                errEl.textContent = 'Connection error. Please try again.';
+                errEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Submit Application';
+            });
+        });
+    </script>
+</body>
+</html>
