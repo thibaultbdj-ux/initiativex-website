@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Visit - IX Staff</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--black:#0A0A0A;--charcoal:#1A1A1A;--dark-grey:#333;--light-grey:#999;--white:#FFF;--bronze:#9B8B6E;--teal:#3F5A5A}
+        body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+        .card{background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:48px 40px;max-width:440px;width:100%}
+        h1{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px}
+        .subtitle{color:var(--light-grey);font-size:0.85rem;margin-bottom:32px}
+        .form-group{margin-bottom:24px}
+        label{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--light-grey);margin-bottom:8px}
+        input{width:100%;padding:12px 16px;background:var(--black);border:1px solid var(--dark-grey);border-radius:4px;color:var(--white);font-family:'Inter',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s}
+        input:focus{border-color:var(--bronze)}
+        input::placeholder{color:#555}
+        .btn{width:100%;padding:14px;background:var(--teal);color:var(--white);border:none;border-radius:4px;font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;letter-spacing:0.04em;transition:opacity 0.2s}
+        .btn:hover{opacity:0.9}
+        .btn:disabled{opacity:0.5;cursor:not-allowed}
+        .result{display:none;text-align:center;padding:32px 0}
+        .result.visible{display:block}
+        .result .ixt{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;color:var(--bronze)}
+        .result p{color:var(--light-grey);margin-top:8px;font-size:0.9rem}
+        .again{margin-top:24px;padding:10px 24px;background:transparent;border:1px solid var(--dark-grey);border-radius:4px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.85rem;cursor:pointer}
+        .error{color:#e74c3c;font-size:0.85rem;margin-top:12px;display:none}
+        .badge{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--bronze);border:1px solid var(--bronze);padding:4px 10px;border-radius:2px;display:inline-block;margin-bottom:16px}
+    </style>
+</head>
+<body>
+    <div class="card" id="formCard">
+        <span class="badge">Staff Only</span>
+        <h1>Log Patron Visit</h1>
+        <p class="subtitle">Record a visit to calculate IXT earnings (1.10% of spend)</p>
+        <form id="visitForm">
+            <div class="form-group">
+                <label for="patron_email">Patron Email</label>
+                <input type="email" id="patron_email" name="patron_email" required placeholder="patron@example.com">
+            </div>
+            <div class="form-group">
+                <label for="spend">Spend Amount (GBP net)</label>
+                <input type="number" id="spend" name="spend" required min="0.01" step="0.01" placeholder="45.00">
+            </div>
+            <div class="form-group">
+                <label for="logged_by">Your Name</label>
+                <input type="text" id="logged_by" name="logged_by" required placeholder="Staff name">
+            </div>
+            <button type="submit" class="btn" id="submitBtn">Log Visit</button>
+            <div class="error" id="errorMsg"></div>
+        </form>
+    </div>
+    <div class="card result" id="resultCard">
+        <p>Visit logged</p>
+        <div class="ixt" id="ixtAmount"></div>
+        <p>IXT earned by this Patron</p>
+        <button class="again" onclick="resetForm()">Log Another</button>
+    </div>
+    <script>
+        document.getElementById('visitForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('submitBtn');
+            var errEl = document.getElementById('errorMsg');
+            btn.disabled = true;
+            btn.textContent = 'Logging...';
+            errEl.style.display = 'none';
+            fetch('https://initiativex.app.n8n.cloud/webhook/ix-log-visit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    patron_email: document.getElementById('patron_email').value,
+                    spend: parseFloat(document.getElementById('spend').value),
+                    logged_by: document.getElementById('logged_by').value
+                })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(result) {
+                if (result.success) {
+                    document.getElementById('formCard').style.display = 'none';
+                    document.getElementById('ixtAmount').textContent = result.ixt_earned + ' IXT';
+                    document.getElementById('resultCard').classList.add('visible');
+                } else {
+                    errEl.textContent = 'Patron not found. Check the email address.';
+                    errEl.style.display = 'block';
+                }
+                btn.disabled = false;
+                btn.textContent = 'Log Visit';
+            })
+            .catch(function() {
+                errEl.textContent = 'Connection error. Try again.';
+                errEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Log Visit';
+            });
+        });
+        function resetForm() {
+            document.getElementById('formCard').style.display = 'block';
+            document.getElementById('resultCard').classList.remove('visible');
+            document.getElementById('patron_email').value = '';
+            document.getElementById('spend').value = '';
+        }
+    </script>
+</body>
+</html>
