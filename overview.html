@@ -302,6 +302,105 @@
         .dot.live { background: var(--sage); }
         .dot.pending { background: var(--caramel); }
 
+        /* Build status tracks */
+        .tracks { margin-top: 20px; }
+
+        .track {
+            display: grid;
+            grid-template-columns: 180px 1fr 56px;
+            gap: 14px;
+            align-items: center;
+            padding: 14px 0 6px;
+        }
+
+        .track-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--black);
+        }
+
+        .track-bar {
+            height: 6px;
+            background: var(--pale-grey);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .track-fill {
+            height: 100%;
+            background: var(--bronze);
+            border-radius: 3px;
+        }
+
+        .track-fill.hi { background: var(--teal); }
+        .track-fill.mid { background: var(--bronze); }
+        .track-fill.lo { background: var(--caramel); }
+
+        .track-pct {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--black);
+            text-align: right;
+        }
+
+        .track-desc {
+            grid-column: 1 / 4;
+            font-size: 0.82rem;
+            color: var(--mid-grey);
+            line-height: 1.55;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--pale-grey);
+            margin-top: 2px;
+        }
+
+        .track:last-of-type .track-desc { border-bottom: none; }
+
+        .doc-count {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+            padding: 14px 18px;
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid var(--pale-grey);
+        }
+
+        .doc-count .label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--bronze);
+        }
+
+        .doc-count .val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .track {
+                grid-template-columns: 1fr 48px;
+                gap: 8px;
+            }
+            .track-label {
+                grid-column: 1 / 3;
+                padding-bottom: 4px;
+            }
+            .track-bar { grid-column: 1 / 2; }
+            .track-pct { grid-column: 2 / 3; }
+            .track-desc { grid-column: 1 / 3; }
+        }
+
         .reg {
             background: #fff;
             border: 1px solid var(--pale-grey);
@@ -532,7 +631,60 @@
     <span class="attr">Solstice: solstice.finance &middot; USX &middot; YieldVault</span>
 </div>
 
-<h2><span class="num">09</span>Where we are</h2>
+<h2><span class="num">09</span>Where the build is</h2>
+<p>Honest read of the five workstreams, grounded in what actually exists in the directory.</p>
+
+<div class="tracks">
+
+    <div class="track">
+        <div class="track-label">Technology</div>
+        <div class="track-bar"><div class="track-fill hi" style="width: 65%;"></div></div>
+        <div class="track-pct">65%</div>
+        <div class="track-desc">Public site live (11 pages), AI Concierge in production, Apple Wallet pass signed, 10+ n8n workflows running, Airtable integrations active. <em>Pending: Google Wallet, member app, CRM.</em></div>
+    </div>
+
+    <div class="track">
+        <div class="track-label">Financial Structure</div>
+        <div class="track-bar"><div class="track-fill hi" style="width: 70%;"></div></div>
+        <div class="track-pct">70%</div>
+        <div class="track-desc">Financial Model v2.0 and 5-year projection built. Business NFT valuation methodology v1.0 with a worked UKIYO example. Shadow Ledger v2.0, management fee tiers, and carry waterfall all defined. <em>Pending: fund manager appointed, vehicles operational, first AUM.</em></div>
+    </div>
+
+    <div class="track">
+        <div class="track-label">Operating Structure</div>
+        <div class="track-bar"><div class="track-fill mid" style="width: 60%;"></div></div>
+        <div class="track-pct">60%</div>
+        <div class="track-desc">10-pillar certification engine documented and applied (first valuation: UKIYO). 16 operations docs, H&amp;S master, Venue Playbook v2.0. UKIYO is live as the operating proof-point. <em>Pending: SP Network activation, Playbook v2.1, cert tool as software (currently document-driven).</em></div>
+    </div>
+
+    <div class="track">
+        <div class="track-label">Legal &amp; Regulatory</div>
+        <div class="track-bar"><div class="track-fill lo" style="width: 40%;"></div></div>
+        <div class="track-pct">40%</div>
+        <div class="track-desc">38 legal docs drafted: FCA opinion instruction letter, Regulatory Compliance Framework v2.0, Privacy, T&amp;Cs, Patron Agreement, Vinicon partner agreement, certification label terms. <em>Pending: FCA opinion returned, InitiativeX Ltd incorporated, fund manager AR/outsourcing agreement, executed investor agreements.</em></div>
+    </div>
+
+    <div class="track">
+        <div class="track-label">Outreach &amp; Network</div>
+        <div class="track-bar"><div class="track-fill lo" style="width: 35%;"></div></div>
+        <div class="track-pct">35%</div>
+        <div class="track-desc">Vinicon signed as Founding Partner, UKIYO live as first certified venue, website live, Founding 100 framework defined. <em>Pending: ~23K-contact pool consolidation, outreach cadence, remaining 99 Founding members.</em></div>
+    </div>
+
+</div>
+
+<div class="doc-count">
+    <div>
+        <div class="label">Structured documents in the IX directory</div>
+        <div class="val">123 across 6 workstreams</div>
+    </div>
+    <div>
+        <div class="label">Files including supporting material</div>
+        <div class="val">~1,450</div>
+    </div>
+</div>
+
+<h2><span class="num">10</span>Where we are</h2>
 <div class="status">
     <div class="status-card">
         <div class="label">Phase</div>
@@ -566,7 +718,7 @@
     </div>
 </div>
 
-<h2><span class="num">10</span>If something catches your eye</h2>
+<h2><span class="num">11</span>If something catches your eye</h2>
 <p>No ask. Read, ignore, or reply &mdash; whatever&rsquo;s useful. If the structure&rsquo;s interesting, the flaws more so.</p>
 
 <footer>
