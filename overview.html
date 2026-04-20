@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+    </script>
+
+    <title>Initiative X — Structural Overview</title>
+    <meta name="description" content="A short overview of the Initiative X platform — structure, vehicles, status, and where it sits regulatorily.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --warm-bg: #F8F6F3;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --caramel: #D4A574;
+            --cream: #F4F0EB;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            background: var(--warm-bg);
+            padding: 48px 24px 120px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 20px;
+            margin-bottom: 48px;
+        }
+
+        .header-left .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .header-left h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .header-left .doc-type {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+        }
+
+        .header-right {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--mid-grey);
+            text-align: right;
+            letter-spacing: 0.05em;
+        }
+
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .intro {
+            background: #fff;
+            border-left: 3px solid var(--bronze);
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .intro p + p { margin-top: 10px; }
+        .intro em { font-style: italic; color: var(--mid-grey); }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--black);
+            margin: 48px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--pale-grey);
+            letter-spacing: -0.005em;
+        }
+
+        h2 .num {
+            font-family: 'DM Mono', monospace;
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--bronze);
+            margin-right: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+
+        /* Five-layer block */
+        .layers {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin: 20px 0 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.08);
+        }
+
+        .layer {
+            background: var(--charcoal);
+            color: var(--pale-grey);
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-left: 3px solid var(--bronze);
+        }
+
+        .layer.l-member { border-left-color: var(--caramel); }
+        .layer.l-cert { border-left-color: var(--teal); }
+        .layer.l-fund { border-left-color: var(--warm-light); }
+        .layer.l-wl { border-left-color: var(--sage); }
+
+        .layer-title {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .layer-title .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .layer-title .desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+
+        .layer-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--bronze);
+        }
+
+        .layer.l-member .layer-tag { color: var(--caramel); }
+        .layer.l-cert .layer-tag { color: var(--teal-light); }
+        .layer.l-fund .layer-tag { color: var(--warm-light); }
+        .layer.l-wl .layer-tag { color: var(--sage); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            background: var(--off-white);
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+            vertical-align: top;
+            color: var(--dark-grey);
+        }
+
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--mid-grey);
+            margin-top: 8px;
+            font-style: normal;
+            letter-spacing: 0.02em;
+        }
+
+        /* Status block */
+        .status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .status-card {
+            background: #fff;
+            padding: 16px 18px;
+            border-radius: 6px;
+            border: 1px solid var(--pale-grey);
+        }
+
+        .status-card .label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--bronze);
+            margin-bottom: 4px;
+        }
+
+        .status-card .val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--black);
+        }
+
+        .status-card .sub {
+            font-size: 0.78rem;
+            color: var(--mid-grey);
+            margin-top: 4px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--bronze);
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+
+        .dot.live { background: var(--sage); }
+        .dot.pending { background: var(--caramel); }
+
+        .reg {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            border-left: 3px solid var(--caramel);
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin-top: 16px;
+        }
+
+        .reg ul { margin: 8px 0 0 18px; }
+        .reg li { margin-bottom: 6px; font-size: 0.88rem; }
+        .reg li strong { color: var(--black); font-weight: 500; }
+
+        .solstice {
+            background: var(--charcoal);
+            color: var(--pale-grey);
+            padding: 22px 26px;
+            border-radius: 10px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .solstice strong { color: #fff; font-weight: 500; }
+        .solstice .attr {
+            display: block;
+            margin-top: 10px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--warm-light);
+        }
+
+        footer {
+            margin-top: 72px;
+            padding-top: 24px;
+            border-top: 1px solid var(--pale-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer .mark-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1.2px solid var(--light-grey);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--light-grey);
+            letter-spacing: 0.5px;
+        }
+
+        footer .contact {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        footer .contact a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--bronze);
+        }
+
+        footer .contact a:hover { color: var(--bronze); }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            .layer { padding: 16px 18px; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 10px; }
+        }
+
+        @media print {
+            body { background: #fff; padding: 24px; }
+            .layer, .solstice, .status-card, .reg, .intro, table { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X</h1>
+        <div class="doc-type">Structural Overview &middot; Private Share</div>
+    </div>
+    <div class="header-right">
+        <div class="date">April 2026</div>
+        <div>InitiativeX Ltd (UK, in formation)</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="intro">
+    <p>This is a short overview of what I&rsquo;m building. Not a pitch &mdash; a structural snapshot for people whose judgement I trust.</p>
+    <p>It&rsquo;s deliberately light on narrative. The structure is what matters. If something in here looks wrong, unrealistic, or interesting &mdash; tell me.</p>
+    <p><em>&mdash; Thibault</em></p>
+</div>
+
+<h2><span class="num">01</span>What it is</h2>
+<p class="lead">Initiative X is a shared operating system for independent hospitality businesses. Five layers: platform, membership, certification, fund, white-label. Entry is free; layers open as operators and members grow with the network.</p>
+<p>It exists because independent hospitality is structurally fragmented. Every operator rebuilds the same infrastructure from scratch, staff have no ownership stake in the businesses they build, and capital has no standardised way in. IX is one ecosystem that fixes the three at once.</p>
+
+<h2><span class="num">02</span>The five layers</h2>
+<div class="layers">
+    <div class="layer">
+        <div class="layer-title">
+            <div class="name">IX Platform</div>
+            <div class="desc">Governance &middot; partnerships &middot; infrastructure</div>
+        </div>
+        <div class="layer-tag">Operators &middot; Partners</div>
+    </div>
+    <div class="layer l-member">
+        <div class="layer-title">
+            <div class="name">IX Membership</div>
+            <div class="desc">Community &middot; loyalty &middot; app experience</div>
+        </div>
+        <div class="layer-tag">Members &middot; Creators</div>
+    </div>
+    <div class="layer l-cert">
+        <div class="layer-title">
+            <div class="name">IX Certification</div>
+            <div class="desc">10-pillar quality standard &middot; onboarding</div>
+        </div>
+        <div class="layer-tag">Venues &middot; Suppliers</div>
+    </div>
+    <div class="layer l-fund">
+        <div class="layer-title">
+            <div class="name">IX Fund</div>
+            <div class="desc">Investment platform &mdash; pending authorisation</div>
+        </div>
+        <div class="layer-tag">Enquiries only</div>
+    </div>
+    <div class="layer l-wl">
+        <div class="layer-title">
+            <div class="name">IX White-Label</div>
+            <div class="desc">B2B clients build on IX infrastructure</div>
+        </div>
+        <div class="layer-tag">Hotels &middot; Groups &middot; Portfolios</div>
+    </div>
+</div>
+
+<h2><span class="num">03</span>Fund structure (planned, pre-authorisation)</h2>
+<p>Four vehicles sit under an appointed FCA-authorised fund manager. IX Ltd itself remains an unregulated platform operator; all regulated activity sits with the fund manager.</p>
+
+<table>
+    <thead>
+        <tr><th>Vehicle</th><th>Profile</th><th>Target Return</th><th>Lock-up</th><th>Min</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>IXF Units</td><td>Fund equity, NAV-linked, carry waterfall</td><td>Variable (NAV)</td><td>5&ndash;7 yrs</td><td>TBD</td></tr>
+        <tr><td>IX Participation Notes</td><td>Senior bond, asset-backed. Cash or IXT payout option.</td><td>6&ndash;10% fixed</td><td>12&ndash;36 mo</td><td>&pound;5K</td></tr>
+        <tr><td>Direct Business NFT</td><td>Venue co-invest, quarterly distributions (Strategic tier+)</td><td>Variable</td><td>3&ndash;7 yrs</td><td>&pound;150K</td></tr>
+        <tr><td>PropCo Notes</td><td>Property-backed, first-rank mortgage</td><td>8&ndash;12% fixed</td><td>24&ndash;60 mo</td><td>&pound;25K</td></tr>
+    </tbody>
+</table>
+<p class="note">Waterfall: 0% carry during capital return &middot; 10% during return phase &middot; 20% post-payback &middot; 25% after 2x.</p>
+
+<h2><span class="num">04</span>Business NFT &mdash; operator-side mechanic</h2>
+<p>Each venue (&ldquo;Z Partner&rdquo;) contributes a minimum 5% of enterprise value into the IX Growth Trust. That contributed portion is the Business NFT. At exit, the Business NFT returns to the venue at appreciated value. IX takes 10% of the contributed portion (e.g. venue contributes 15% EV &rarr; IX receives a 1.5% effective stake), vesting over 24 months.</p>
+<p>Target return escalates with tenure: Year 1 = 0%, Years 2&ndash;3 = 3%, Years 4&ndash;5 = 5%, Year 6+ = 10%. Target, not guaranteed. Paid from fund distributions.</p>
+
+<h2><span class="num">05</span>IXT &mdash; the ecosystem unit</h2>
+<p>1 IXT = &pound;1, fixed. Earned (not purchased) through member spend at participating venues. Spendable only within the ecosystem. No secondary market, no peer-to-peer transfer.</p>
+<p>Phase 2: Patron-tier cash withdrawal at 8% fee, &pound;2K/quarter cap, 12 months post-launch minimum, subject to FCA authorisation. Ecosystem Fund cover ratio min 1.5x against outstanding redeemable IXT. Burn mechanisms across transaction, withdrawal, early-unlock, and secondary-trade fees.</p>
+
+<h2><span class="num">06</span>Regulatory posture</h2>
+<div class="reg">
+    <p><strong>Two-entity split.</strong> InitiativeX Ltd (unregulated): consumer membership, IXT loyalty earning/spending, B2B platform, management fees. <strong>Appointed FCA-authorised fund manager:</strong> all four investment vehicles, IXT cash withdrawal (if e-money), financial promotions, client money.</p>
+    <ul>
+        <li><strong>FCA opinion letter</strong> issued to counsel covering 14 questions (IXT classification, CIS, AIFMD, EMI, financial promotions, phased launch).</li>
+        <li><strong>Public marketing</strong> scrubbed of investment-promotion language until opinion returns.</li>
+        <li><strong>Fund manager</strong> target identified; AR vs outsourcing pathway to be confirmed by counsel.</li>
+    </ul>
+</div>
+
+<h2><span class="num">07</span>For reference &mdash; Solstice parallel</h2>
+<div class="solstice">
+    Solstice Finance runs a delta-neutral yield protocol on Solana &mdash; USX stablecoin, YieldVault, ~11.5% avg returns, ~$300M TVL. Unregulated, DeFi-native, crypto-collateralised.<br><br>
+    <strong>IX is the regulated, real-asset-backed cousin.</strong> Same idea (pool capital, generate yield, distribute to locked holders), different execution (hospitality operating businesses + property, not synthetic hedge strategies). If one bet is &ldquo;DeFi goes mainstream&rdquo;, the other is &ldquo;regulated real-economy yield finds a retail wrapper.&rdquo;
+    <span class="attr">Solstice: solstice.finance &middot; USX &middot; YieldVault</span>
+</div>
+
+<h2><span class="num">08</span>Where we are</h2>
+<div class="status">
+    <div class="status-card">
+        <div class="label">Phase</div>
+        <div class="val"><span class="dot live"></span>Founding 100</div>
+        <div class="sub">Invite-only Explorer tier, free Year 1</div>
+    </div>
+    <div class="status-card">
+        <div class="label">First Venue</div>
+        <div class="val"><span class="dot live"></span>UKIYO</div>
+        <div class="sub">IX-certified, London</div>
+    </div>
+    <div class="status-card">
+        <div class="label">First Z Partner</div>
+        <div class="val"><span class="dot live"></span>Vinicon</div>
+        <div class="sub">Wine agency, founding partner</div>
+    </div>
+    <div class="status-card">
+        <div class="label">FCA Opinion</div>
+        <div class="val"><span class="dot pending"></span>With counsel</div>
+        <div class="sub">14-question scope, 2026</div>
+    </div>
+    <div class="status-card">
+        <div class="label">Fund Launch</div>
+        <div class="val"><span class="dot pending"></span>Phase 2</div>
+        <div class="sub">Post-authorisation</div>
+    </div>
+    <div class="status-card">
+        <div class="label">Entity</div>
+        <div class="val"><span class="dot pending"></span>InitiativeX Ltd</div>
+        <div class="sub">UK, in formation</div>
+    </div>
+</div>
+
+<h2><span class="num">09</span>If something catches your eye</h2>
+<p>No ask. Read, ignore, or reply &mdash; whatever&rsquo;s useful. If the structure&rsquo;s interesting, the flaws more so.</p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
