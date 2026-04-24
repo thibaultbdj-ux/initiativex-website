@@ -1157,27 +1157,16 @@
                 </div>
             </div>
 
-            <!-- Concierge chat widget -->
-            <div class="fade-in" id="contact" style="margin-top: 80px; max-width: 720px; margin-left: auto; margin-right: auto;">
-                <div class="section-header" style="text-align: center;">
+            <!-- Contact block -->
+            <div class="fade-in" id="contact" style="margin-top: 80px; max-width: 720px; margin-left: auto; margin-right: auto; text-align: center;">
+                <div class="section-header">
                     <span class="label">Questions?</span>
-                    <h2 style="margin-bottom: 8px;">Ask the IX concierge</h2>
-                    <p style="color: var(--text-secondary); font-size: 1rem;">Live answers about IX &mdash; membership, venues, certification, and how the ecosystem works.</p>
+                    <h2 style="margin-bottom: 12px;">Get in touch</h2>
+                    <p style="color: var(--light-grey); font-size: 1rem; max-width: 520px; margin: 0 auto;">For venue partnerships, membership enquiries, or investor conversations, email us directly. We read and reply to every message.</p>
                 </div>
-                <div style="background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; overflow: hidden; margin-top: 32px;">
-                    <div id="chatMessages" style="min-height: 200px; max-height: 360px; overflow-y: auto; padding: 20px;">
-                        <div style="display:flex;gap:12px;align-items:flex-start;">
-                            <div style="width:32px;height:32px;border-radius:50%;background:#3F5A5A;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#F4F0EB;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;">IX</div>
-                            <div>
-                                <div style="font-family:'DM Mono',monospace;font-size:9px;color:#A0A0A0;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Concierge</div>
-                                <div style="font-size:14px;color:#1A1A1A;line-height:1.5;">Hi. Ask me anything about Initiative X.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="border-top:1px solid rgba(0,0,0,0.08);padding:14px;display:flex;gap:8px;">
-                        <input id="chatInput" type="text" placeholder="Ask the concierge..." style="flex:1;padding:12px 16px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:#1A1A1A;background:#F8F8F8;outline:none;" onkeydown="if(event.key==='Enter')sendChat()">
-                        <button onclick="sendChat()" style="padding:12px 20px;background:#3F5A5A;color:#F4F0EB;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Send</button>
-                    </div>
+                <div style="margin-top: 32px;">
+                    <a href="mailto:hello@initiativex.co.uk" class="btn btn-primary" style="display: inline-block; margin-right: 12px;">hello@initiativex.co.uk</a>
+                    <a href="#hero" class="btn btn-ghost" style="display: inline-block;">Back to top</a>
                 </div>
             </div>
 
@@ -1291,90 +1280,8 @@
             }
         })();
 
-        // Concierge chat
-        var conciergeSessionId = 'home-' + Math.random().toString(36).slice(2);
-
-        function buildConciergeReplyNode(messageText) {
-            var wrap = document.createElement('div');
-
-            var label = document.createElement('div');
-            label.style.cssText = 'font-family:DM Mono,monospace;font-size:9px;color:#A0A0A0;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;';
-            label.textContent = 'Concierge';
-            wrap.appendChild(label);
-
-            var body = document.createElement('div');
-            body.style.cssText = 'font-size:14px;color:#1A1A1A;line-height:1.5;white-space:pre-wrap;';
-            body.textContent = messageText || '';
-            wrap.appendChild(body);
-
-            return wrap;
-        }
-
-        async function sendChat() {
-            var input = document.getElementById('chatInput');
-            var messages = document.getElementById('chatMessages');
-            var text = (input.value || '').trim();
-            if (!text) return;
-            input.value = '';
-
-            var userBubble = document.createElement('div');
-            userBubble.style.cssText = 'display:flex;justify-content:flex-end;margin-top:16px;';
-            var userInner = document.createElement('div');
-            userInner.style.cssText = 'background:#3F5A5A;color:#F4F0EB;padding:10px 14px;border-radius:12px;max-width:75%;font-size:14px;line-height:1.5;white-space:pre-wrap;';
-            userInner.textContent = text;
-            userBubble.appendChild(userInner);
-            messages.appendChild(userBubble);
-
-            var typingId = 'typing-' + Date.now();
-            var typing = document.createElement('div');
-            typing.id = typingId;
-            typing.style.cssText = 'display:flex;gap:12px;align-items:flex-start;margin-top:16px;';
-
-            var avatar = document.createElement('div');
-            avatar.style.cssText = 'width:32px;height:32px;border-radius:50%;background:#3F5A5A;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#F4F0EB;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:11px;';
-            avatar.textContent = 'IX';
-            typing.appendChild(avatar);
-
-            var typingBody = document.createElement('div');
-            var typingLabel = document.createElement('div');
-            typingLabel.style.cssText = 'font-family:DM Mono,monospace;font-size:9px;color:#A0A0A0;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;';
-            typingLabel.textContent = 'Concierge';
-            var typingDots = document.createElement('div');
-            typingDots.style.cssText = 'font-size:14px;color:#1A1A1A;opacity:0.6;';
-            typingDots.textContent = '…';
-            typingBody.appendChild(typingLabel);
-            typingBody.appendChild(typingDots);
-            typing.appendChild(typingBody);
-
-            messages.appendChild(typing);
-            messages.scrollTop = messages.scrollHeight;
-
-            try {
-                var res = await fetch('https://ix-concierge.vercel.app/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text, sessionId: conciergeSessionId }),
-                });
-                var data = await res.json();
-                var el = document.getElementById(typingId);
-                if (el) {
-                    var bodyEl = el.querySelector('div:last-child');
-                    bodyEl.innerHTML = '';
-                    bodyEl.appendChild(buildConciergeReplyNode(data.message));
-                }
-            } catch (err) {
-                var el2 = document.getElementById(typingId);
-                if (el2) {
-                    var bodyEl2 = el2.querySelector('div:last-child');
-                    bodyEl2.innerHTML = '';
-                    var errMsg = document.createElement('div');
-                    errMsg.style.cssText = 'font-size:14px;color:#A0A0A0;';
-                    errMsg.textContent = 'Unable to reach concierge. Please email hello@initiativex.co.uk.';
-                    bodyEl2.appendChild(errMsg);
-                }
-            }
-            messages.scrollTop = messages.scrollHeight;
-        }
+        // Public concierge removed 24 Apr 2026 — cost + FCA-exposure mitigation.
+        // Concierge remains live on member profile pages (authenticated context).
     </script>
 
 </body>
