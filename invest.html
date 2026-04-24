@@ -283,18 +283,174 @@
     <span class="label">Register</span>
     <h2>Register your interest</h2>
 
-    <p>The form below takes about 8–10 minutes. It's a <em>register of interest</em> — no commitment, no regulated step. All submissions are personally reviewed.</p>
+    <p>About 5 minutes. This is a <em>register of interest</em> — no commitment, no regulated step. All submissions are personally reviewed.</p>
 
-    <div class="form-embed">
-        <div class="form-embed-inner">
-            <strong>Tally form embed</strong>
-            [ Embed Tally form ID: <code>IX_Investor_Intake_v1.0</code> — register-only mode ]
-            <br><br>
-            <em>Setup pending: replace this block with the Tally embed code once the form is created. See IX Go-Live Checklist for details.</em>
-            <br><br>
-            <a href="mailto:thibault@initiativex.co.uk?subject=Founding%20100%20Register%20of%20Interest" class="cta-btn">Email me instead</a>
-        </div>
+    <div class="inv-form-wrapper" id="invFormCard" style="background:#FFF;border:1px solid var(--pale-grey);border-radius:12px;padding:32px;margin:24px 0;">
+        <form id="invForm">
+            <style>
+                .inv-form-wrapper .fg{margin-bottom:18px}
+                .inv-form-wrapper label{display:block;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:6px}
+                .inv-form-wrapper input[type=text],.inv-form-wrapper input[type=email],.inv-form-wrapper select,.inv-form-wrapper textarea{width:100%;padding:11px 14px;background:#FAFAF7;border:1px solid var(--pale-grey);border-radius:6px;color:var(--black);font-family:inherit;font-size:0.95rem;transition:border 0.15s;box-sizing:border-box}
+                .inv-form-wrapper input:focus,.inv-form-wrapper select:focus,.inv-form-wrapper textarea:focus{outline:none;border-color:var(--caramel)}
+                .inv-form-wrapper textarea{resize:vertical;min-height:80px}
+                .inv-form-wrapper .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+                .inv-form-wrapper .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+                .inv-form-wrapper .checkbox-row input{width:auto;margin-top:3px}
+                .inv-form-wrapper .checkbox-row label{font-size:0.88rem;text-transform:none;letter-spacing:0;color:var(--black);margin-bottom:0;line-height:1.5;cursor:pointer;font-weight:400}
+                .inv-form-wrapper .checkbox-row label a{color:var(--caramel)}
+                .inv-form-wrapper .int-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:4px}
+                .inv-form-wrapper .int-grid label{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#FAFAF7;border:1px solid var(--pale-grey);border-radius:6px;text-transform:none;letter-spacing:0;font-size:0.85rem;color:var(--black);cursor:pointer;margin-bottom:0;font-weight:400;transition:all 0.15s}
+                .inv-form-wrapper .int-grid label:hover{border-color:var(--caramel)}
+                .inv-form-wrapper .int-grid input[type=checkbox]{width:auto}
+                .inv-form-wrapper .submit-btn{width:100%;background:var(--black);color:var(--white);border:none;padding:16px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:1rem;cursor:pointer;letter-spacing:0.02em;transition:background 0.15s}
+                .inv-form-wrapper .submit-btn:hover{background:var(--caramel)}
+                .inv-form-wrapper .submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+                .inv-form-wrapper .error-msg{background:#F7E8E5;border:1px solid #C97B6E;color:#8B3A2E;padding:12px 14px;border-radius:6px;margin-bottom:16px;font-size:0.88rem;display:none}
+                .inv-form-wrapper .disclosure{background:#FDF6E3;border:1px solid #D4A574;border-radius:6px;padding:14px 16px;margin-bottom:20px;font-size:0.85rem;color:#5E4918;line-height:1.5}
+                @media(max-width:520px){.inv-form-wrapper .fg-row{grid-template-columns:1fr}.inv-form-wrapper{padding:24px 20px}}
+            </style>
+
+            <div class="disclosure">
+                <strong>Important.</strong> Submitting this form is an <em>expression of interest only</em>. It is not a subscription, commitment, or offer of securities. IX is not currently authorised by the FCA; no regulated activities (s.21 FSMA) are taking place at this stage.
+            </div>
+
+            <div id="invError" class="error-msg"></div>
+
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="inv_full_name">Full name</label>
+                    <input type="text" id="inv_full_name" required>
+                </div>
+                <div class="fg">
+                    <label for="inv_email">Email</label>
+                    <input type="email" id="inv_email" required>
+                </div>
+            </div>
+
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="inv_country">Country of residence</label>
+                    <input type="text" id="inv_country" required>
+                </div>
+                <div class="fg">
+                    <label for="inv_classification">Self-classification</label>
+                    <select id="inv_classification" required>
+                        <option value="">Select...</option>
+                        <option>High Net Worth</option>
+                        <option>Sophisticated Investor</option>
+                        <option>Restricted Investor</option>
+                        <option>Professional</option>
+                        <option>Not sure</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fg">
+                <label for="inv_ticket">Indicative ticket size</label>
+                <select id="inv_ticket">
+                    <option value="">Select...</option>
+                    <option>Under &pound;10K</option>
+                    <option>&pound;10-50K</option>
+                    <option>&pound;50-250K</option>
+                    <option>&pound;250K+</option>
+                    <option>Not decided</option>
+                </select>
+            </div>
+
+            <div class="fg">
+                <label>Interest areas (optional, select any that apply)</label>
+                <div class="int-grid">
+                    <label><input type="checkbox" name="inv_interest" value="IXF Units">IXF Units</label>
+                    <label><input type="checkbox" name="inv_interest" value="Participation Notes">Participation Notes</label>
+                    <label><input type="checkbox" name="inv_interest" value="Direct Business NFT">Direct Business NFT</label>
+                    <label><input type="checkbox" name="inv_interest" value="PropCo Notes">PropCo Notes</label>
+                    <label><input type="checkbox" name="inv_interest" value="Cashflow Notes">Cashflow Notes</label>
+                    <label><input type="checkbox" name="inv_interest" value="Development Convertible Notes">Development Convertible Notes</label>
+                    <label><input type="checkbox" name="inv_interest" value="Not sure">Not sure yet</label>
+                </div>
+            </div>
+
+            <div class="fg">
+                <label for="inv_hear">How did you hear about IX?</label>
+                <input type="text" id="inv_hear" placeholder="e.g. warm intro, Stephen Lane, newsletter">
+            </div>
+
+            <div class="fg">
+                <label for="inv_notes">Questions or notes</label>
+                <textarea id="inv_notes" placeholder="What do you want to understand before a conversation?"></textarea>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="inv_consent_contact" required>
+                <label for="inv_consent_contact">I consent to being contacted by IX about this expression of interest.</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="inv_consent_privacy" required>
+                <label for="inv_consent_privacy">I have read and agree to the <a href="privacy.html" target="_blank">Privacy Policy</a>.</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="inv_consent_understand" required>
+                <label for="inv_consent_understand">I understand this is an expression of interest only and not a subscription, commitment, or offer of securities.</label>
+            </div>
+
+            <button type="submit" class="submit-btn" id="invSubmitBtn">Register my interest</button>
+        </form>
     </div>
+
+    <div id="invSuccess" style="display:none;background:#FDF6E3;border:1px solid var(--caramel);border-radius:12px;padding:32px;text-align:center;margin:24px 0;">
+        <h3 style="color:var(--black);margin:0 0 10px;font-family:'Space Grotesk',sans-serif;">Interest registered.</h3>
+        <p style="color:var(--mid-grey);margin:0;">Thank you. You'll hear from Thibault personally within 48 hours. No automated follow-up &mdash; every conversation starts with a human.</p>
+    </div>
+
+    <script>
+        (function(){
+            var form = document.getElementById('invForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var btn = document.getElementById('invSubmitBtn');
+                var err = document.getElementById('invError');
+                btn.disabled = true;
+                btn.textContent = 'Submitting...';
+                err.style.display = 'none';
+
+                var interests = Array.from(document.querySelectorAll('input[name="inv_interest"]:checked')).map(function(c){return c.value;});
+
+                var payload = {
+                    full_name: document.getElementById('inv_full_name').value.trim(),
+                    email: document.getElementById('inv_email').value.trim(),
+                    country_of_residence: document.getElementById('inv_country').value.trim(),
+                    self_classification: document.getElementById('inv_classification').value,
+                    indicative_ticket_size: document.getElementById('inv_ticket').value,
+                    interest_areas: interests.join(', '),
+                    how_did_you_hear: document.getElementById('inv_hear').value.trim(),
+                    notes: document.getElementById('inv_notes').value.trim(),
+                    consent_contact: document.getElementById('inv_consent_contact').checked,
+                    consent_privacy: document.getElementById('inv_consent_privacy').checked
+                };
+
+                fetch('https://initiativex.app.n8n.cloud/webhook/investor-interest', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+                .then(function(){
+                    document.getElementById('invFormCard').style.display = 'none';
+                    document.getElementById('invSuccess').style.display = 'block';
+                    window.scrollTo({top: document.getElementById('invSuccess').offsetTop - 80, behavior: 'smooth'});
+                })
+                .catch(function(){
+                    err.textContent = 'Connection error. Please try again or email thibault@initiativex.co.uk.';
+                    err.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Register my interest';
+                });
+            });
+        })();
+    </script>
 
     <span class="label">Questions</span>
     <h2>Before you register</h2>

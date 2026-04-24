@@ -235,7 +235,7 @@
             <div class="step-num">1</div>
             <div>
                 <h3>Submit intake</h3>
-                <p>15-minute Tally form. Company basics, service category, 10-pillar self-assessment, pricing model, IXT acceptance preference.</p>
+                <p>5-minute form. Company basics, service category, pricing model. Optional evidence (contracts, insurance) collected at Certification stage.</p>
             </div>
         </div>
         <div class="step">
@@ -271,18 +271,183 @@
     <span class="label">Apply now</span>
     <h2>Service Provider intake</h2>
 
-    <p>The form below takes about 12–15 minutes. You can save and return. All submissions are confidential and reviewed by IX Ops.</p>
+    <p>About 5 minutes. You'll be admitted as an <strong>Associate</strong> by default (listed in the directory, not actively promoted). To progress to <strong>Certified</strong> — where IX actively introduces you to venues — you'll be asked later to provide contracts and client confirmations per the 10-pillar framework.</p>
 
-    <div class="form-embed">
-        <div class="form-embed-inner">
-            <strong>Tally form embed</strong>
-            [ Embed Tally form ID: <code>IX_SP_Intake_v1.0</code> ]
-            <br><br>
-            <em>Setup pending: replace this block with the Tally embed code once the form is created. See IX Go-Live Checklist for details.</em>
-            <br><br>
-            <a href="mailto:thibault@initiativex.co.uk?subject=Service%20Provider%20Interest" class="cta-btn">Email me instead</a>
-        </div>
+    <div class="sp-form-wrapper" id="formCard" style="background:#FFF;border:1px solid var(--line);border-radius:12px;padding:32px;margin:24px 0;">
+        <form id="spForm">
+            <style>
+                .sp-form-wrapper .fg{margin-bottom:18px}
+                .sp-form-wrapper label{display:block;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+                .sp-form-wrapper input[type=text],.sp-form-wrapper input[type=email],.sp-form-wrapper input[type=tel],.sp-form-wrapper input[type=url],.sp-form-wrapper select,.sp-form-wrapper textarea{width:100%;padding:11px 14px;background:#FAFAF7;border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:inherit;font-size:0.95rem;transition:border 0.15s}
+                .sp-form-wrapper input:focus,.sp-form-wrapper select:focus,.sp-form-wrapper textarea:focus{outline:none;border-color:var(--teal)}
+                .sp-form-wrapper textarea{resize:vertical;min-height:80px}
+                .sp-form-wrapper .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+                .sp-form-wrapper .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+                .sp-form-wrapper .checkbox-row input{width:auto;margin-top:3px}
+                .sp-form-wrapper .checkbox-row label{font-size:0.88rem;text-transform:none;letter-spacing:0;color:var(--ink);margin-bottom:0;line-height:1.5;cursor:pointer;font-weight:400}
+                .sp-form-wrapper .checkbox-row label a{color:var(--teal)}
+                .sp-form-wrapper .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:4px}
+                .sp-form-wrapper .cat-grid label{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#FAFAF7;border:1px solid var(--line);border-radius:6px;text-transform:none;letter-spacing:0;font-size:0.85rem;color:var(--ink);cursor:pointer;margin-bottom:0;font-weight:400;transition:all 0.15s}
+                .sp-form-wrapper .cat-grid label:hover{border-color:var(--teal)}
+                .sp-form-wrapper .cat-grid input[type=checkbox]{width:auto}
+                .sp-form-wrapper .submit-btn{width:100%;background:var(--teal);color:#FFF;border:none;padding:16px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:1rem;cursor:pointer;letter-spacing:0.02em;transition:background 0.15s}
+                .sp-form-wrapper .submit-btn:hover{background:var(--teal-dark)}
+                .sp-form-wrapper .submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+                .sp-form-wrapper .error-msg{background:#F7E8E5;border:1px solid #C97B6E;color:#8B3A2E;padding:12px 14px;border-radius:6px;margin-bottom:16px;font-size:0.88rem;display:none}
+                @media(max-width:520px){.sp-form-wrapper .fg-row{grid-template-columns:1fr}.sp-form-wrapper{padding:24px 20px}}
+            </style>
+
+            <div id="spError" class="error-msg"></div>
+
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="sp_business_name">Business name</label>
+                    <input type="text" id="sp_business_name" required>
+                </div>
+                <div class="fg">
+                    <label for="sp_contact_name">Your name</label>
+                    <input type="text" id="sp_contact_name" required>
+                </div>
+            </div>
+
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="sp_email">Email</label>
+                    <input type="email" id="sp_email" required>
+                </div>
+                <div class="fg">
+                    <label for="sp_phone">Phone</label>
+                    <input type="tel" id="sp_phone">
+                </div>
+            </div>
+
+            <div class="fg">
+                <label for="sp_website">Website</label>
+                <input type="url" id="sp_website" placeholder="https://">
+            </div>
+
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="sp_country">Country</label>
+                    <select id="sp_country" required>
+                        <option value="">Select...</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="SE">Sweden</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="ES">Spain</option>
+                        <option value="IT">Italy</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="fg">
+                    <label for="sp_coverage">Primary coverage area</label>
+                    <input type="text" id="sp_coverage" placeholder="e.g. London &amp; South-East">
+                </div>
+            </div>
+
+            <div class="fg">
+                <label>Service category (select all that apply)</label>
+                <div class="cat-grid">
+                    <label><input type="checkbox" name="sp_category" value="Legal">Legal</label>
+                    <label><input type="checkbox" name="sp_category" value="Accounting">Accounting</label>
+                    <label><input type="checkbox" name="sp_category" value="Wine">Wine</label>
+                    <label><input type="checkbox" name="sp_category" value="F&amp;B">F&amp;B</label>
+                    <label><input type="checkbox" name="sp_category" value="Interiors">Interiors</label>
+                    <label><input type="checkbox" name="sp_category" value="Architecture">Architecture</label>
+                    <label><input type="checkbox" name="sp_category" value="Tech">Tech</label>
+                    <label><input type="checkbox" name="sp_category" value="Marketing">Marketing</label>
+                    <label><input type="checkbox" name="sp_category" value="PR">PR</label>
+                    <label><input type="checkbox" name="sp_category" value="HR">HR</label>
+                    <label><input type="checkbox" name="sp_category" value="Insurance">Insurance</label>
+                    <label><input type="checkbox" name="sp_category" value="Other">Other</label>
+                </div>
+            </div>
+
+            <div class="fg">
+                <label for="sp_services">Services offered</label>
+                <textarea id="sp_services" required placeholder="Briefly: what do you do, and who for?"></textarea>
+            </div>
+
+            <div class="fg">
+                <label for="sp_pricing">Standard pricing</label>
+                <textarea id="sp_pricing" required placeholder="Your published day rate, retainer, or project fee structure. IX adapts to your standard pricing."></textarea>
+            </div>
+
+            <div class="fg">
+                <label for="sp_references">Reference clients</label>
+                <textarea id="sp_references" placeholder="3+ clients we can contact if needed"></textarea>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="sp_insurance">
+                <label for="sp_insurance">I have relevant professional indemnity and liability insurance in place.</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="sp_consent" required>
+                <label for="sp_consent">I agree to the <a href="terms.html" target="_blank">IX Terms</a> and the <a href="privacy.html" target="_blank">Privacy Policy</a>, and consent to being contacted about this application.</label>
+            </div>
+
+            <button type="submit" class="submit-btn" id="spSubmitBtn">Apply as Associate</button>
+        </form>
     </div>
+
+    <div id="spSuccess" style="display:none;background:#DDEBE4;border:1px solid #4E9D8A;border-radius:12px;padding:32px;text-align:center;margin:24px 0;">
+        <h3 style="color:#2F6B5C;margin:0 0 10px;font-family:'Space Grotesk',sans-serif;">Application received.</h3>
+        <p style="color:#2F6B5C;margin:0;">Thanks &mdash; you'll hear back from IX Ops within 24 hours. Your Associate listing will be set up once we've completed a quick sanity check.</p>
+    </div>
+
+    <script>
+        (function(){
+            var form = document.getElementById('spForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var btn = document.getElementById('spSubmitBtn');
+                var err = document.getElementById('spError');
+                btn.disabled = true;
+                btn.textContent = 'Submitting...';
+                err.style.display = 'none';
+
+                var cats = Array.from(document.querySelectorAll('input[name="sp_category"]:checked')).map(function(c){return c.value;});
+
+                var payload = {
+                    business_name: document.getElementById('sp_business_name').value.trim(),
+                    contact_name: document.getElementById('sp_contact_name').value.trim(),
+                    email: document.getElementById('sp_email').value.trim(),
+                    phone: document.getElementById('sp_phone').value.trim(),
+                    website: document.getElementById('sp_website').value.trim(),
+                    country: document.getElementById('sp_country').value,
+                    coverage_areas: document.getElementById('sp_coverage').value.trim(),
+                    category: cats.join(', '),
+                    services_offered: document.getElementById('sp_services').value.trim(),
+                    standard_pricing: document.getElementById('sp_pricing').value.trim(),
+                    reference_clients: document.getElementById('sp_references').value.trim(),
+                    insurance: document.getElementById('sp_insurance').checked ? 'yes' : 'no',
+                    consent: document.getElementById('sp_consent').checked
+                };
+
+                fetch('https://initiativex.app.n8n.cloud/webhook/sp-intake', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+                .then(function(){
+                    document.getElementById('formCard').style.display = 'none';
+                    document.getElementById('spSuccess').style.display = 'block';
+                    window.scrollTo({top: document.getElementById('spSuccess').offsetTop - 80, behavior: 'smooth'});
+                })
+                .catch(function(){
+                    err.textContent = 'Connection error. Please try again or email thibault@initiativex.co.uk.';
+                    err.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Apply as Associate';
+                });
+            });
+        })();
+    </script>
 
     <div class="callout">
         <strong>Questions before applying?</strong> Email <a href="mailto:thibault@initiativex.co.uk" style="color:var(--teal);border-bottom:1px solid var(--teal);text-decoration:none;">thibault@initiativex.co.uk</a> with the subject line <em>"SP enquiry"</em>. Typical response within 24h.
