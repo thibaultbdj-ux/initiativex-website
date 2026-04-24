@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+    </script>
+
+    <title>Register Interest — Initiative X</title>
+    <meta name="description" content="Register interest in the Initiative X Founding 100 cohort. Pre-authorisation phase, invite-only investor network.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        :root {
+            --black: #0A0A0A; --charcoal: #1A1A1A; --dark-grey: #333333; --mid-grey: #666666;
+            --light-grey: #999999; --pale-grey: #E8E8E8; --off-white: #F5F5F5; --white: #FFFFFF;
+            --bronze: #9B8B6E; --warm-light: #B8A88A; --warm-bg: #F8F6F3;
+            --teal: #3F5A5A; --teal-light: #4D6B6B; --sage: #6B8A7E;
+            --cream: #F4F0EB; --caramel: #D4A574; --caramel-light: #E0B98A;
+            --red: #C0392B; --red-bg: #FDEBEB;
+        }
+        body { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--dark-grey); line-height: 1.7; background: var(--warm-bg); }
+        .container { max-width: 820px; margin: 0 auto; padding: 60px 32px 120px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 2.4rem; color: var(--black); letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.15; }
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.3rem; color: var(--black); margin-top: 48px; margin-bottom: 14px; letter-spacing: -0.005em; }
+        h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1rem; color: var(--charcoal); margin-top: 20px; margin-bottom: 8px; }
+        p { margin-bottom: 14px; font-size: 0.95rem; }
+        p.lead { font-size: 1.1rem; color: var(--charcoal); margin-bottom: 32px; }
+        ul { padding-left: 1.4rem; margin-bottom: 14px; }
+        li { margin-bottom: 6px; font-size: 0.95rem; }
+        .label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bronze); margin-bottom: 8px; display: block; }
+
+        /* Nav */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(248, 246, 243, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 16px 32px; border-bottom: 1px solid var(--pale-grey);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        nav .ix-mark {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border: 1.5px solid var(--black);
+            border-radius: 50%; font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 11px; color: var(--black); letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+        nav .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-grey); text-decoration: none; margin-left: 24px; }
+        nav .nav-links a:hover { color: var(--black); }
+
+        /* Hero */
+        .hero { border-bottom: 1px solid var(--pale-grey); padding-bottom: 48px; margin-bottom: 48px; }
+
+        /* Regulatory banner */
+        .reg-banner {
+            background: var(--red-bg); border-left: 3px solid var(--red);
+            padding: 16px 20px; margin: 24px 0;
+            font-size: 0.9rem; color: var(--charcoal); border-radius: 0 6px 6px 0;
+        }
+        .reg-banner strong { color: var(--black); }
+
+        /* Panels */
+        .panel {
+            background: var(--white); border: 1px solid var(--pale-grey);
+            border-radius: 12px; padding: 28px 32px; margin: 24px 0;
+        }
+
+        /* Vehicle table */
+        .vehicle-table {
+            width: 100%; border-collapse: collapse;
+            font-size: 0.88rem; margin: 16px 0;
+        }
+        .vehicle-table th {
+            background: var(--charcoal); color: var(--cream);
+            padding: 10px 12px; text-align: left;
+            font-family: 'DM Mono', monospace; font-size: 0.72rem;
+            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+        }
+        .vehicle-table td {
+            padding: 10px 12px; border-bottom: 1px solid var(--pale-grey);
+            vertical-align: top;
+        }
+        .vehicle-table tr:nth-child(even) td { background: var(--off-white); }
+        .mono { font-family: 'DM Mono', monospace; font-size: 0.82rem; }
+
+        /* Steps */
+        .step {
+            display: grid; grid-template-columns: 44px 1fr; gap: 16px;
+            padding: 16px 0; border-bottom: 1px solid var(--pale-grey);
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border: 1.5px solid var(--charcoal);
+            border-radius: 50%; font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600; font-size: 14px; color: var(--charcoal);
+        }
+        .step h3 { margin: 0 0 4px 0; color: var(--black); font-size: 1rem; }
+        .step p { margin: 0; font-size: 0.9rem; color: var(--mid-grey); }
+
+        /* Form placeholder */
+        .form-embed {
+            background: var(--white); border: 2px dashed var(--pale-grey);
+            border-radius: 12px; padding: 48px 32px; text-align: center;
+            margin: 32px 0;
+        }
+        .form-embed-inner {
+            font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--mid-grey);
+        }
+        .form-embed-inner strong { color: var(--black); display: block; margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+
+        /* CTA */
+        .cta-btn {
+            display: inline-block; padding: 14px 28px;
+            background: var(--charcoal); color: var(--cream);
+            border-radius: 6px; text-decoration: none;
+            font-family: 'DM Mono', monospace; font-size: 0.82rem;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover { background: var(--black); }
+
+        /* Callout */
+        .callout {
+            background: var(--cream); border-left: 3px solid var(--bronze);
+            padding: 16px 20px; margin: 20px 0;
+            font-size: 0.9rem; color: var(--charcoal); border-radius: 0 6px 6px 0;
+        }
+        .callout strong { color: var(--black); }
+
+        /* Footer */
+        footer {
+            margin-top: 80px; padding-top: 32px;
+            border-top: 1px solid var(--pale-grey);
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+        footer .ix-mark {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border: 1.2px solid var(--light-grey);
+            border-radius: 50%; font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 10px; color: var(--light-grey);
+        }
+        footer .footer-text {
+            font-family: 'DM Mono', monospace; font-size: 0.72rem;
+            color: var(--mid-grey);
+        }
+
+        /* Risk disclosure */
+        .risk-disclosure {
+            background: var(--off-white); border: 1px solid var(--pale-grey);
+            border-radius: 8px; padding: 20px; margin-top: 32px;
+            font-size: 0.82rem; color: var(--mid-grey); line-height: 1.55;
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 40px 20px 96px; }
+            nav { padding: 14px 20px; }
+            nav .nav-links a { margin-left: 12px; font-size: 0.7rem; }
+            .vehicle-table { font-size: 0.8rem; }
+            .vehicle-table th, .vehicle-table td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="ix-mark">IX</a>
+    <div class="nav-links">
+        <a href="/overview">Overview</a>
+        <a href="/service-provider">For SPs</a>
+        <a href="/invest">For Investors</a>
+        <a href="/#contact">Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="hero">
+        <span class="label">Founding 100 · Register of Interest</span>
+        <h1>Pre-authorisation phase. Register interest now.</h1>
+        <p class="lead">Initiative X is a certified ecosystem of independent hospitality businesses with an integrated investment layer. Founding 100 is an invite-only cohort of early participants. Register your interest and we'll be in touch as the investment layer opens.</p>
+    </div>
+
+    <!-- CRITICAL: Regulatory Banner -->
+    <div class="reg-banner">
+        <strong>Regulatory status.</strong> Initiative X is <strong>pre-FCA authorisation</strong>. No offer of investments is made via this page. This form is a <strong>register of interest</strong> only. All investment vehicles, subscription mechanics, and returns are subject to FCA opinion (pending, Q2 2026) and subsequent fund manager authorisation. By submitting this form you are not purchasing or committing to purchase any security or investment.
+    </div>
+
+    <span class="label">Background</span>
+    <h2>What Initiative X is</h2>
+
+    <p>A shared operating system for independent hospitality. We certify venues, suppliers, and service providers against a 10-pillar standard; connect them through a shared membership and loyalty layer; and (post-authorisation) operate the investment vehicles that fund new sites and growth.</p>
+
+    <p>Read the <a href="/overview" style="color:var(--charcoal);border-bottom:1px solid var(--charcoal);text-decoration:none;">full structural overview</a> for detail on the methodology, vehicles, regulatory posture, and state of the build.</p>
+
+    <span class="label">Post-authorisation</span>
+    <h2>Planned investment vehicles</h2>
+
+    <p><em>Subject to FCA opinion and fund manager authorisation. Nothing here is an offer or recommendation.</em></p>
+
+    <table class="vehicle-table">
+        <tr><th>Vehicle</th><th>Type</th><th>Term</th><th>Indicative minimum</th></tr>
+        <tr><td>IXF Units</td><td>Fund equity (LP units)</td><td>5–7 year lock</td><td class="mono">&pound;1K (Class E)</td></tr>
+        <tr><td>IX Participation Notes</td><td>Senior bond, fixed coupon</td><td>12–36 months</td><td class="mono">&pound;100 (Layer 1) / &pound;1K (Layer 2)</td></tr>
+        <tr><td>Direct Business NFT</td><td>Venue co-invest</td><td>3–7 years</td><td class="mono">Strategic+ tier only</td></tr>
+        <tr><td>PropCo Notes</td><td>Property-backed bond</td><td>24–60 months</td><td class="mono">&pound;100 / &pound;1K</td></tr>
+        <tr><td>IX Cashflow Notes</td><td>Short-duration working capital</td><td>3–12 months</td><td class="mono">&pound;100 / &pound;1K</td></tr>
+        <tr><td>IX Development Convertible Notes</td><td>Pre-opening convertible</td><td>Up to 24 months</td><td class="mono">&pound;100 / &pound;1K</td></tr>
+    </table>
+
+    <div class="callout">
+        <strong>Two access rails.</strong> Layer 1 is a retail rail via a partner FCA-authorised crowdfunding platform (expected &pound;100 minimum). Layer 2 is direct access via the appointed fund manager (&pound;1K+). Strategic and Principal tier investors access all vehicles directly.
+    </div>
+
+    <span class="label">Methodology</span>
+    <h2>How valuations work</h2>
+
+    <p>All Business NFT valuations follow the <strong>IX Business NFT Valuation Methodology v2.0</strong> — a stage-dependent DCF framework with:</p>
+    <ul>
+        <li><strong>Four-layer WACC</strong> — Base Cost of Capital + Stage Premium (R1–R5) + Certification Premium (Foundation/Verified/Excellence) + Governance Premium (G1–G5)</li>
+        <li><strong>Capex floor</strong> protecting against downside — venue valued at minimum its real added-value-to-property</li>
+        <li><strong>Debt deducted at every stage</strong> — Enterprise Value minus Total Financial Debt = Equity Value</li>
+        <li><strong>Lease renewal probability weighting</strong> on terminal value</li>
+        <li><strong>Reported numbers only</strong> — no normalisation below R2 stage</li>
+        <li><strong>Quarterly review</strong> by IX Finance, with independent valuer sign-off at stage upgrades</li>
+    </ul>
+
+    <span class="label">Flow</span>
+    <h2>What happens after you register</h2>
+
+    <div class="panel">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>Submit register-of-interest (8–10 min)</h3>
+                <p>Basic contact, investor category, vehicle preferences, consent. No KYC, no commitment, no offer.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>Desk review by IX</h3>
+                <p>Thibault personally reviews every Founding 100 submission. Tier classification (Seed / Growth / Strategic / Principal) assigned.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>Introductory call (optional)</h3>
+                <p>For Strategic / Principal tier, we set up a 30-minute video call. For Founding 100 cohort, you're invited to the next cohort event.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div>
+                <h3>Wait for Phase 2 activation</h3>
+                <p>When FCA opinion returns and the fund manager is appointed, Phase 2 unlocks: KYC, appropriateness test (COBS 10A), self-certification, subscription to your preferred vehicles.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div>
+                <h3>Monthly Investor Update (once registered)</h3>
+                <p>From the month after registration, you receive a monthly update with venue P&amp;Ls, valuation changes, Founding 100 cohort movements, and regulatory progress.</p>
+            </div>
+        </div>
+    </div>
+
+    <span class="label">Register</span>
+    <h2>Register your interest</h2>
+
+    <p>The form below takes about 8–10 minutes. It's a <em>register of interest</em> — no commitment, no regulated step. All submissions are personally reviewed.</p>
+
+    <div class="form-embed">
+        <div class="form-embed-inner">
+            <strong>Tally form embed</strong>
+            [ Embed Tally form ID: <code>IX_Investor_Intake_v1.0</code> — register-only mode ]
+            <br><br>
+            <em>Setup pending: replace this block with the Tally embed code once the form is created. See IX Go-Live Checklist for details.</em>
+            <br><br>
+            <a href="mailto:thibault@initiativex.co.uk?subject=Founding%20100%20Register%20of%20Interest" class="cta-btn">Email me instead</a>
+        </div>
+    </div>
+
+    <span class="label">Questions</span>
+    <h2>Before you register</h2>
+
+    <p>Some questions worth thinking through:</p>
+    <ul>
+        <li>Are you registering for yourself (retail), on behalf of a family office, or as an institutional investor?</li>
+        <li>What capacity per deal are you comfortable with (£5K / £25K / £100K / £500K+)?</li>
+        <li>What's your horizon (12 months, 3 years, 7+ years)?</li>
+        <li>Which vehicles interest you most (short-duration notes, long-term fund equity, venue-specific NFTs)?</li>
+        <li>Do you meet the FCA self-certification criteria (HNW: &pound;100K+ income or &pound;250K+ net assets ex-residence; Sophisticated: 2+ years in finance or 3+ unlisted investments in last 2 years)?</li>
+    </ul>
+    <p>None of these are required to register — they're covered in the form — but thinking through them helps.</p>
+
+    <span class="label">Regulatory</span>
+    <h2>Full risk &amp; regulatory disclosure</h2>
+
+    <div class="risk-disclosure">
+        <p><strong>Capital at risk.</strong> Investments in Business NFTs, fund units, participation notes, and convertibles are not guaranteed. Capital may be lost. Past performance is not indicative of future results.</p>
+        <p><strong>Illiquidity.</strong> Most vehicles are illiquid and locked for the stated term. Early redemption is generally not available.</p>
+        <p><strong>Regulatory status.</strong> Initiative X is pre-FCA authorisation. An instruction letter covering 21 regulatory questions has been submitted to counsel (IXT classification, fund manager structure, per-venue founding preference, multi-entity venue blueprint, etc.). No investment vehicle is currently offered to the public. All Phase 2 steps — subscription, KYC, appropriateness test, self-certification — activate only once authorisation is confirmed.</p>
+        <p><strong>No advice.</strong> This page does not constitute investment advice or a financial promotion. Seek independent advice before making any investment decision.</p>
+        <p><strong>Information sources.</strong> All methodology, vehicle terms, and risk ratings referenced are set out in: IX Ecosystem Master v6.1, IX Business NFT Valuation Methodology v2.0, IX Growth Trust Structure v2.0, IX FCA Opinion Instruction Letter v1.0, IX Risk Rating Framework v1.0, IX Token Subscription Agreement v2.0. Available on request.</p>
+    </div>
+
+    <footer>
+        <div style="display:flex;align-items:center;gap:10px;">
+            <div class="ix-mark">IX</div>
+            <div class="footer-text">Initiative X &middot; Founding 100</div>
+        </div>
+        <div class="footer-text">
+            <a href="/overview" style="color:var(--mid-grey);text-decoration:none;border-bottom:1px solid var(--pale-grey);">Overview</a>
+            &middot;
+            <a href="/" style="color:var(--mid-grey);text-decoration:none;border-bottom:1px solid var(--pale-grey);">Home</a>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
