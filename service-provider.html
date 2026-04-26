@@ -271,7 +271,9 @@
     <span class="label">Apply now</span>
     <h2>Service Provider intake</h2>
 
-    <p>About 5 minutes. You'll be admitted as an <strong>Associate</strong> by default (listed in the directory, not actively promoted). To progress to <strong>Certified</strong> — where IX actively introduces you to venues — you'll be asked later to provide contracts and client confirmations per the 10-pillar framework.</p>
+    <p>About 5 minutes. Applications go through a <strong>24-72 hour review window</strong> before approval. We verify Companies House status, LinkedIn match, photo ID and check for any active disputes. During review you can join as <a href="/" style="color:var(--teal);border-bottom:1px solid var(--teal);text-decoration:none;">Explorer</a> (free) — Service Provider features unlock once verified.</p>
+
+    <p>Once approved you'll be admitted as an <strong>Associate</strong> (listed in the directory, not actively promoted). To progress to <strong>Certified</strong> — where IX actively introduces you to venues — you'll be asked later to provide contracts and client confirmations per the 10-pillar framework.</p>
 
     <div class="sp-form-wrapper" id="formCard" style="background:#FFF;border:1px solid var(--line);border-radius:12px;padding:32px;margin:24px 0;">
         <form id="spForm">
@@ -321,9 +323,21 @@
                 </div>
             </div>
 
+            <div class="fg-row">
+                <div class="fg">
+                    <label for="sp_website">Website</label>
+                    <input type="url" id="sp_website" placeholder="https://">
+                </div>
+                <div class="fg">
+                    <label for="sp_linkedin">LinkedIn URL <span style="color:#C97B6E">*</span></label>
+                    <input type="url" id="sp_linkedin" required placeholder="https://linkedin.com/in/...">
+                </div>
+            </div>
+
             <div class="fg">
-                <label for="sp_website">Website</label>
-                <input type="url" id="sp_website" placeholder="https://">
+                <label for="sp_photo_id">Photo ID — shared link <span style="color:#C97B6E">*</span></label>
+                <input type="url" id="sp_photo_id" required placeholder="Drive / Dropbox link to passport or driving licence">
+                <p style="font-size:0.78rem;color:var(--muted);margin-top:6px;line-height:1.4">Upload a clear photo of your government-issued ID to your own Drive / Dropbox, share with view access, paste the link here. We delete the link after verification. (Native upload coming soon via Stripe Identity.)</p>
             </div>
 
             <div class="fg-row">
@@ -394,8 +408,9 @@
     </div>
 
     <div id="spSuccess" style="display:none;background:#DDEBE4;border:1px solid #4E9D8A;border-radius:12px;padding:32px;text-align:center;margin:24px 0;">
-        <h3 style="color:#2F6B5C;margin:0 0 10px;font-family:'Space Grotesk',sans-serif;">Application received.</h3>
-        <p style="color:#2F6B5C;margin:0;">Thanks &mdash; you'll hear back from IX Ops within 24 hours. Your Associate listing will be set up once we've completed a quick sanity check.</p>
+        <h3 style="color:#2F6B5C;margin:0 0 10px;font-family:'Space Grotesk',sans-serif;">Application received &mdash; Pending Review.</h3>
+        <p style="color:#2F6B5C;margin:0 0 14px;">Thanks. We&rsquo;ll verify your details (Companies House, LinkedIn, ID) within <strong>24-72 hours</strong>. You&rsquo;ll hear back via email.</p>
+        <p style="color:#2F6B5C;margin:0;font-size:0.92rem;">In the meantime, <a href="/" style="color:#2F6B5C;text-decoration:underline;">join as an Explorer</a> &mdash; full network access (minus SP-specific features) while we review.</p>
     </div>
 
     <script>
@@ -418,6 +433,8 @@
                     email: document.getElementById('sp_email').value.trim(),
                     phone: document.getElementById('sp_phone').value.trim(),
                     website: document.getElementById('sp_website').value.trim(),
+                    linkedin_url: document.getElementById('sp_linkedin').value.trim(),
+                    photo_id_link: document.getElementById('sp_photo_id').value.trim(),
                     country: document.getElementById('sp_country').value,
                     coverage_areas: document.getElementById('sp_coverage').value.trim(),
                     category: cats.join(', '),
