@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+    </script>
+
+    <title>Initiative X — Founding 100</title>
+    <meta name="description" content="Initiative X Founding 100 — invite-only cohort. What it is, what you get, how to express interest.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --warm-bg: #F8F6F3;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --caramel: #D4A574;
+            --cream: #F4F0EB;
+            --white: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            background: var(--warm-bg);
+            padding: 48px 24px 120px;
+        }
+
+        .container { max-width: 760px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 20px;
+            margin-bottom: 48px;
+        }
+
+        .header-left .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .header-left h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .header-left .doc-type {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+        }
+
+        .header-right {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--mid-grey);
+            text-align: right;
+            letter-spacing: 0.05em;
+        }
+
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .intro {
+            background: #fff;
+            border-left: 3px solid var(--bronze);
+            padding: 22px 26px;
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.02rem;
+            color: var(--charcoal);
+        }
+
+        .intro p + p { margin-top: 12px; }
+        .intro strong { color: var(--black); }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--black);
+            margin: 44px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--pale-grey);
+            letter-spacing: -0.005em;
+        }
+
+        h2 .num {
+            font-family: 'DM Mono', monospace;
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--bronze);
+            margin-right: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            margin: 18px 0 6px;
+        }
+
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 18px; margin-bottom: 12px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); font-weight: 500; }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* What you get cards */
+        .perks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .perk {
+            background: #fff;
+            padding: 18px 20px;
+            border-radius: 6px;
+            border: 1px solid var(--pale-grey);
+            border-top: 3px solid var(--bronze);
+        }
+
+        .perk .perk-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--bronze);
+            margin-bottom: 6px;
+        }
+
+        .perk .perk-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 6px;
+        }
+
+        .perk .perk-desc {
+            font-size: 0.85rem;
+            color: var(--mid-grey);
+            line-height: 1.55;
+        }
+
+        /* Compressed tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            background: var(--off-white);
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+            vertical-align: top;
+            color: var(--dark-grey);
+        }
+
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--mid-grey);
+            margin-top: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Reg block */
+        .reg {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            border-left: 3px solid var(--caramel);
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: 0.92rem;
+        }
+
+        .reg strong { color: var(--black); }
+
+        /* Build status tracks (reused style from /overview) */
+        .tracks { margin-top: 18px; }
+        .track {
+            display: grid;
+            grid-template-columns: 180px 1fr 56px;
+            gap: 14px;
+            align-items: center;
+            padding: 14px 0 6px;
+        }
+        .track-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--black);
+        }
+        .track-bar {
+            height: 6px;
+            background: var(--pale-grey);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        .track-fill {
+            height: 100%;
+            background: var(--bronze);
+            border-radius: 3px;
+        }
+        .track-fill.hi { background: var(--teal); }
+        .track-fill.mid { background: var(--bronze); }
+        .track-fill.lo { background: var(--caramel); }
+        .track-pct {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--black);
+            text-align: right;
+        }
+        .track-desc {
+            grid-column: 1 / 4;
+            font-size: 0.82rem;
+            color: var(--mid-grey);
+            line-height: 1.55;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--pale-grey);
+            margin-top: 2px;
+        }
+        .track:last-of-type .track-desc { border-bottom: none; }
+
+        @media (max-width: 640px) {
+            .track {
+                grid-template-columns: 1fr 48px;
+                gap: 8px;
+            }
+            .track-label {
+                grid-column: 1 / 3;
+                padding-bottom: 4px;
+            }
+            .track-bar { grid-column: 1 / 2; }
+            .track-pct { grid-column: 2 / 3; }
+            .track-desc { grid-column: 1 / 3; }
+        }
+
+        /* Form */
+        .form-wrap {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+        }
+        .form-wrap .fg { margin-bottom: 18px; }
+        .form-wrap label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mid-grey);
+            margin-bottom: 6px;
+        }
+        .form-wrap input[type=text],
+        .form-wrap input[type=email],
+        .form-wrap input[type=url],
+        .form-wrap select,
+        .form-wrap textarea {
+            width: 100%;
+            padding: 11px 14px;
+            background: #FAFAF7;
+            border: 1px solid var(--pale-grey);
+            border-radius: 6px;
+            color: var(--black);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border 0.15s;
+            box-sizing: border-box;
+        }
+        .form-wrap input:focus,
+        .form-wrap select:focus,
+        .form-wrap textarea:focus {
+            outline: none;
+            border-color: var(--caramel);
+        }
+        .form-wrap textarea { resize: vertical; min-height: 80px; }
+        .form-wrap .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-wrap .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .form-wrap .checkbox-row input { width: auto; margin-top: 4px; }
+        .form-wrap .checkbox-row label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--black);
+            margin-bottom: 0;
+            line-height: 1.5;
+            cursor: pointer;
+            font-weight: 400;
+        }
+        .form-wrap .submit-btn {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.15s;
+        }
+        .form-wrap .submit-btn:hover { background: var(--caramel); }
+        .form-wrap .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .form-wrap .error-msg {
+            background: #F7E8E5;
+            border: 1px solid #C97B6E;
+            color: #8B3A2E;
+            padding: 12px 14px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+            display: none;
+        }
+        .form-wrap .disclosure {
+            background: #FDF6E3;
+            border: 1px solid #D4A574;
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #5E4918;
+            line-height: 1.5;
+        }
+        .form-wrap .success {
+            display: none;
+            background: #E8F5E9;
+            border: 1px solid #6B8A7E;
+            border-radius: 8px;
+            padding: 24px 26px;
+            text-align: center;
+        }
+        .form-wrap .success.show { display: block; }
+        .form-wrap .success h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--black);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        @media (max-width: 520px) {
+            .form-wrap .fg-row { grid-template-columns: 1fr; }
+            .form-wrap { padding: 24px 20px; }
+        }
+
+        footer {
+            margin-top: 72px;
+            padding-top: 24px;
+            border-top: 1px solid var(--pale-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer .mark-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1.2px solid var(--light-grey);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--light-grey);
+            letter-spacing: 0.5px;
+        }
+
+        footer .contact {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        footer .contact a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--bronze);
+        }
+
+        footer .contact a:hover { color: var(--bronze); }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X &mdash; Founding 100</h1>
+        <div class="doc-type">Cohort Brief &middot; Invite-Only</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK, in formation)</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="intro">
+    <p>The <strong>Founding 100</strong> is the first cohort of people building Initiative X. <strong>Five segments &middot; one hundred seats &middot; invite-only.</strong></p>
+    <p>You're getting this because someone (probably me) thinks you'd be one of them. This page tells you what the cohort is, what you get, and where the build actually is. If it lands, the form at the bottom is how you say so. If it doesn't, no follow-up.</p>
+</div>
+
+<h2><span class="num">01</span>What this is</h2>
+<p class="lead">Initiative X is a shared operating system for independent hospitality. Five layers: platform, membership, certification, fund, white-label. UKIYO London is the first certified venue. Vinicon is the first certified supplier. We're picking the next 98 over the next 6&ndash;12 months.</p>
+<p>The Founding 100 is split across five archetypes: <strong>Z partners</strong> (brands, hotel groups, family offices building on IX infrastructure), <strong>Patron-investors</strong> (capital markets pros backing the fund), <strong>operators</strong> (independent venues joining the network), <strong>service providers</strong> (the back-of-house layer), and <strong>consumer Patrons</strong> (the demand engine). Each archetype gets different mechanics. Pick yours below or describe it in the form.</p>
+<p>For the structural detail of how the platform works (vehicles, waterfall, methodology, regulatory posture), see <a href="/overview">/overview</a>. This page is a quicker read about <em>what you get for being early</em>.</p>
+
+<h2><span class="num">02</span>What you get for being founding</h2>
+
+<div class="perks">
+    <div class="perk">
+        <div class="perk-label">Year 1</div>
+        <div class="perk-title">Free Patron access</div>
+        <div class="perk-desc">All Patron benefits at &pound;0 for the first year. Standard rate &pound;30/month thereafter.</div>
+    </div>
+    <div class="perk">
+        <div class="perk-label">Investment</div>
+        <div class="perk-title">First refusal on rounds</div>
+        <div class="perk-desc">Founding cohort gets first refusal on every subsequent capital raise &mdash; ahead of external investors, behind only Z partners.</div>
+    </div>
+    <div class="perk">
+        <div class="perk-label">Z partners</div>
+        <div class="perk-title">Founding-rate escalator</div>
+        <div class="perk-desc">Five founding Z slots (one taken). Management fee ramps 1&percnt; / 2&percnt; / 3&percnt; across Y1&ndash;Y3 vs the standard 3&percnt; from day one. Setup fee waived (standard &pound;15K), capitalised as sweat equity.</div>
+    </div>
+    <div class="perk">
+        <div class="perk-label">Operators</div>
+        <div class="perk-title">Phase 1 certification free</div>
+        <div class="perk-desc">10-pillar IX Certification at no cost during Phase 1. Eligibility for Cashflow Notes (working capital) and Development Convertibles (pre-opening) once the rail is live.</div>
+    </div>
+    <div class="perk">
+        <div class="perk-label">All</div>
+        <div class="perk-title">Founding-member dinners</div>
+        <div class="perk-desc">Quarterly dinners across the founding 100 &mdash; Z partners, investors, operators, SPs, and members in the same room. Network compounds in person.</div>
+    </div>
+    <div class="perk">
+        <div class="perk-label">All</div>
+        <div class="perk-title">Name on the wall</div>
+        <div class="perk-desc">Founding contributors are credited inside the platform and at venues. Limited to the first 100 &mdash; this slot doesn't refill.</div>
+    </div>
+</div>
+
+<h2><span class="num">03</span>How the platform makes money &mdash; in 90 seconds</h2>
+
+<table>
+    <thead>
+        <tr><th>Layer</th><th>Mechanic</th><th>Who pays</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Membership</td><td>Patron subscription</td><td>Member &mdash; &pound;30/mo direct to IX</td></tr>
+        <tr><td>White-label</td><td>Management fee on venue gross revenue</td><td>Z partner / operator &mdash; 3&ndash;8&percnt;, split 50/50 cash to IX / IXT to IX Fund NFT</td></tr>
+        <tr><td>Certification</td><td>One-off enrollment + governance fees</td><td>Operators &mdash; small relative to network value</td></tr>
+        <tr><td>Fund</td><td>Carried interest under 5-stage waterfall</td><td>Investors via fund distributions &mdash; only after capital returned</td></tr>
+        <tr><td>IXT loyalty</td><td>Transaction + cash-withdrawal fees</td><td>Members at point of redemption</td></tr>
+    </tbody>
+</table>
+
+<p class="note">All venue revenue stays with the operator. IX takes a small slice of network value created, not of operator turnover.</p>
+
+<h2><span class="num">04</span>Investment vehicles &mdash; six wrappers, two access rails</h2>
+
+<table>
+    <thead>
+        <tr><th>Vehicle</th><th>Profile</th><th>Min</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>A. IXF Units</td><td>Fund equity, NAV-linked</td><td>TBD</td></tr>
+        <tr><td>B. Participation Notes</td><td>Senior bond, 6&ndash;10&percnt; fixed, IXT payout option</td><td>&pound;100 (L1) / &pound;1K (L2)</td></tr>
+        <tr><td>C. Direct Business NFT</td><td>Venue co-invest, Strategic+ tier</td><td>Strategic tier</td></tr>
+        <tr><td>D. PropCo Notes</td><td>Property-backed, 8&ndash;12&percnt; fixed</td><td>&pound;25K</td></tr>
+        <tr><td>E. Cashflow Notes</td><td>Short-duration working-capital loan, 10&ndash;18&percnt; APR</td><td>&pound;100 (L1) / &pound;1K (L2)</td></tr>
+        <tr><td>F. Development Convertibles</td><td>Pre-opening, 12&percnt; APR + NFT conversion at certification</td><td>&pound;100 (L1) / &pound;1K (L2)</td></tr>
+    </tbody>
+</table>
+<p class="note">Five-stage waterfall: <strong>Stage 0</strong> &mdash; Founding investors get 6&percnt; p.a. cumulative preferred (per venue, ringfenced) &middot; <strong>Stage 1</strong> &mdash; capital return, 0&percnt; carry &middot; <strong>Stage 2</strong> &mdash; 10&percnt; carry &middot; <strong>Stage 3</strong> &mdash; 20&percnt; post-payback &middot; <strong>Stage 4</strong> &mdash; 25&percnt; after 2&times;.</p>
+
+<h2><span class="num">05</span>Regulatory posture</h2>
+<div class="reg">
+    <p><strong>Pre-FCA authorisation.</strong> Initiative X is currently pre-FCA-authorisation. <strong>This page is not an offer of investments.</strong> The form below is a register of interest only &mdash; not a subscription, commitment, or offer of securities. Investment vehicles, subscription mechanics, and returns are all subject to FCA opinion (with counsel, 21-question scope) and subsequent fund manager authorisation.</p>
+    <p style="margin-top:10px;">By submitting interest you are not purchasing or committing to purchase anything. We're collecting names so that when the rail is live, we can come back to founding-cohort recipients first.</p>
+</div>
+
+<h2><span class="num">06</span>Where the build actually is</h2>
+<p>Honest read across the five workstreams.</p>
+
+<div class="tracks">
+    <div class="track">
+        <div class="track-label">Technology</div>
+        <div class="track-bar"><div class="track-fill hi" style="width: 68%;"></div></div>
+        <div class="track-pct">68%</div>
+        <div class="track-desc">Public site live, AI Concierge in production, Apple Wallet pass signed, 10+ n8n workflows running, Airtable integrations active. <em>Pending: Google Wallet, member app, investor portal, CRM/KYC tooling.</em></div>
+    </div>
+    <div class="track">
+        <div class="track-label">Financial Structure</div>
+        <div class="track-bar"><div class="track-fill hi" style="width: 82%;"></div></div>
+        <div class="track-pct">82%</div>
+        <div class="track-desc">Methodology v2.0 (stage-dependent DCF, R5&rarr;R1, capex floor, debt deduction). Six investment vehicles specified. Risk Rating Framework v1.1 + Growth Trust + per-venue Founding Preferential Return all documented. <em>Pending: fund manager appointed, live AUM, first subscription executed.</em></div>
+    </div>
+    <div class="track">
+        <div class="track-label">Operating Structure</div>
+        <div class="track-bar"><div class="track-fill mid" style="width: 70%;"></div></div>
+        <div class="track-pct">70%</div>
+        <div class="track-desc">10-pillar certification engine documented and applied (UKIYO first valuation). Venue Playbook v2.1 reconciled with Master v6.1. Multi-entity Brand Holdco / OpCo / PropCo blueprint. <em>Pending: SP Network activation, second venue onboarded.</em></div>
+    </div>
+    <div class="track">
+        <div class="track-label">Legal &amp; Regulatory</div>
+        <div class="track-bar"><div class="track-fill lo" style="width: 60%;"></div></div>
+        <div class="track-pct">60%</div>
+        <div class="track-desc">FCA Opinion Instruction Letter v1.1 expanded to 21 questions. EBT Trust Deed v1.1, Reg Compliance Framework v2.1, Risk Rating Framework v1.1 all aligned to Master v6.1. <em>Pending: FCA letter sent to counsel, opinion received, InitiativeX Ltd incorporated, fund manager AR/outsourcing arrangement.</em></div>
+    </div>
+    <div class="track">
+        <div class="track-label">Outreach &amp; Network</div>
+        <div class="track-bar"><div class="track-fill lo" style="width: 38%;"></div></div>
+        <div class="track-pct">38%</div>
+        <div class="track-desc">Vinicon signed as Founding Z. UKIYO live as first certified venue. Master Contacts file consolidated and cleaned (3,926 contacts). <em>Pending: outreach cadence launched (now), Founding 100 subscriptions booked, second venue pipeline.</em></div>
+    </div>
+</div>
+
+<h2><span class="num">07</span>If you want one of the seats</h2>
+<p>Tell us a bit about you. Three minutes. Not binding. We'll come back to you when there's something specific to come back about.</p>
+
+<div class="form-wrap">
+    <div class="disclosure">
+        <strong>Important.</strong> This form is an <em>expression of interest only</em>. It is not a subscription, commitment, or offer of any security or investment. Initiative X is not currently FCA-authorised. No regulated activities (s.21 FSMA) take place via this page.
+    </div>
+
+    <div class="error-msg" id="founding-error">Something went wrong. Please try again, or email <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>.</div>
+
+    <form id="foundingForm">
+        <div class="fg-row">
+            <div class="fg">
+                <label for="f_name">Full name *</label>
+                <input type="text" id="f_name" name="name" required>
+            </div>
+            <div class="fg">
+                <label for="f_email">Email *</label>
+                <input type="email" id="f_email" name="email" required>
+            </div>
+        </div>
+
+        <div class="fg-row">
+            <div class="fg">
+                <label for="f_company">Company / firm</label>
+                <input type="text" id="f_company" name="company">
+            </div>
+            <div class="fg">
+                <label for="f_role">Role / title</label>
+                <input type="text" id="f_role" name="role">
+            </div>
+        </div>
+
+        <div class="fg">
+            <label for="f_linkedin">LinkedIn URL</label>
+            <input type="url" id="f_linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/...">
+        </div>
+
+        <div class="fg">
+            <label for="f_persona">Which segment do you fit best? *</label>
+            <select id="f_persona" name="persona" required>
+                <option value="">Pick one&hellip;</option>
+                <option value="Z Partner">Z Partner &mdash; brand, hotel group, family office, members' club</option>
+                <option value="Patron-Investor">Patron-Investor &mdash; capital markets, fund, family office</option>
+                <option value="Operator">Operator &mdash; independent venue or restaurant group</option>
+                <option value="Service Provider">Service Provider &mdash; design, finance, HR, legal, marketing, ops, IT</option>
+                <option value="Consumer Patron">Consumer Patron &mdash; member, no investment intent</option>
+                <option value="Other / Not sure">Other / Not sure &mdash; describe below</option>
+            </select>
+        </div>
+
+        <div class="fg">
+            <label for="f_notes">Anything else we should know?</label>
+            <textarea id="f_notes" name="notes" placeholder="Context, interests, concerns, who you'd want us to talk to next, what'd make this a yes for you&hellip;"></textarea>
+        </div>
+
+        <div class="fg">
+            <label for="f_source">How did you hear about IX?</label>
+            <input type="text" id="f_source" name="source" placeholder="Person who shared it, conversation, link&hellip;">
+        </div>
+
+        <div class="checkbox-row">
+            <input type="checkbox" id="f_consent" name="consent" required>
+            <label for="f_consent">I understand this is an expression of interest only, not a subscription or investment commitment, and consent to InitiativeX Ltd contacting me about the Founding 100 cohort.</label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="founding-submit">Register interest</button>
+    </form>
+
+    <div class="success" id="founding-success">
+        <h3>Thanks &mdash; you're on the list.</h3>
+        <p style="font-size:0.92rem;color:var(--mid-grey);margin-bottom:0;">We'll come back to you when there's something specific to come back about. In the meantime, if there's anything you want to surface ahead of that, reach me directly at <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>.</p>
+    </div>
+</div>
+
+<h2><span class="num">08</span>If something catches your eye</h2>
+<p>No ask. Read, ignore, or reply &mdash; whatever's useful. If the structure or the cohort is interesting, the seat is yours to take.</p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+
+<script>
+(function() {
+    const form = document.getElementById('foundingForm');
+    const submit = document.getElementById('founding-submit');
+    const errorBox = document.getElementById('founding-error');
+    const successBox = document.getElementById('founding-success');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        errorBox.style.display = 'none';
+        submit.disabled = true;
+        submit.textContent = 'Submitting…';
+
+        const payload = {
+            name: document.getElementById('f_name').value.trim(),
+            email: document.getElementById('f_email').value.trim(),
+            company: document.getElementById('f_company').value.trim(),
+            role: document.getElementById('f_role').value.trim(),
+            linkedin: document.getElementById('f_linkedin').value.trim(),
+            persona: document.getElementById('f_persona').value,
+            notes: document.getElementById('f_notes').value.trim(),
+            source: document.getElementById('f_source').value.trim(),
+            submitted_at: new Date().toISOString(),
+            page: 'founding'
+        };
+
+        try {
+            const res = await fetch('https://initiativex.app.n8n.cloud/webhook/founding-100-interest', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) throw new Error('Bad status: ' + res.status);
+
+            // GA4 event
+            if (typeof gtag === 'function') {
+                gtag('event', 'founding_interest_submitted', {
+                    persona: payload.persona,
+                    has_company: !!payload.company,
+                    has_linkedin: !!payload.linkedin
+                });
+            }
+
+            form.style.display = 'none';
+            successBox.classList.add('show');
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (err) {
+            errorBox.style.display = 'block';
+            submit.disabled = false;
+            submit.textContent = 'Register interest';
+            console.error('Founding form error:', err);
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
