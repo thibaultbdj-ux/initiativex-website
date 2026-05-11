@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'private_share_view', { recipient: 'bruno_fti' });
+    </script>
+
+    <title>Initiative X — for Bruno (FTI)</title>
+    <meta name="description" content="Private structural snapshot of Initiative X, prepared for Bruno Campana at FTI. Not a pitch.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --warm-bg: #F8F6F3;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --caramel: #D4A574;
+            --cream: #F4F0EB;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            background: var(--warm-bg);
+            padding: 48px 24px 120px;
+        }
+
+        .container { max-width: 760px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header-left .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .header-left h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .header-left .doc-type {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+        }
+
+        .header-right {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--mid-grey);
+            text-align: right;
+            letter-spacing: 0.05em;
+        }
+
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .for-line {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+            margin-bottom: 6px;
+        }
+
+        .greeting {
+            background: #fff;
+            border-left: 3px solid var(--bronze);
+            padding: 22px 28px;
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .greeting p + p { margin-top: 12px; }
+        .greeting strong { color: var(--black); font-weight: 500; }
+        .greeting em { font-style: italic; color: var(--mid-grey); }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--black);
+            margin: 44px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--pale-grey);
+            letter-spacing: -0.005em;
+        }
+
+        h2 .num {
+            font-family: 'DM Mono', monospace;
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--bronze);
+            margin-right: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 18px; margin-bottom: 12px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* Methodology lens — the centrepiece for Bruno */
+        .methodology {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 28px 32px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .methodology-head {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--caramel);
+            margin-bottom: 16px;
+        }
+        .wacc-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            gap: 0;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+        .wacc-grid > div {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(244, 240, 235, 0.12);
+        }
+        .wacc-grid .row-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            color: var(--cream);
+            background: rgba(244, 240, 235, 0.04);
+        }
+        .wacc-grid .col-input {
+            color: var(--warm-light);
+        }
+        .wacc-grid .col-output {
+            color: var(--cream);
+            border-left: 2px solid var(--caramel);
+            padding-left: 16px;
+        }
+        .wacc-grid .head-cell {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--caramel);
+            border-bottom: 1px solid rgba(244, 240, 235, 0.2);
+            padding-bottom: 8px;
+        }
+        .stage0 {
+            margin-top: 22px;
+            padding: 18px 20px;
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 6px;
+        }
+        .stage0-head {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--caramel);
+            margin-bottom: 8px;
+        }
+        .stage0-body {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--cream);
+        }
+        .stage0-body strong { color: var(--caramel); font-weight: 500; }
+        .methodology-summary {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(244, 240, 235, 0.18);
+            font-size: 0.92rem;
+            color: var(--cream);
+            line-height: 1.7;
+        }
+        .methodology-summary strong { color: var(--caramel); font-weight: 500; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            background: var(--off-white);
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+            vertical-align: top;
+            color: var(--dark-grey);
+        }
+
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--mid-grey);
+            margin-top: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .reg {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            border-left: 3px solid var(--caramel);
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: 0.92rem;
+        }
+
+        .ask {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            padding: 22px 26px;
+            border-radius: 8px;
+            margin: 28px 0;
+        }
+        .ask h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+        .ask p { margin-bottom: 8px; font-size: 0.95rem; }
+        .ask p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 10px; }
+            .wacc-grid { grid-template-columns: 1fr; }
+            .wacc-grid .col-output { border-left: none; border-top: 1px solid rgba(244, 240, 235, 0.18); padding-left: 14px; padding-top: 12px; }
+            .wacc-grid .row-header { background: rgba(244, 240, 235, 0.08); }
+        }
+
+        footer {
+            margin-top: 72px;
+            padding-top: 24px;
+            border-top: 1px solid var(--pale-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer .mark-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1.2px solid var(--light-grey);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--light-grey);
+            letter-spacing: 0.5px;
+        }
+
+        footer .contact {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        footer .contact a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--bronze);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X</h1>
+        <div class="doc-type">Private Share &middot; Prepared for Bruno</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK)</div>
+        <div>Companies House #17202264</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="for-line">For Bruno Campana &middot; FTI</div>
+
+<div class="greeting">
+    <p>Bruno,</p>
+    <p>Sending you this because <strong>your CAIA + CQF lens is exactly the lens this most needs right now</strong> &mdash; before counsel, before the fund manager, while the methodology is still cheap to fix. The piece I want your read on is <em>Section 01: the WACC build-up and the Stage 0 founding-preference mechanics</em>. If those don't stand up to the way FTI's valuation team would tear into them, nothing else matters.</p>
+    <p>This is a 5-min structural snapshot. <em>Not a pitch.</em> Where the methodology breaks &mdash; or where you've seen this kind of structure get rejected at institutional DD &mdash; is the most valuable thing you could send back.</p>
+    <p><em>&mdash; Thibault</em></p>
+</div>
+
+<h2><span class="num">01</span>The methodology lens &mdash; what I want you to grade</h2>
+
+<div class="methodology">
+    <div class="methodology-head">Business NFT Valuation Methodology v2.0 &mdash; the WACC build</div>
+    <div class="wacc-grid">
+        <div class="head-cell">Layer</div>
+        <div class="head-cell">Driver</div>
+        <div class="head-cell">Range / Practice</div>
+
+        <div class="row-header">Base Cost of Capital</div>
+        <div class="col-input">UK hospitality sector benchmark</div>
+        <div class="col-output">Reference rate &mdash; aligned with Christie &amp; Co / Davis Coffer Lyons / Fleurets practice</div>
+
+        <div class="row-header">Stage Premium</div>
+        <div class="col-input">R5 (pre-opening) &rarr; R1 (mature, &gt;3yr trading)</div>
+        <div class="col-output">Step-down at R5&rarr;R4&rarr;R3&rarr;R2&rarr;R1 transitions; R3&rarr;R2 requires 12 mo trading + 6 consecutive months positive op cashflow + EBITDA variance &lt;25% + IC sign-off</div>
+
+        <div class="row-header">Certification Premium</div>
+        <div class="col-input">Foundation (40%) / Verified (60%) / Excellence (80%)</div>
+        <div class="col-output">Higher tier &rarr; lower premium. Score decay if standards slip; quarterly reassessment.</div>
+
+        <div class="row-header">Governance Premium</div>
+        <div class="col-input">G1 (best) &rarr; G5 (worst)</div>
+        <div class="col-output">Lower premium for stronger governance. Downgrade to G3 or below triggers valuation reassessment.</div>
+
+        <div class="row-header">Capex floor</div>
+        <div class="col-input">Capex Evidence File maintained at OpCo</div>
+        <div class="col-output">Initial file delivered within 60 days of enrollment; quarterly review. Floor prevents under-investment gaming.</div>
+
+        <div class="row-header">Debt &amp; lease</div>
+        <div class="col-input">As-reported financials; lease renewal probability</div>
+        <div class="col-output">Debt always deducted, no normalisation below R2 stage. Lease renewal probability adjusts terminal value.</div>
+    </div>
+
+    <div class="stage0">
+        <div class="stage0-head">Stage 0 &mdash; Founding Preferential Return (the bit that's most novel)</div>
+        <div class="stage0-body">
+            <strong>Mechanics:</strong> Founding investors in any venue-specific raise (Direct Business NFT, Development Convertibles for that venue, venue-specific Participation Notes) receive 100% of <em>that venue's</em> distributable cashflow until they have received (a) 6% per annum cumulative preferred return on subscription price, and (b) full repayment of principal. 0% carry to IX during Stage 0.
+            <br><br>
+            <strong>Ringfenced.</strong> Stage 0 is per-venue only. It does <em>not</em> apply to pooled vehicles (IXF Units, pooled Cashflow Notes), which are pari passu under Stage 1. So Founding investors in venue A do not get preference from venue B's cashflows; pooled-vehicle LPs are not diluted by per-venue Founding tranches in other venues. The corporate-level Articles of Association v2.1 codify this as Article 34, Stage 0.
+            <br><br>
+            <strong>Why Stage 0 instead of generic 7% pref + catch-up:</strong> The generic PE waterfall structure muddles per-venue performance with fund-level performance. Stage 0 isolates the Founding Investor preferential to the venue's own cashflow, which makes the carry math defensible per-venue and prevents cross-subsidy.
+        </div>
+    </div>
+
+    <div class="methodology-summary">
+        <strong>What replaces what.</strong> The earlier IX score-&times;-multiple-&times;-revenue formula is deprecated. v2.0 is stage-dependent DCF + capex floor + explicit debt deduction + lease renewal probability. References standard UK hospitality M&amp;A practice. Quarterly reassessment cadence. <strong>Where this would fail FTI-grade DD &mdash; that's the question I'm sending you.</strong>
+    </div>
+</div>
+
+<h2><span class="num">02</span>The architecture in 5 minutes</h2>
+<p class="lead">Five layers. Free to enter; layers open as operators and members grow with the network.</p>
+
+<table>
+    <thead>
+        <tr><th>Layer</th><th>What it is</th><th>Audience</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Platform</td><td>Governance, partnerships, infrastructure (the OS)</td><td>Operators, partners</td></tr>
+        <tr><td>Membership</td><td>2-tier consumer (Explorer free, Patron &pound;30/mo). IXT loyalty currency at 1:1 floor.</td><td>Consumers</td></tr>
+        <tr><td>Certification</td><td>10-pillar venue assessment &rarr; Foundation/Verified/Excellence tier &rarr; R-rating (R5&rarr;R1)</td><td>Venues</td></tr>
+        <tr><td>Fund</td><td>OEIC/Unit Trust under CP25/28. Holds Business NFTs of certified venues. NAV-tracked.</td><td>Investors</td></tr>
+        <tr><td>White-label</td><td>Z-partners (brands, hotel groups, family offices) build on IX infra under their own brand</td><td>Z partners</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">03</span>The investment surface</h2>
+<p>Six vehicles under the appointed FCA-authorised fund manager. Two access rails: Layer 1 retail via ECF partner (&pound;100 min), Layer 2 direct under the AIFM (&pound;1K min). Strategic tier accesses everything.</p>
+
+<table>
+    <thead>
+        <tr><th>Vehicle</th><th>Profile</th><th>Target Return</th><th>Lock-up</th><th>Min</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>A. IXF Units</td><td>Fund equity, NAV-linked, 5-stage waterfall</td><td>Variable (NAV)</td><td>5&ndash;7 yrs</td><td>TBD</td></tr>
+        <tr><td>B. IX Participation Notes</td><td>Senior bond, asset-backed. Cash or IXT payout option.</td><td>6&ndash;10% fixed</td><td>12&ndash;36 mo</td><td>&pound;100 / &pound;1K</td></tr>
+        <tr><td>C. Direct Business NFT</td><td>Venue co-invest, quarterly distributions (Strategic+ tier)</td><td>Variable</td><td>3&ndash;7 yrs</td><td>Strategic tier</td></tr>
+        <tr><td>D. PropCo Notes</td><td>Property-backed, first-rank mortgage</td><td>8&ndash;12% fixed</td><td>24&ndash;60 mo</td><td>&pound;25K</td></tr>
+        <tr><td>E. IX Cashflow Notes</td><td>Short-duration working-capital loan to certified venues. 20% loss reserve held in trust.</td><td>10&ndash;18% APR (by R-rating)</td><td>3&ndash;12 mo</td><td>&pound;100 / &pound;1K</td></tr>
+        <tr><td>F. IX Development Convertibles</td><td>Pre-opening convertible. Mandatory conversion to Business NFT at 20/30/40% discount on Foundation/Verified/Excellence certification.</td><td>12% APR (6% cash + 6% IXT) + NFT conversion</td><td>Up to 24 mo</td><td>&pound;100 / &pound;1K</td></tr>
+    </tbody>
+</table>
+
+<p class="note"><strong>Five-stage waterfall.</strong> Stage 0 (above &mdash; per-venue 6% founding pref) &middot; Stage 1 capital return, 0% carry &middot; Stage 2 10% carry pre-payback &middot; Stage 3 20% post-payback &middot; Stage 4 25% above 2&times; MOIC.</p>
+
+<h2><span class="num">04</span>NAV roll-up &amp; reporting</h2>
+<p>Fund NAV rolls up from the aggregate Business NFT valuations + the loan books (Cashflow Notes + Development Convertibles + Participation Notes + PropCo Notes). Quarterly published. Each Business NFT carries a stage (R1&ndash;R5), a certification tier (F/V/E), and a governance rating (G1&ndash;G5) &mdash; all of which feed into its WACC and therefore its DCF.</p>
+<p>Per the Articles v2.1 + Reg Compliance Framework v2.1: investor-facing disclosures include quarterly NAV statements, Founding Preferential Return satisfaction status per venue, capex evidence file status per venue, and stage transitions (R5&rarr;R1) with IC sign-off audit trail. Independent valuer engagement is on the legal track (template drafted, not yet engaged).</p>
+
+<h2><span class="num">05</span>Regulatory posture</h2>
+<div class="reg">
+    <p><strong>Two-entity split.</strong> InitiativeX Ltd (unregulated) handles the consumer membership, IXT loyalty earning/spending, B2B platform, and management fees. <strong>Appointed FCA-authorised fund manager</strong> handles all six investment vehicles, IXT cash withdrawal (where it triggers e-money), financial promotions, and client money.</p>
+    <p style="margin-top:10px;"><strong>FCA Opinion Instruction Letter v1.1</strong> (21 questions) is with counsel. Covers: IXT classification, CIS/AIFMD, EMI/EBT, financial promotions, phased launch, six-vehicle treatment, two-layer retail-access model, staff-investor MAR exposure, FPO Art.25 introducer fees, per-venue founding preferential return, multi-entity Brand Holdco / OpCo / PropCo structure.</p>
+    <p style="margin-top:10px; font-size: 0.88rem; color: var(--mid-grey);">Full FCA letter and the IX Regulatory &amp; Compliance Framework v2.1 are linked in &sect;08 below &mdash; both confidential / counsel-side.</p>
+</div>
+
+<h2><span class="num">06</span>Where the build actually is</h2>
+<p>Honest read across the five workstreams:</p>
+
+<table>
+    <thead>
+        <tr><th>Track</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Technology</td><td>~70%</td><td>Public site live, AI Concierge in production, Apple Wallet pass signed, 10+ n8n workflows running, GA4 across every page. <em>Pending:</em> Google Wallet, member app, investor portal, CRM/KYC tooling.</td></tr>
+        <tr><td>Financial Structure</td><td>~85%</td><td>Methodology v2.0, 6 vehicles, 5-stage waterfall (with Stage 0), Risk Rating Framework v1.1, EBT Trust Deed v1.1 all aligned. <em>Pending:</em> fund manager appointed, live AUM, first subscription executed, independent valuer engaged.</td></tr>
+        <tr><td>Operating Structure</td><td>~70%</td><td>10-pillar certification engine documented and applied to UKIYO. Multi-entity Brand Holdco / OpCo / PropCo blueprint. Capex Evidence File mandatory at Day 60. <em>Pending:</em> SP Network activation, second venue onboarded.</td></tr>
+        <tr><td>Legal &amp; Regulatory</td><td>~65%</td><td>FCA Opinion Letter v1.1 (21 Qs) drafted &mdash; with counsel. Articles of Association v2.1 + Reg Compliance v2.1 + EBT v1.1 all aligned to Master v6.1. InitiativeX Ltd incorporated 6 May 2026 (#17202264). <em>Pending:</em> opinion received, fund manager AR/outsourcing arrangement.</td></tr>
+        <tr><td>Outreach &amp; Network</td><td>~40%</td><td>Vinicon signed as Founding Z. UKIYO live as first certified venue. Founding 100 cohort assembling now (you're in it). <em>Pending:</em> outreach cadence launched, Founding 100 subscriptions booked, second venue pipeline.</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">07</span>What I'd specifically value from you</h2>
+<div class="ask">
+    <h3>Three asks, in order of usefulness</h3>
+    <p><strong>1. Stress-test the WACC build.</strong> Does the 4-layer additive structure (base + stage + certification + governance) hold up against how FTI's valuation team would model a hospitality portfolio? What are the obvious sensitivity holes? Where does cross-stage premium double-count or under-count?</p>
+    <p><strong>2. Stress-test the Stage 0 mechanics.</strong> The per-venue ringfenced 6% founding preference is the most novel piece. Is the math defensible against (a) cross-subsidy claims from pooled-vehicle LPs in the same fund, (b) AIFM concentration concerns where one venue's founding tranche dominates that venue's distributable cashflow, (c) audit/transfer-pricing scrutiny when Brand Holdco royalty + management fee + Stage 0 all hit the same OpCo P&amp;L?</p>
+    <p><strong>3. Where would FTI-grade institutional DD reject this?</strong> You've sat on both sides of investment committees that say no. The thing I most want to know is the two or three things that would make a sophisticated allocator pass &mdash; <em>before</em> I burn relationships finding out the hard way.</p>
+</div>
+
+<h2><span class="num">08</span>If you want to go deeper</h2>
+<ul>
+    <li>Main website: <a href="https://initiativex.co.uk">initiativex.co.uk</a> &mdash; consumer-facing landing</li>
+    <li>Generic structural overview: <a href="https://initiativex.co.uk/overview">initiativex.co.uk/overview</a> &mdash; less methodology-deep, more architecture-overview</li>
+    <li>Founding 100 cohort details: <a href="https://initiativex.co.uk/founding">initiativex.co.uk/founding</a> &mdash; if you want to formalise involvement</li>
+    <li>FCA Opinion Letter v1.1 (full 21 questions): <a href="https://initiativex.co.uk/fca">initiativex.co.uk/fca</a> &mdash; counsel-side / confidential, please don't redistribute</li>
+    <li>Regulatory &amp; Compliance Framework v2.1: <a href="https://initiativex.co.uk/regulatory">initiativex.co.uk/regulatory</a> &mdash; counsel-side / confidential, please don't redistribute</li>
+    <li>20-min call: <a href="mailto:thibault@initiativex.co.uk?subject=Initiative%20X%20%E2%80%94%20methodology%20call">thibault@initiativex.co.uk</a> &mdash; reply with two times that work</li>
+</ul>
+
+<h2><span class="num">09</span>One last thing</h2>
+<p>No ask beyond what's in &sect;07. If the methodology is interesting enough to grade, the conversation is what's most valuable. If it's not the right moment &mdash; ignore. No follow-up sequence on this page.</p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
