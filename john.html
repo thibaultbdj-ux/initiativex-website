@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'private_share_view', { recipient: 'john_solstice' });
+    </script>
+
+    <title>Initiative X — for John (Solstice)</title>
+    <meta name="description" content="Private structural snapshot of Initiative X, prepared for John at Solstice. Not a pitch.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-grey: #333333;
+            --mid-grey: #666666;
+            --light-grey: #999999;
+            --pale-grey: #E8E8E8;
+            --off-white: #F5F5F5;
+            --warm-bg: #F8F6F3;
+            --bronze: #9B8B6E;
+            --warm-light: #B8A88A;
+            --teal: #3F5A5A;
+            --teal-light: #4D6B6B;
+            --sage: #6B8A7E;
+            --caramel: #D4A574;
+            --cream: #F4F0EB;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            background: var(--warm-bg);
+            padding: 48px 24px 120px;
+        }
+
+        .container { max-width: 760px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header-left .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .header-left h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .header-left .doc-type {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+        }
+
+        .header-right {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--mid-grey);
+            text-align: right;
+            letter-spacing: 0.05em;
+        }
+
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .for-line {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+            margin-bottom: 6px;
+        }
+
+        .greeting {
+            background: #fff;
+            border-left: 3px solid var(--bronze);
+            padding: 22px 28px;
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .greeting p + p { margin-top: 12px; }
+        .greeting strong { color: var(--black); font-weight: 500; }
+        .greeting em { font-style: italic; color: var(--mid-grey); }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--black);
+            margin: 44px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--pale-grey);
+            letter-spacing: -0.005em;
+        }
+
+        h2 .num {
+            font-family: 'DM Mono', monospace;
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--bronze);
+            margin-right: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 18px; margin-bottom: 12px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* The Solstice parallel — the centrepiece */
+        .parallel {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 28px 32px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .parallel-head {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--caramel);
+            margin-bottom: 16px;
+        }
+        .parallel-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr;
+            gap: 0;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+        .parallel-grid > div {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(244, 240, 235, 0.12);
+        }
+        .parallel-grid .row-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            color: var(--cream);
+            background: rgba(244, 240, 235, 0.04);
+        }
+        .parallel-grid .col-solstice {
+            color: var(--warm-light);
+        }
+        .parallel-grid .col-ix {
+            color: var(--cream);
+            border-left: 2px solid var(--caramel);
+            padding-left: 16px;
+        }
+        .parallel-grid .head-cell {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--caramel);
+            border-bottom: 1px solid rgba(244, 240, 235, 0.2);
+            padding-bottom: 8px;
+        }
+        .parallel-summary {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(244, 240, 235, 0.18);
+            font-size: 0.92rem;
+            color: var(--cream);
+            line-height: 1.7;
+        }
+        .parallel-summary strong { color: var(--caramel); font-weight: 500; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mid-grey);
+            background: var(--off-white);
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--pale-grey);
+            vertical-align: top;
+            color: var(--dark-grey);
+        }
+
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--mid-grey);
+            margin-top: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .reg {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            border-left: 3px solid var(--caramel);
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: 0.92rem;
+        }
+
+        .ask {
+            background: #fff;
+            border: 1px solid var(--pale-grey);
+            padding: 22px 26px;
+            border-radius: 8px;
+            margin: 28px 0;
+        }
+        .ask h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+        .ask p { margin-bottom: 8px; font-size: 0.95rem; }
+        .ask p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 10px; }
+            .parallel-grid { grid-template-columns: 1fr; }
+            .parallel-grid .col-ix { border-left: none; border-top: 1px solid rgba(244, 240, 235, 0.18); padding-left: 14px; padding-top: 12px; }
+            .parallel-grid .row-header { background: rgba(244, 240, 235, 0.08); }
+        }
+
+        footer {
+            margin-top: 72px;
+            padding-top: 24px;
+            border-top: 1px solid var(--pale-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer .mark-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1.2px solid var(--light-grey);
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--light-grey);
+            letter-spacing: 0.5px;
+        }
+
+        footer .contact {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--mid-grey);
+        }
+
+        footer .contact a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--bronze);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X</h1>
+        <div class="doc-type">Private Share &middot; Prepared for John</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK, in formation)</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="for-line">For John &middot; Solstice</div>
+
+<div class="greeting">
+    <p>John,</p>
+    <p>Sending you this because you'll see the <strong>structural pattern</strong> faster than most. Solstice is the closest live analogue I know to what I'm building &mdash; same shape (pool capital &rarr; generate yield &rarr; distribute via locked tokens to holders), opposite execution: you're delta-neutral DeFi-native crypto-collateralised; I'm regulated real-asset-backed UK hospitality. Both bets cash out at the same end-state &mdash; <strong>pooled-capital products that retail can actually hold.</strong></p>
+    <p>This is a 5-min structural snapshot. <em>Not a pitch.</em> If something looks off in the structure, that's the most useful thing you could tell me.</p>
+    <p><em>&mdash; Thibault</em></p>
+</div>
+
+<h2><span class="num">01</span>The Solstice parallel &mdash; in one block</h2>
+
+<div class="parallel">
+    <div class="parallel-head">Same shape, opposite execution</div>
+    <div class="parallel-grid">
+        <div class="head-cell">&nbsp;</div>
+        <div class="head-cell">Solstice</div>
+        <div class="head-cell">Initiative X</div>
+
+        <div class="row-header">Underlying yield source</div>
+        <div class="col-solstice">Delta-neutral perp + spot hedging</div>
+        <div class="col-ix">Operating cashflow from certified hospitality venues + property + lending</div>
+
+        <div class="row-header">Asset backing</div>
+        <div class="col-solstice">Crypto-collateralised (synthetic)</div>
+        <div class="col-ix">Real-asset (Business NFTs of certified venues + PropCo notes)</div>
+
+        <div class="row-header">Stable unit</div>
+        <div class="col-solstice">USX (synthetic USD)</div>
+        <div class="col-ix">IXT (1 IXT = &pound;1 floor, the 1:1 Rule)</div>
+
+        <div class="row-header">Yield wrapper</div>
+        <div class="col-solstice">YieldVault (~11.5% avg)</div>
+        <div class="col-ix">IXF Units (NAV-linked) + 5 fixed-yield vehicles (6&ndash;18% APR by risk band)</div>
+
+        <div class="row-header">Regulatory wrapper</div>
+        <div class="col-solstice">DeFi-native, permissionless</div>
+        <div class="col-ix">FCA-regulated (CP25/28, OEIC/Unit Trust, appointed AIFM)</div>
+
+        <div class="row-header">Distribution</div>
+        <div class="col-solstice">Open / on-chain</div>
+        <div class="col-ix">Patron-tier subscription (&pound;30/mo) + onboarded investors via two access rails (L1 retail ECF / L2 direct AIFM)</div>
+
+        <div class="row-header">TVL today</div>
+        <div class="col-solstice">~$300M</div>
+        <div class="col-ix">Pre-launch (Phase 1) &mdash; UKIYO London first certified, Vinicon first founding Z partner, 15-EU-cities pipeline</div>
+
+        <div class="row-header">Bet shape</div>
+        <div class="col-solstice">"DeFi goes mainstream"</div>
+        <div class="col-ix">"Regulated real-economy yield finds a retail wrapper"</div>
+    </div>
+    <div class="parallel-summary">
+        <strong>The bridge.</strong> Most of the regulated real-asset world is clunky, illiquid, and high-minimum. Most DeFi yield is mechanically interesting but loses 90% of its addressable retail market the moment FCA enforcement tightens. IX threads that gap: real underlying assets, regulated wrapper, retail-accessible minimums (&pound;100 on Layer 1), and a non-tradeable utility unit that does the work of a stablecoin without being one.
+    </div>
+</div>
+
+<h2><span class="num">02</span>The architecture in 5 minutes</h2>
+<p class="lead">Five layers. Free to enter; layers open as operators and members grow with the network.</p>
+
+<table>
+    <thead>
+        <tr><th>Layer</th><th>What it is</th><th>Audience</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Platform</td><td>Governance, partnerships, infrastructure (the OS)</td><td>Operators, partners</td></tr>
+        <tr><td>Membership</td><td>2-tier consumer (Explorer free, Patron &pound;30/mo). IXT loyalty currency at 1:1 floor.</td><td>Consumers</td></tr>
+        <tr><td>Certification</td><td>10-pillar venue assessment &rarr; Foundation/Verified/Excellence tier &rarr; R-rating (R5&rarr;R1)</td><td>Venues</td></tr>
+        <tr><td>Fund</td><td>OEIC/Unit Trust under CP25/28. Holds Business NFTs of certified venues. NAV-tracked.</td><td>Investors</td></tr>
+        <tr><td>White-label</td><td>Z-partners (brands, hotel groups, family offices) build on IX infra under their own brand</td><td>Z partners</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">03</span>The investment surface (the bit you'll care about)</h2>
+<p>Six vehicles under the appointed FCA-authorised fund manager. Two access rails: Layer 1 retail via ECF partner (&pound;100 min), Layer 2 direct under the AIFM (&pound;1K min). Strategic tier accesses everything.</p>
+
+<table>
+    <thead>
+        <tr><th>Vehicle</th><th>Profile</th><th>Target Return</th><th>Lock-up</th><th>Min</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>A. IXF Units</td><td>Fund equity, NAV-linked, 5-stage waterfall</td><td>Variable (NAV)</td><td>5&ndash;7 yrs</td><td>TBD</td></tr>
+        <tr><td>B. IX Participation Notes</td><td>Senior bond, asset-backed. Cash or IXT payout option.</td><td>6&ndash;10% fixed</td><td>12&ndash;36 mo</td><td>&pound;100 / &pound;1K</td></tr>
+        <tr><td>C. Direct Business NFT</td><td>Venue co-invest, quarterly distributions (Strategic+ tier)</td><td>Variable</td><td>3&ndash;7 yrs</td><td>Strategic tier</td></tr>
+        <tr><td>D. PropCo Notes</td><td>Property-backed, first-rank mortgage</td><td>8&ndash;12% fixed</td><td>24&ndash;60 mo</td><td>&pound;25K</td></tr>
+        <tr><td>E. IX Cashflow Notes</td><td>Short-duration working-capital loan to certified venues. 20% loss reserve held in trust.</td><td>10&ndash;18% APR (by R-rating)</td><td>3&ndash;12 mo</td><td>&pound;100 / &pound;1K</td></tr>
+        <tr><td>F. IX Development Convertibles</td><td>Pre-opening convertible. Mandatory conversion to Business NFT at 20/30/40% discount on Foundation/Verified/Excellence certification.</td><td>12% APR (6% cash + 6% IXT) + NFT conversion</td><td>Up to 24 mo</td><td>&pound;100 / &pound;1K</td></tr>
+    </tbody>
+</table>
+
+<p class="note"><strong>5-stage waterfall.</strong> Stage 0 &mdash; Founding investors get 6% p.a. cumulative preferred (per venue, ringfenced from venue cashflow only). Stage 1 &mdash; pari passu return of capital, 0% carry. Stage 2 &mdash; 10% carry pre-payback. Stage 3 &mdash; 20% post-payback. Stage 4 &mdash; 25% above 2&times; MOIC.</p>
+
+<h2><span class="num">04</span>Valuation methodology &mdash; how the assets are marked</h2>
+<p>Each Business NFT (the per-venue underlying) is valued under the IX Business NFT Valuation Methodology v2.0: <strong>stage-dependent DCF</strong> with WACC built from four additive layers (base + stage premium R5&rarr;R1 + certification premium F/V/E + governance premium G1&rarr;G5), capex floor, explicit debt deduction, and lease renewal probability adjusting the terminal value. Quarterly reassessment.</p>
+
+<p>Fund NAV rolls up from the aggregate Business NFT valuations + the loan books (Cashflow Notes + Development Convertibles + Participation Notes + PropCo Notes). Quarterly published.</p>
+
+<p>References standard UK hospitality M&amp;A practice (Christie &amp; Co / Davis Coffer Lyons / Fleurets all use the same DCF + capex floor + lease probability model). <em>Not</em> the deprecated score-&times;-multiple-&times;-revenue formula that some earlier IX docs referenced.</p>
+
+<h2><span class="num">05</span>Regulatory posture</h2>
+<div class="reg">
+    <p><strong>Two-entity split.</strong> InitiativeX Ltd (unregulated) handles the consumer membership, IXT loyalty earning/spending, B2B platform, and management fees. <strong>Appointed FCA-authorised fund manager</strong> handles all six investment vehicles, IXT cash withdrawal (where it triggers e-money), financial promotions, and client money.</p>
+    <p style="margin-top:10px;"><strong>FCA Opinion Instruction Letter v1.1</strong> (21 questions) is with counsel. Covers: IXT classification, CIS/AIFMD, EMI/EBT, financial promotions, phased launch, six-vehicle treatment, two-layer retail-access model, staff-investor MAR exposure, FPO Art.25 introducer fees, per-venue founding preferential return, multi-entity Brand Holdco / OpCo / PropCo structure.</p>
+    <p style="margin-top:10px; font-size: 0.88rem; color: var(--mid-grey);">If the regulatory posture is the bit you find most interesting, the full FCA letter and the IX Regulatory &amp; Compliance Framework v2.1 are sharable on request &mdash; both confidential / counsel-side.</p>
+</div>
+
+<h2><span class="num">06</span>Where the build actually is</h2>
+<p>Honest read across the five workstreams:</p>
+
+<table>
+    <thead>
+        <tr><th>Track</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Technology</td><td>~70%</td><td>Public site live, AI Concierge in production, Apple Wallet pass signed, 10+ n8n workflows running, GA4 across every page. <em>Pending:</em> Google Wallet, member app, investor portal, CRM/KYC tooling.</td></tr>
+        <tr><td>Financial Structure</td><td>~85%</td><td>Methodology v2.0, 6 vehicles, 5-stage waterfall, Risk Rating Framework v1.1, EBT Trust Deed v1.1 all aligned. <em>Pending:</em> fund manager appointed, live AUM, first subscription executed.</td></tr>
+        <tr><td>Operating Structure</td><td>~70%</td><td>10-pillar certification engine documented and applied to UKIYO. Multi-entity Brand Holdco / OpCo / PropCo blueprint. <em>Pending:</em> SP Network activation, second venue onboarded.</td></tr>
+        <tr><td>Legal &amp; Regulatory</td><td>~60%</td><td>FCA Opinion Letter v1.1 (21 Qs) drafted &mdash; with counsel. Articles of Association v2.1 + Reg Compliance v2.1 + EBT v1.1 all aligned to Master v6.1. <em>Pending:</em> opinion received, InitiativeX Ltd incorporated, fund manager AR/outsourcing arrangement.</td></tr>
+        <tr><td>Outreach &amp; Network</td><td>~40%</td><td>Vinicon signed as Founding Z. UKIYO live as first certified venue. Founding 100 cohort assembling now (you're in it). <em>Pending:</em> outreach cadence launched, Founding 100 subscriptions booked, second venue pipeline.</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">07</span>What I'd specifically value from you</h2>
+<div class="ask">
+    <h3>Three things, in order of usefulness</h3>
+    <p><strong>1. Stress-test the structural parallel.</strong> Where does the Solstice / IX comparison break down? You'll see weaknesses I can't see from inside.</p>
+    <p><strong>2. Sanity-check the regulatory wrapper.</strong> You've watched the regulated-vs-unregulated tension play out at scale. Is the two-entity FCA split clean enough? Is the appointed AIFM route the right one or is there a faster path I'm missing?</p>
+    <p><strong>3. Where would Solstice see this differently?</strong> Not a partnership pitch &mdash; just curious whether anything in the IX architecture would catch the team's attention as adjacent or worth tracking. Cross-pollination if the moment's right; nothing if not.</p>
+</div>
+
+<h2><span class="num">08</span>If you want to go deeper</h2>
+<ul>
+    <li>Generic structural overview: <a href="https://initiativex.co.uk/overview">initiativex.co.uk/overview</a> &mdash; same content but written for a less crypto-fluent audience</li>
+    <li>Founding 100 cohort details: <a href="https://initiativex.co.uk/founding">initiativex.co.uk/founding</a> &mdash; for if you want a slot</li>
+    <li>FCA Opinion Letter v1.1 (full 21 questions) and Reg &amp; Compliance Framework v2.1 &mdash; available on request, counsel-side / confidential</li>
+    <li>20-min call: <a href="mailto:thibault@initiativex.co.uk?subject=Initiative%20X%20call">thibault@initiativex.co.uk</a> &mdash; reply with two times that work</li>
+</ul>
+
+<h2><span class="num">09</span>One last thing</h2>
+<p>No ask beyond what's in &sect;07. If the structure or the parallel is interesting, the conversation is what's most valuable. If neither lands, ignore &mdash; no follow-up sequence on this page.</p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
