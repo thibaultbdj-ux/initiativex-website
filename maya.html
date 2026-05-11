@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'private_share_view', { recipient: 'maya_consultant' });
+    </script>
+
+    <title>Initiative X — for Maya (Beverage Consultant)</title>
+    <meta name="description" content="Private structural snapshot of Initiative X, prepared for Maya. Not a pitch.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
+            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
+            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
+            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
+        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--dark-grey); line-height: 1.7; background: var(--warm-bg); padding: 48px 24px 120px; }
+        .container { max-width: 760px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 40px; }
+        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
+        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
+        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
+        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+        .for-line { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); margin-bottom: 6px; }
+        .greeting { background: #fff; border-left: 3px solid var(--bronze); padding: 22px 28px; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--charcoal); }
+        .greeting p + p { margin-top: 12px; }
+        .greeting strong { color: var(--black); font-weight: 500; }
+        .greeting em { font-style: italic; color: var(--mid-grey); }
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
+        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 18px; margin-bottom: 12px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* Where consultants fit — the centrepiece for Maya */
+        .lens { background: var(--charcoal); color: var(--cream); padding: 28px 32px; border-radius: 12px; margin: 24px 0; }
+        .lens-head { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--caramel); margin-bottom: 16px; }
+        .role-grid { display: grid; grid-template-columns: 200px 1fr; gap: 0; font-size: 0.9rem; line-height: 1.6; }
+        .role-grid > div { padding: 12px 14px; border-bottom: 1px solid rgba(244, 240, 235, 0.12); }
+        .role-grid .row-header { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--cream); background: rgba(244, 240, 235, 0.04); }
+        .role-grid .col-detail { color: var(--cream); border-left: 2px solid var(--caramel); padding-left: 16px; }
+        .role-grid .head-cell { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--caramel); border-bottom: 1px solid rgba(244, 240, 235, 0.2); padding-bottom: 8px; }
+        .pillar-callout { margin-top: 22px; padding: 16px 18px; background: rgba(212, 165, 116, 0.08); border: 1px solid rgba(212, 165, 116, 0.3); border-radius: 6px; font-size: 0.92rem; color: var(--cream); line-height: 1.6; }
+        .pillar-callout strong { color: var(--caramel); font-weight: 500; }
+        .lens-summary { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(244, 240, 235, 0.18); font-size: 0.92rem; color: var(--cream); line-height: 1.7; }
+        .lens-summary strong { color: var(--caramel); font-weight: 500; }
+
+        table { width: 100%; border-collapse: collapse; margin: 18px 0; background: #fff; border-radius: 6px; overflow: hidden; font-size: 0.85rem; }
+        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey); background: var(--off-white); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--pale-grey); }
+        td { padding: 11px 14px; border-bottom: 1px solid var(--pale-grey); vertical-align: top; color: var(--dark-grey); }
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+        .note { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--mid-grey); margin-top: 8px; letter-spacing: 0.02em; }
+        .reg { background: #fff; border: 1px solid var(--pale-grey); border-left: 3px solid var(--caramel); padding: 18px 22px; border-radius: 6px; margin-top: 14px; font-size: 0.92rem; }
+        .ask { background: #fff; border: 1px solid var(--pale-grey); padding: 22px 26px; border-radius: 8px; margin: 28px 0; }
+        .ask h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--black); margin-bottom: 12px; }
+        .ask p { margin-bottom: 8px; font-size: 0.95rem; }
+        .ask p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 10px; }
+            .role-grid { grid-template-columns: 1fr; }
+            .role-grid .col-detail { border-left: none; border-top: 1px solid rgba(244, 240, 235, 0.18); padding-left: 14px; padding-top: 12px; }
+        }
+
+        footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
+        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
+        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X</h1>
+        <div class="doc-type">Private Share &middot; Prepared for Maya</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK)</div>
+        <div>Companies House #17202264</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="for-line">For Maya &middot; Beverage Consultant</div>
+
+<div class="greeting">
+    <p>Maya,</p>
+    <p>Sending you this because <strong>your work sits at the exact seam IX is built around</strong> &mdash; venues need certified beverage programmes, suppliers need a route to those venues, and members want curation they can trust. Most consultants in this space pick up the phone for one client at a time. IX gives the same work a network it compounds into.</p>
+    <p>This is a 5-min snapshot. <em>Not a pitch.</em> The two questions I most want your read on: (1) where the certification engine breaks down for beverage programmes specifically, and (2) what an SP-network framework should look like for someone whose work is project-based not retainer-based.</p>
+    <p><em>&mdash; Thibault</em></p>
+</div>
+
+<h2><span class="num">01</span>Where consultants fit in IX</h2>
+
+<div class="lens">
+    <div class="lens-head">Three lanes &mdash; you'd be in lane 2, but lanes 1 and 3 also matter to you</div>
+
+    <div class="role-grid">
+        <div class="head-cell">Lane</div>
+        <div class="head-cell">What it is</div>
+
+        <div class="row-header">1 &middot; Operator-side</div>
+        <div class="col-detail">Each IX-certified venue is scored on the 10-pillar IX Certification. <strong>Pillar 5 (Customer Experience), Pillar 6 (Supply Chain), Pillar 2 (Sustainability)</strong> &mdash; all of which you touch when you build a beverage programme. A consultant operating at the standard IX targets <em>improves their client's score</em> directly. Real, measurable, and visible to the network.</div>
+
+        <div class="row-header">2 &middot; Service Provider Network (this is you)</div>
+        <div class="col-detail">SPs in the IX network get pre-qualified leads (every newly-certified venue is a brief that needs filling), group-procurement scale across the certified-operator base, and the ability to take partial fees in IXT &mdash; which retains skin in the game across the network rather than cashing out per-engagement. Founding SP slots are open in Phase 1.</div>
+
+        <div class="row-header">3 &middot; Supplier-side</div>
+        <div class="col-detail">Drinks brands, distributors, equipment partners can join the IX certified-supplier programme &mdash; same 10-pillar standard, same scored network position. As a consultant you sit between operators and suppliers. IX gives you a structural place to recommend in either direction without being a free referral source.</div>
+    </div>
+
+    <div class="pillar-callout">
+        <strong>What's specifically novel for beverage consultants.</strong> The 10-pillar Certification engine treats Customer Experience and Supply Chain as scored, evidenced, and decay-tracked &mdash; not just a one-off audit. A consultant whose work materially moves those scores has a documented contribution to the venue's IX rating, which feeds the venue's R-band (R5→R1), which feeds its valuation under the IX Business NFT Valuation Methodology v2.0. <em>Your work has structural value beyond the engagement fee.</em>
+    </div>
+
+    <div class="lens-summary">
+        <strong>The bet.</strong> Independent venues need beverage programmes built and maintained. The current consulting model is project-by-project, with no compounding upside for the consultant beyond a referral chain. IX makes the consultant a node in a certified network: scored, visible, paid in cash + IXT (which has 1:1 floor + real spending utility), with first refusal on every newly-certified venue brief in their geography.
+    </div>
+</div>
+
+<h2><span class="num">02</span>The architecture in 5 minutes</h2>
+<p class="lead">Five layers. Free to enter; layers open as operators and members grow with the network.</p>
+
+<table>
+    <thead>
+        <tr><th>Layer</th><th>What it is</th><th>Audience</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Platform</td><td>Governance, partnerships, infrastructure (the OS)</td><td>Operators, partners</td></tr>
+        <tr><td>Membership</td><td>2-tier consumer (Explorer free, Patron £30/mo). IXT loyalty currency at 1:1 floor.</td><td>Consumers</td></tr>
+        <tr><td>Certification</td><td>10-pillar venue assessment → Foundation/Verified/Excellence tier → R-rating (R5→R1)</td><td>Venues</td></tr>
+        <tr><td>Fund</td><td>OEIC/Unit Trust under FCA CP25/28. Holds Business NFTs of certified venues.</td><td>Investors</td></tr>
+        <tr><td>White-label / Z partner</td><td>Brands, hotel groups, family offices build on IX infra under their own front door</td><td>Z partners (e.g. Vinicon, brand portfolios)</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">03</span>The 10-pillar Certification &mdash; where a beverage programme is scored</h2>
+<p>Every IX-certified operator is scored across ten pillars. The four most beverage-relevant:</p>
+
+<table>
+    <thead>
+        <tr><th>Pillar</th><th>What's evidenced</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>02 &middot; Sustainability</td><td>Sourcing standards (chemical-free / Red Tractor / MSC / ASC / Fairtrade where applicable), waste diversion, packaging, plastic-bottle policy. Drinks programme decisions sit here.</td></tr>
+        <tr><td>05 &middot; Customer Experience</td><td>Service standards, menu accuracy (allergen, pricing, descriptions), seasonal menu cadence, accessibility, transparent pricing. Beverage list rigour is part of this score.</td></tr>
+        <tr><td>06 &middot; Supply Chain</td><td>Approved-supplier list, due diligence, fair payment terms (max 30 days), local preference, audit cadence. The supplier-recommendation lens.</td></tr>
+        <tr><td>10 &middot; Economic Participation</td><td>Profit-sharing, staff equity, community investment. Affects how a venue's brand-side trade education programme is structured.</td></tr>
+    </tbody>
+</table>
+
+<p class="note">Scoring is evidence-based and decays over time without re-evidencing &mdash; a consultant's work has visible, ongoing impact on the venue's IX rating, not just a one-off audit number.</p>
+
+<h2><span class="num">04</span>The SP Network &mdash; founding economics</h2>
+<p>Service Providers in the IX network access the certified-operator base as a single brief stream. Founding-SP terms are open during Phase 1.</p>
+
+<ul>
+    <li><strong>Free to join Phase 1</strong> &mdash; no upfront cost during the founding window</li>
+    <li><strong>Pre-qualified leads</strong> from every newly-certified venue brief in your category</li>
+    <li><strong>Group-procurement scale</strong> across the IX certified-supplier and operator base</li>
+    <li><strong>IXT-denominated payment option</strong> on completed work (1 IXT = £1 floor) &mdash; retains stake in the network</li>
+    <li><strong>No exclusivity required</strong> &mdash; clients outside the IX network are completely unaffected</li>
+    <li><strong>SP performance scored on the 10-pillar standard</strong> applied to the SP role &mdash; visible, defensible, and a competitive moat over time</li>
+</ul>
+
+<p style="margin-top: 14px;">SP application form: <a href="https://initiativex.co.uk/service-provider">initiativex.co.uk/service-provider</a></p>
+
+<h2><span class="num">05</span>Regulatory posture (only relevant if you'd touch the investment side)</h2>
+<div class="reg">
+    <p><strong>Two-entity split.</strong> InitiativeX Ltd (unregulated) handles the consumer membership, IXT loyalty earning/spending, B2B platform, SP Network, and management fees. <strong>Appointed FCA-authorised fund manager</strong> handles all six investment vehicles, IXT cash withdrawal (where it triggers e-money), financial promotions, and client money.</p>
+    <p style="margin-top:10px;">For SP work specifically, the only regulated touchpoint is if you ever introduce a venue to IX investment. That sits under the FPO Art.25 introducer fee structure (covered in the FCA letter Q19). Pure consulting / SP work is unregulated.</p>
+    <p style="margin-top:10px; font-size: 0.88rem; color: var(--mid-grey);">Full FCA letter and the IX Regulatory &amp; Compliance Framework v2.1 are linked in §08 below — both confidential / counsel-side.</p>
+</div>
+
+<h2><span class="num">06</span>Where the build actually is</h2>
+<p>Honest read across the five workstreams:</p>
+
+<table>
+    <thead>
+        <tr><th>Track</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Technology</td><td>~70%</td><td>Public site live, AI Concierge in production, Apple Wallet pass signed, 10+ n8n workflows running, GA4 across every page.</td></tr>
+        <tr><td>Financial Structure</td><td>~85%</td><td>Methodology v2.0, 6 vehicles, 5-stage waterfall, EBT v1.1 — all aligned to Master v6.1.</td></tr>
+        <tr><td>Operating Structure</td><td>~70%</td><td>10-pillar certification engine documented and applied to UKIYO. Multi-entity Brand Holdco / OpCo / PropCo blueprint. <em>SP Network activation pending — this is where you'd land.</em></td></tr>
+        <tr><td>Legal &amp; Regulatory</td><td>~65%</td><td>FCA Opinion Letter v1.1 with counsel. InitiativeX Ltd incorporated 6 May 2026 (#17202264).</td></tr>
+        <tr><td>Outreach &amp; Network</td><td>~40%</td><td>Vinicon signed as Founding Z. UKIYO live as first certified venue. Founding 100 cohort assembling now.</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">07</span>What I'd specifically value from you</h2>
+<div class="ask">
+    <h3>Three asks, in order of usefulness</h3>
+    <p><strong>1. Stress-test the certification engine from a working consultant's POV.</strong> What's missing in the 10-pillar scoring for beverage programmes specifically? Where's the standard too loose? Where is it asking for evidence the venues won't actually maintain? You'll see gaps from the inside that I won't from the outside.</p>
+    <p><strong>2. Where does the SP Network framework break down for project-based work?</strong> The model assumes ongoing scored relationships. Most beverage consulting is engagement-based — define the programme, hand it over, move on. How should the SP economics adapt for consultants vs. retainer-style suppliers? If the model only fits one mode, it'll quietly exclude the most senior practitioners.</p>
+    <p><strong>3. Of your client list — who'd be a natural early IX-certified operator?</strong> And the supplier-side flip: which drinks brands, distributors, equipment partners would be the first three to add to the certified-supplier programme? Names with one-line context. No commitment to introduce — just the read on who's at the right altitude.</p>
+</div>
+
+<h2><span class="num">08</span>If you want to go deeper</h2>
+<ul>
+    <li>Main website: <a href="https://initiativex.co.uk">initiativex.co.uk</a> — consumer-facing landing</li>
+    <li>Generic structural overview: <a href="https://initiativex.co.uk/overview">initiativex.co.uk/overview</a> — broader architecture</li>
+    <li>Service Provider application: <a href="https://initiativex.co.uk/service-provider">initiativex.co.uk/service-provider</a> — to register interest in the SP Network</li>
+    <li>Founding 100 cohort details: <a href="https://initiativex.co.uk/founding">initiativex.co.uk/founding</a> — for if you want a member-side slot too</li>
+    <li>FCA Opinion Letter v1.1 (full 21 questions): <a href="https://initiativex.co.uk/fca">initiativex.co.uk/fca</a> — counsel-side / confidential, please don't redistribute</li>
+    <li>Regulatory &amp; Compliance Framework v2.1: <a href="https://initiativex.co.uk/regulatory">initiativex.co.uk/regulatory</a> — counsel-side / confidential, please don't redistribute</li>
+    <li>30-min call: <a href="mailto:thibault@initiativex.co.uk?subject=Initiative%20X%20%E2%80%94%20SP%20Network%20conversation">thibault@initiativex.co.uk</a> — reply with two times that work</li>
+</ul>
+
+<h2><span class="num">09</span>One last thing</h2>
+<p>No ask beyond what's in §07. The SP Network framework is the bit IX hasn't yet pressure-tested with a working senior consultant — your read would shape how it actually launches. If neither the framework nor the founding-SP economics land, ignore — no follow-up sequence on this page.</p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
