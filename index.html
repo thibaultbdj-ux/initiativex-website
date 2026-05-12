@@ -697,6 +697,19 @@
             margin-bottom: 120px;
         }
 
+        /* Four ways in — responsive: 4 across at desktop ≥ 1200px, 2x2 at tablet, 1 col at mobile */
+        .four-ways-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: 1199px) {
+            .four-ways-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .four-ways-grid { grid-template-columns: 1fr; }
+        }
+
         .cta-card {
             padding: 48px 36px;
             border: 1px solid rgba(255,255,255,0.08);
@@ -1094,7 +1107,7 @@
                 <h2 style="color: var(--white);">Four ways in</h2>
                 <p style="color: var(--light-grey); font-size: 1rem; margin-top: 16px; max-width: 620px; margin-left: auto; margin-right: auto;">Every path into IX starts free. Whether you want to join the community, certify your venue, become a trusted service provider, or explore investment, it starts the same way &mdash; a short form and a conversation.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1180px; margin: 0 auto;">
+            <div class="four-ways-grid" style="max-width: 1240px; margin: 0 auto;">
                 <div class="fade-in fade-in-delay-1" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,165,116,0.2); border-radius: 16px; padding: 36px 28px; color: var(--white); display: flex; flex-direction: column;">
                     <span class="label" style="color: var(--caramel);">Members</span>
                     <h3 style="color: var(--white); font-size: 1.5rem; margin: 12px 0 16px;">Join as an Explorer</h3>
