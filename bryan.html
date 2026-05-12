@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'private_share_view', { recipient: 'bryan_counsel' });
+    </script>
+
+    <title>Initiative X — Counsel Brief for Bryan Shaw (Fox Williams)</title>
+    <meta name="description" content="Counsel instruction brief — Initiative X corporate legal stack for first overall review.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
+            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
+            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
+            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
+            --priority:#C95B3C;
+        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--dark-grey); line-height: 1.7; background: var(--warm-bg); padding: 48px 24px 120px; }
+        .container { max-width: 760px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 40px; }
+        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
+        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
+        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
+        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+        .for-line { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); margin-bottom: 6px; }
+
+        .greeting { background: #fff; border-left: 3px solid var(--bronze); padding: 22px 28px; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--charcoal); }
+        .greeting p + p { margin-top: 12px; }
+        .greeting strong { color: var(--black); font-weight: 500; }
+        .greeting em { font-style: italic; color: var(--mid-grey); }
+
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
+        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 0; margin-bottom: 12px; list-style: none; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* Priority block — the FCA letter */
+        .priority-block {
+            background: #fff;
+            border: 2px solid var(--priority);
+            border-radius: 12px;
+            padding: 26px 30px;
+            margin: 24px 0 36px;
+            position: relative;
+        }
+        .priority-tag {
+            position: absolute; top: -11px; left: 22px;
+            background: var(--priority);
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            padding: 3px 10px;
+            border-radius: 11px;
+        }
+        .priority-block h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--black);
+            margin-bottom: 8px;
+            margin-top: 6px;
+        }
+        .priority-block .priority-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--mid-grey);
+            margin-bottom: 14px;
+            letter-spacing: 0.05em;
+        }
+        .priority-block p { font-size: 0.93rem; margin-bottom: 10px; }
+        .priority-block .cta-row {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .priority-block .cta-row a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: var(--charcoal);
+            color: #fff;
+            border: none;
+            border-bottom: none;
+            border-radius: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+        .priority-block .cta-row a:hover { background: var(--bronze); color: #fff; }
+
+        /* Document stack */
+        .doc-stack { margin: 18px 0; }
+        .doc-row {
+            display: grid;
+            grid-template-columns: 36px 1fr auto;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--pale-grey);
+            align-items: start;
+        }
+        .doc-row:last-child { border-bottom: none; }
+        .doc-row .doc-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--bronze);
+            letter-spacing: 0.08em;
+            padding-top: 2px;
+        }
+        .doc-row .doc-body { }
+        .doc-row .doc-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+        .doc-row .doc-desc {
+            font-size: 0.88rem;
+            color: var(--mid-grey);
+            line-height: 1.55;
+        }
+        .doc-row .doc-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--black);
+            text-align: right;
+            padding-top: 2px;
+            white-space: nowrap;
+        }
+        .doc-row .doc-link a {
+            border-bottom: 1px solid var(--bronze);
+        }
+        .doc-row .doc-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--bronze);
+            background: rgba(155, 139, 110, 0.08);
+            padding: 2px 8px;
+            border-radius: 9px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+        @media (max-width: 640px) {
+            .doc-row { grid-template-columns: 28px 1fr; }
+            .doc-row .doc-link { grid-column: 2; padding-top: 6px; text-align: left; }
+        }
+
+        /* Ask block */
+        .ask { background: #fff; border: 1px solid var(--pale-grey); padding: 22px 26px; border-radius: 8px; margin: 28px 0; }
+        .ask h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--black); margin-bottom: 12px; }
+        .ask p { margin-bottom: 8px; font-size: 0.95rem; }
+        .ask p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+        }
+
+        footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
+        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
+        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X</h1>
+        <div class="doc-type">Counsel Brief &middot; Prepared for Bryan Shaw</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK)</div>
+        <div>Companies House #17202264</div>
+        <div>Confidential &middot; Counsel</div>
+    </div>
+</header>
+
+<div class="for-line">For Bryan Shaw &middot; Fox Williams</div>
+
+<div class="greeting">
+    <p>Bryan,</p>
+    <p>Asking you to do a <strong>first overall review of the InitiativeX corporate legal stack</strong>. The company was incorporated 6 May 2026 (Companies House #17202264) and the structure has been built ahead of FCA-specialist counsel engagement so that the corporate plumbing is clean before regulated questions land on a specialist's desk.</p>
+    <p><strong>The single document I most want your read on first is the FCA Opinion Instruction Letter v1.1 below</strong> &mdash; not because you're being asked to opine on FCA matters (that goes to specialist counsel), but because it's the cleanest single read on what IX <em>is</em>, what the structure is meant to achieve, and where the corporate decisions need to be locked in for the regulatory analysis to even start. Everything else in the stack flows from it.</p>
+    <p>This page is the index. Each link below opens the relevant document &mdash; all confidential / counsel-side, all <code>noindex</code> on the public web. Two-week turnaround on a first read would be ideal; whatever's normal for your engagement model works.</p>
+    <p><em>&mdash; Thibault</em></p>
+</div>
+
+<h2><span class="num">01</span>Start here &mdash; the orienting document</h2>
+
+<div class="priority-block">
+    <div class="priority-tag">Priority Read · Start Here</div>
+    <h3>IX FCA Opinion Instruction Letter v1.1</h3>
+    <div class="priority-meta">21 questions &middot; ~15 min read &middot; 1 May 2026 &middot; IX-LEG-FCA-001</div>
+    <p>The letter sets out the full factual scope of the IX model: two-entity split (unregulated platform / appointed FCA-authorised fund manager), six investment vehicles, the IXT mechanic, the IX Growth Trust, the proposed multi-entity Brand Holdco / OpCo / PropCo structure for each certified venue, and the 21 specific regulatory questions to be answered by FCA-specialist counsel before any product is offered.</p>
+    <p>It's also the cleanest single statement of how the corporate decisions in the Articles, Shareholders Register and EBT Trust Deed are meant to fit together. Reading this first calibrates everything else.</p>
+    <div class="cta-row">
+        <a href="https://initiativex.co.uk/fca">Open FCA Letter v1.1</a>
+        <a href="https://initiativex.co.uk/regulatory">Reg &amp; Compliance Framework v2.1</a>
+    </div>
+</div>
+
+<h2><span class="num">02</span>The corporate stack &mdash; your primary review surface</h2>
+
+<p>Documents below are listed in suggested review order. Where a v1.x or v2.x numbering appears, the live version is the latest; earlier versions are archived but available on request if helpful for diff context.</p>
+
+<div class="doc-stack">
+
+    <div class="doc-row">
+        <div class="doc-num">01</div>
+        <div class="doc-body">
+            <div class="doc-title">Articles of Association v2.1 <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">P / O / G three-class share structure. 6% cumulative preferred return on P-shares (Article 21.2). 5-stage waterfall in Article 34 including Stage 0 per-venue Founding Preferential Return. MIP via G-shares with IRR-tiered hurdles in Article 35. EBT replacing prior EMI provisions in Article 30. <strong>This is the foundation document.</strong></div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Articles%20of%20Association%20v2.1">request copy</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">02</div>
+        <div class="doc-body">
+            <div class="doc-title">Board Resolution Template v2.1 <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">14 standard resolution types (R-01 to R-14) covering share allotment, director appointment, dividend declaration, BT certification, IXT minting, EBT grant approval, NAV declaration, waterfall distribution, fund compliance, financing, P-share issuance. Cross-references Articles v2.1.</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Board%20Resolution%20Template%20v2.1">request copy</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">03</div>
+        <div class="doc-body">
+            <div class="doc-title">Shareholders Register v2.1 <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">Excel workbook. P-class series tracking, IXT holdings allocation summary (Operator 60% / EBT 20% / Consumer 10% / IX 10%), cover sheet for InitiativeX Ltd. Currently template-only (no real shareholders entered yet).</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Shareholders%20Register%20v2.1">request copy</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">04</div>
+        <div class="doc-body">
+            <div class="doc-title">Employee Benefit Trust Deed v1.1 <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">EBT structure replacing the earlier EMI scheme. Annual IXT grant schedule (500/750/1,000/1,500/2,000 IXT/year by tenure), tenure bonus on tronc conversion, NAV-based vesting. Settlor: InitiativeX Ltd (#17202264). Registered office address still TBC in the deed.</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20EBT%20Trust%20Deed%20v1.1">request copy</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">05</div>
+        <div class="doc-body">
+            <div class="doc-title">Venue Structural Blueprint v1.1 <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">The Brand Holdco / OpCo / PropCo structure for each IX-certified venue. Standard inter-company agreements (Brand Licence, Inter-Company Property Lease, Inter-Company Services). 2% brand royalty from OpCo to Brand Holdco. Per-venue ringfencing logic. Cross-references the FCA letter (Q21).</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Venue%20Structural%20Blueprint%20v1.1">request copy</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">06</div>
+        <div class="doc-body">
+            <div class="doc-title">Contract templates &mdash; library <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">Token Subscription Agreement v2.0, IX Management Agreement Template, Venue Enrollment Agreement v2.0, Brand Licence Agreement Template v1.0, Inter-Company Property Lease Template v1.0, Supplier Retro-Tokenisation Agreement v2.0. All in <code>/02 &mdash; Legal/Contracts/</code>. Many still reference [Company No. TBC] &mdash; needs sweeping with #17202264.</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Contract%20Templates%20Library">request copy</a></div>
+    </div>
+
+</div>
+
+<h2><span class="num">03</span>Context documents &mdash; supporting context, not primary review</h2>
+
+<div class="doc-stack">
+
+    <div class="doc-row">
+        <div class="doc-num">07</div>
+        <div class="doc-body">
+            <div class="doc-title">Regulatory &amp; Compliance Framework v2.1</div>
+            <div class="doc-desc">Detailed companion to the FCA letter. AML/KYC framework, Consumer Duty mapping, NAV risk disclosure, fund-authorisation roadmap, data protection. Useful for context on how the corporate-side decisions you're reviewing connect to the regulated activities.</div>
+        </div>
+        <div class="doc-link"><a href="https://initiativex.co.uk/regulatory">open</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">08</div>
+        <div class="doc-body">
+            <div class="doc-title">IX Structural Overview (public-share version)</div>
+            <div class="doc-desc">5-min architecture summary &mdash; the five layers (platform / membership / certification / fund / white-label), the 6 investment vehicles, the 5-stage waterfall, the build status. Useful if you want a non-legal overview of what IX is before diving into the legal docs.</div>
+        </div>
+        <div class="doc-link"><a href="https://initiativex.co.uk/overview">open</a></div>
+    </div>
+
+    <div class="doc-row">
+        <div class="doc-num">09</div>
+        <div class="doc-body">
+            <div class="doc-title">Incorporation documents <span class="doc-tag">Drive</span></div>
+            <div class="doc-desc">Certificate of Incorporation (6 May 2026) and Memorandum of Association for InitiativeX Ltd (#17202264). Filed in <code>/01 &mdash; Corporate &amp; Governance/</code>. Available on request.</div>
+        </div>
+        <div class="doc-link"><a href="mailto:thibault@initiativex.co.uk?subject=Request%20Incorporation%20Documents">request copy</a></div>
+    </div>
+
+</div>
+
+<h2><span class="num">04</span>What I'd specifically value from your first overall review</h2>
+
+<div class="ask">
+    <h3>Four asks, in order of usefulness</h3>
+    <p><strong>1. Corporate-side gating before FCA-specialist counsel.</strong> Reading the FCA letter first &mdash; what corporate decisions in the Articles, Shareholders Register or EBT Trust Deed need to be locked in or amended <em>before</em> a regulatory specialist can give a clean opinion? I'd rather fix the corporate plumbing now than have FCA counsel come back saying the corporate structure isn't tight enough to opine on.</p>
+    <p><strong>2. Risk register from a corporate lens.</strong> Where would Fox Williams' corporate practice flag exposure that I haven't flagged myself? Specifically: the multi-entity Brand Holdco / OpCo / PropCo structure (Venue Blueprint), the P-share waterfall mechanics (Articles 21 &amp; 34), and the IXT minting framework (Articles 27&ndash;30 + Board Resolution Template R-08).</p>
+    <p><strong>3. Specialist counsel recommendation.</strong> Who does Fox Williams suggest for the FCA-specialist opinion? I have a shortlist but no commitment. If there's a firm or partner you'd specifically introduce or specifically warn off, that signal matters.</p>
+    <p><strong>4. Engagement structure.</strong> How would you prefer to scope this &mdash; fixed-fee first-overall-review now, then matter-by-matter as we go, or a broader retainer-style arrangement once the FCA opinion is back? Whatever's normal for your engagement model.</p>
+</div>
+
+<h2><span class="num">05</span>Confidentiality &amp; access</h2>
+<p>All linked documents are <code>noindex, nofollow</code> &mdash; not crawlable by search engines. URLs are private-share only. Drive-resident documents are not yet hosted publicly; available on request via the links above (those open a pre-filled email to me).</p>
+<p>FCA Letter v1.1 was originally drafted as a privileged document for counsel only. The version hosted at <code>/fca</code> has been softened (privilege markers loosened) for limited Founding 100 prospect circulation. If you'd prefer a strict counsel-only version of the letter without the public-share softening, just say &mdash; I'll send the underlying Drive copy.</p>
+
+<h2><span class="num">06</span>How to reach me</h2>
+<ul>
+    <li><a href="mailto:thibault@initiativex.co.uk?subject=Initiative%20X%20%E2%80%94%20counsel%20engagement">thibault@initiativex.co.uk</a></li>
+    <li>For a 30-min orientation call: reply with two times that work this week or next</li>
+    <li>For document requests: use the per-document links above (each opens a pre-filled email)</li>
+</ul>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
