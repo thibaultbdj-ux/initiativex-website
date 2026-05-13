@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+    </script>
+
+    <title>Initiative X — What it is, in 5 minutes</title>
+    <meta name="description" content="A plain-English explanation of what Initiative X is, who it's for, and how the parts fit together.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
+            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
+            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
+            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
+        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--dark-grey); line-height: 1.7; background: var(--warm-bg); padding: 48px 24px 120px; }
+        .container { max-width: 760px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 40px; }
+        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
+        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
+        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
+        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .lede { background: #fff; border-left: 3px solid var(--bronze); padding: 26px 30px; margin-bottom: 48px; font-size: 1.05rem; color: var(--charcoal); line-height: 1.65; }
+        .lede strong { color: var(--black); }
+        .lede em { font-style: italic; color: var(--mid-grey); }
+
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.25rem; color: var(--black); margin: 48px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
+        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
+
+        p { margin-bottom: 14px; font-size: 1rem; }
+        p.lead { font-size: 1.05rem; color: var(--charcoal); }
+        ul { padding-left: 22px; margin-bottom: 14px; }
+        li { font-size: 0.97rem; color: var(--dark-grey); margin-bottom: 8px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* What IX is — the four-party visual */
+        .four-party { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 24px; }
+        .party-card { padding: 18px 20px; background: #fff; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--bronze); }
+        .party-card.members { border-color: var(--caramel); }
+        .party-card.venues { border-color: var(--teal); }
+        .party-card.brands { border-color: var(--sage); }
+        .party-card.investors { border-color: var(--warm-light); }
+        .party-card .who { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
+        .party-card .what { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--black); margin-bottom: 6px; }
+        .party-card .why { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; }
+        @media (max-width: 640px) { .four-party { grid-template-columns: 1fr; } }
+
+        .ixt-block { background: var(--charcoal); color: var(--cream); padding: 26px 30px; border-radius: 12px; margin: 24px 0; }
+        .ixt-block h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; color: #fff; margin-bottom: 10px; }
+        .ixt-block p { font-size: 0.97rem; color: rgba(244,240,235,0.92); line-height: 1.65; margin-bottom: 12px; }
+        .ixt-block strong { color: var(--caramel); font-weight: 500; }
+        .ixt-block .key-fact { display: inline-block; padding: 2px 10px; background: rgba(212,165,116,0.15); border: 1px solid var(--caramel); border-radius: 14px; font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--caramel); margin: 4px 4px 4px 0; }
+
+        .layer-stack { margin: 18px 0; border-radius: 10px; overflow: hidden; background: rgba(0,0,0,0.06); display: flex; flex-direction: column; gap: 1px; }
+        .layer-row { background: #fff; padding: 16px 20px; display: grid; grid-template-columns: 140px 1fr; gap: 18px; align-items: center; }
+        .layer-row .layer-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.98rem; color: var(--black); }
+        .layer-row .layer-desc { font-size: 0.93rem; color: var(--dark-grey); line-height: 1.55; }
+        @media (max-width: 640px) { .layer-row { grid-template-columns: 1fr; gap: 4px; } }
+
+        .reads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+        .read-card { padding: 16px 18px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); }
+        .read-card .read-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
+        .read-card .read-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 4px; }
+        .read-card .read-title a { border-bottom: none; }
+        .read-card .read-title a:hover { color: var(--bronze); }
+        .read-card .read-desc { font-size: 0.85rem; color: var(--mid-grey); line-height: 1.5; }
+        @media (max-width: 640px) { .reads-grid { grid-template-columns: 1fr; } }
+
+        .who-for { background: var(--warm-bg); border-left: 3px solid var(--caramel); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 22px 0; }
+        .who-for h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; color: var(--black); margin-bottom: 10px; }
+        .who-for p { font-size: 0.94rem; margin-bottom: 8px; }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1.1rem; }
+            .lede { padding: 22px; font-size: 1rem; }
+        }
+
+        footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
+        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
+        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Initiative X &mdash; in 5 minutes</h1>
+        <div class="doc-type">Plain-English Intro &middot; Read this first</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK) &middot; #17202264</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="lede">
+    <p><strong>Independent hospitality is brilliant and brutal.</strong> Brilliant because the best venues, suppliers and people in the industry are independent. Brutal because each one rebuilds the same infrastructure from scratch &mdash; member networks, brand partnerships, capital access, training, certification &mdash; and most of them don't survive the first three years.</p>
+    <p><strong>IX is one operating system the whole independent ecosystem can plug into.</strong> One certification standard. One member network. One loyalty currency. One investment rail. The four parties that have to coordinate for a venue to thrive &mdash; <em>members, venues, brands, investors</em> &mdash; share the same platform instead of working in disconnected silos.</p>
+    <p>This page is a 5-minute read. Everything else (deeper docs, regulatory letter, the per-recipient page someone may have sent you) builds on top of this.</p>
+</div>
+
+<h2><span class="num">01</span>What it is, simply</h2>
+
+<p class="lead"><strong>IX is a shared operating system for independent hospitality.</strong> It connects the four parties whose interests have to align for any independent venue to actually work:</p>
+
+<div class="four-party">
+    <div class="party-card members">
+        <div class="who">Members</div>
+        <div class="what">Discover and access certified venues</div>
+        <div class="why">Two tiers: Explorer (free, browse and discover) and Patron (£30/mo &mdash; full benefits, IXT earning, events, investment access).</div>
+    </div>
+    <div class="party-card venues">
+        <div class="who">Venues (operators)</div>
+        <div class="what">Access infrastructure they couldn't build alone</div>
+        <div class="why">Member network, certified partner pool, training, loyalty engine, capital access &mdash; on a shared standard. Free to enter; layers open as the venue progresses.</div>
+    </div>
+    <div class="party-card brands">
+        <div class="who">Brands &amp; suppliers</div>
+        <div class="what">One agreement, whole certified network</div>
+        <div class="why">Drinks brands, F&amp;B suppliers, hotel groups, brand ambassadors. White-label network, member-funded activations, structured trade education delivery.</div>
+    </div>
+    <div class="party-card investors">
+        <div class="who">Investors</div>
+        <div class="what">Regulated, real-asset hospitality exposure</div>
+        <div class="why">Six investment vehicles under an FCA-authorised fund manager. Real venue cashflows + property + lending. Two access rails: retail (£100 min) and direct (£1K min).</div>
+    </div>
+</div>
+
+<p>The thing that makes this work as a single system rather than four separate products is <strong>IXT</strong> &mdash; the loyalty currency that flows between all four parties.</p>
+
+<div class="ixt-block">
+    <h3>IXT &mdash; the connecting tissue</h3>
+    <p><strong>IXT is a regulated loyalty unit.</strong> Not crypto. Not a tradeable token. A fund-wrapped unit with a £1 floor (the 1:1 Rule) that members earn at venues and spend across the network.</p>
+    <p>It exists so that <em>value created in one corner of the ecosystem can flow to another without leaking out as cash discount or breakage</em>. Members earn it spending at venues. Venues use it to attract members and pay for services. Brands fund it as activation budget. Investors hold fund units denominated in it. Staff at venues earn annual grants in it via an Employee Benefit Trust.</p>
+    <div style="margin-top: 12px;">
+        <span class="key-fact">1 IXT = £1 floor</span>
+        <span class="key-fact">Earned, not bought</span>
+        <span class="key-fact">Spendable in-network</span>
+        <span class="key-fact">FCA path: CP25/28</span>
+    </div>
+</div>
+
+<h2><span class="num">02</span>How the layers fit together</h2>
+
+<p>Five layers. You enter through whichever one fits your role. The layers compound &mdash; each one adds value to the others.</p>
+
+<div class="layer-stack">
+    <div class="layer-row">
+        <div class="layer-name">Platform</div>
+        <div class="layer-desc">The OS itself: governance, partnerships, infrastructure, member portal, dashboards.</div>
+    </div>
+    <div class="layer-row">
+        <div class="layer-name">Membership</div>
+        <div class="layer-desc">Two-tier consumer model. Explorer (free) for discovery; Patron (£30/mo) for full benefits, IXT earning, events, investment access.</div>
+    </div>
+    <div class="layer-row">
+        <div class="layer-name">Certification</div>
+        <div class="layer-desc">10-pillar venue assessment (Operations, Sustainability, Financial Health, People &amp; HR, Customer Experience, Supply Chain, Governance, Community, Growth, Economic Participation). Three tiers: Foundation (40%+), Verified (60%+), Excellence (80%+). Also drives R-rating (R5 pre-opening &rarr; R1 mature) which feeds the fund valuation.</div>
+    </div>
+    <div class="layer-row">
+        <div class="layer-name">Fund</div>
+        <div class="layer-desc">OEIC / Unit Trust under FCA CP25/28. Holds Business NFTs of certified venues. NAV-tracked. Six investment vehicles under an appointed FCA-authorised fund manager. Stage 0 founding preferential return, 5-stage waterfall.</div>
+    </div>
+    <div class="layer-row">
+        <div class="layer-name">White-label / Z partner</div>
+        <div class="layer-desc">Brands, hotel groups, family offices build on IX infrastructure under their own front door. Founding Z economics: 1/2/3% management fee escalator across Y1&ndash;Y3. Vinicon (wine merchant) is the first signed Z partner.</div>
+    </div>
+</div>
+
+<h2><span class="num">03</span>Where the build is, honestly</h2>
+
+<ul>
+    <li><strong>Phase 1 launching now.</strong> UKIYO London is the first IX-certified venue (live). Vinicon signed as the first founding Z partner.</li>
+    <li><strong>InitiativeX Ltd incorporated</strong> 6 May 2026 (Companies House #17202264).</li>
+    <li><strong>FCA Opinion Instruction Letter</strong> v1.1 (21 questions) is with counsel. Two-entity structure: InitiativeX Ltd unregulated; appointed fund manager handles all regulated investment activity.</li>
+    <li><strong>Founding 100</strong> cohort being assembled now &mdash; 100 founding members across 8 verticals (Hospitality, Food &amp; Beverage, Art &amp; Design, Fashion &amp; Luxury, Finance, Sport &amp; Wellness, Tech &amp; Media, Property).</li>
+    <li><strong>15-EU-cities pipeline</strong> for venue expansion.</li>
+    <li><strong>Pre-fund-launch</strong> &mdash; investment products are described in counsel-side documentation but cannot yet be subscribed to. This is intentional &mdash; the FCA opinion needs to land first.</li>
+</ul>
+
+<h2><span class="num">04</span>Where to go next, depending on what you care about</h2>
+
+<div class="reads-grid">
+    <div class="read-card">
+        <div class="read-tag">Architecture &middot; 5 min</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/overview">/overview</a></div>
+        <div class="read-desc">The structural snapshot: 6 investment vehicles, 5-stage waterfall, build-status by track, valuation methodology in plain English. Best second read for finance-fluent readers.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Cohort &middot; 5 min</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/founding">/founding</a></div>
+        <div class="read-desc">What the Founding 100 cohort is, what you get for being founding (Year 1 free Patron, first refusal on rounds, founding-member dinners, name on the wall). Includes a register-of-interest form.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Regulatory &middot; 15 min</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/fca">/fca</a></div>
+        <div class="read-desc">The FCA Opinion Instruction Letter v1.1 (21 questions). The single best read on what IX is structurally, why the regulatory path is the way it is, and where counsel needs to opine. Counsel-side / confidential.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Compliance &middot; 20 min</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/regulatory">/regulatory</a></div>
+        <div class="read-desc">The IX Regulatory &amp; Compliance Framework v2.1 &mdash; AML, Consumer Duty, fund authorisation roadmap, EBT, NAV disclosure. Companion to the FCA letter. Counsel-side / confidential.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Public &middot; 1 min</div>
+        <div class="read-title"><a href="https://initiativex.co.uk">initiativex.co.uk</a></div>
+        <div class="read-desc">The consumer-facing landing site. Four ways to enter the network (Members, Operators, Service Providers, Investors).</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Per-recipient &middot; 10 min</div>
+        <div class="read-title">Your personalised page</div>
+        <div class="read-desc">If someone sent you a link to <code>initiativex.co.uk/[your-name]</code>, that's the bespoke page tailored to your professional lens (investor / counsel / brand ambassador / consultant). Read this <code>/intro</code> first; that page assumes you understand what IX is.</div>
+    </div>
+</div>
+
+<div class="who-for">
+    <h3>Who you probably are if you're reading this</h3>
+    <p>You've been sent this link because someone (probably Thibault) thinks you're worth a 5-minute first read. The follow-up is usually a 20-minute call to walk you through whatever angle is most relevant to you &mdash; investor, brand, operator, advisor, ambassador, member.</p>
+    <p>If after reading you think "this is interesting, tell me more" &mdash; reply with two times that work. If you think "this isn't for me" &mdash; close the tab; no follow-up sequence on this page.</p>
+</div>
+
+<h2><span class="num">05</span>Reach me</h2>
+<p>Email: <a href="mailto:thibault@initiativex.co.uk?subject=Initiative%20X%20%E2%80%94%20follow-up">thibault@initiativex.co.uk</a></p>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
