@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'profile_view', { profile_type: 'z_partner', profile_name: 'vinicon' });
+    </script>
+
+    <title>Initiative X — Vinicon (Z Partner Profile)</title>
+    <meta name="description" content="What an IX founding Z partner looks like inside the network. Vinicon is the first signed.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
+            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
+            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
+            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
+            --accent: var(--sage);
+        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); line-height: 1.65; background: var(--warm-bg); padding: 48px 24px 120px; }
+        .container { max-width: 880px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 32px; }
+        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
+        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
+        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
+        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .example-banner { background: #FDF6E3; border: 1px solid #D4A574; border-radius: 8px; padding: 14px 18px; margin-bottom: 32px; font-size: 0.92rem; color: #5E4918; line-height: 1.55; }
+        .example-banner strong { color: var(--black); }
+
+        .hero { background: var(--charcoal); color: var(--cream); padding: 32px 36px; border-radius: 14px; margin-bottom: 28px; }
+        .hero-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
+        .hero-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.8rem; color: #fff; letter-spacing: -0.5px; }
+        .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--caramel); margin-top: 4px; }
+        .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge { display: inline-flex; align-items: center; padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 14px; }
+        .badge.cert { background: rgba(212,165,116,0.18); color: var(--caramel); border: 1px solid var(--caramel); }
+        .badge.r { background: rgba(107,138,126,0.22); color: #88C599; border: 1px solid #88C599; }
+        .badge.live { background: rgba(107,138,126,0.18); color: #88C599; border: 1px solid #88C599; }
+        .hero-tag-line { font-size: 0.95rem; color: rgba(244,240,235,0.85); line-height: 1.55; max-width: 700px; }
+
+        .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+        @media (max-width: 720px) { .snapshot { grid-template-columns: repeat(2, 1fr); } }
+        .stat { background: #fff; padding: 16px 18px; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--accent); }
+        .stat .label { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze); margin-bottom: 6px; }
+        .stat .val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 2px; }
+        .stat .sub { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-grey); }
+
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
+        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul, ol { padding-left: 22px; margin-bottom: 14px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        table { width: 100%; border-collapse: collapse; margin: 14px 0; background: #fff; border-radius: 6px; overflow: hidden; font-size: 0.85rem; }
+        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey); background: var(--off-white); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--pale-grey); }
+        td { padding: 11px 14px; border-bottom: 1px solid var(--pale-grey); vertical-align: top; color: var(--dark-grey); }
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .escalator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0; }
+        @media (max-width: 640px) { .escalator { grid-template-columns: repeat(2, 1fr); } }
+        .esc-card { padding: 14px 16px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); border-left: 3px solid var(--accent); text-align: center; }
+        .esc-card .ey { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--bronze); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+        .esc-card .er { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--black); }
+        .esc-card .es { font-size: 0.75rem; color: var(--mid-grey); margin-top: 2px; }
+
+        .timeline { margin: 18px 0; }
+        .tl-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--pale-grey); }
+        .tl-row:last-child { border-bottom: none; }
+        .tl-when { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--bronze); }
+        .tl-what { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; }
+        .tl-what strong { color: var(--black); }
+
+        .reads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+        .read-card { padding: 16px 18px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); }
+        .read-card .read-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
+        .read-card .read-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 4px; }
+        .read-card .read-title a { border-bottom: none; }
+        .read-card .read-desc { font-size: 0.85rem; color: var(--mid-grey); line-height: 1.5; }
+        @media (max-width: 640px) { .reads-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            .hero { padding: 24px 22px; }
+            .hero-name { font-size: 1.4rem; }
+        }
+
+        footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
+        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
+        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Profile &middot; Z Partner</h1>
+        <div class="doc-type">Vinicon &middot; First Founding Z &middot; Live Example</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK)</div>
+        <div>Companies House #17202264</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="example-banner">
+    <strong>What you're looking at.</strong> This is what a founding Z partner's profile inside the IX network looks like. Vinicon is the first signed founding Z (wine merchant, on-trade distribution). The economics shown are the actual founding-Z deal terms; activation metrics and member touchpoints are illustrative of Phase 1 steady-state.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-row">
+        <div>
+            <div class="hero-name">Vinicon</div>
+            <div class="hero-tag">Wine merchant &middot; UK on-trade distribution &middot; Lead: Stephen Lane</div>
+        </div>
+        <div class="badge-row">
+            <span class="badge cert">Founding Z</span>
+            <span class="badge r">Slot 1 of 5</span>
+            <span class="badge live">Signed</span>
+        </div>
+    </div>
+    <div class="hero-tag-line">First signed founding Z partner. Wine portfolio flows into the IX certified-venue network; Vinicon's customer base flows into Patron membership. The reference example for what a founding Z partner relationship inside IX looks like across distribution, member activation, and capital position.</div>
+</section>
+
+<!-- SNAPSHOT METRICS -->
+<div class="snapshot">
+    <div class="stat">
+        <div class="label">Founding Z slot</div>
+        <div class="val">1 / 5</div>
+        <div class="sub">4 slots remaining</div>
+    </div>
+    <div class="stat">
+        <div class="label">Mgmt fee (Y1)</div>
+        <div class="val">1%</div>
+        <div class="sub">vs Standard 3%</div>
+    </div>
+    <div class="stat">
+        <div class="label">Setup fee</div>
+        <div class="val">£0</div>
+        <div class="sub">Waived (sweat equity)</div>
+    </div>
+    <div class="stat">
+        <div class="label">Investment access</div>
+        <div class="val">First refusal</div>
+        <div class="sub">All subsequent rounds</div>
+    </div>
+</div>
+
+<h2><span class="num">01</span>Founding Z deal &mdash; the escalator</h2>
+
+<div class="escalator">
+    <div class="esc-card"><div class="ey">Year 1</div><div class="er">1%</div><div class="es">of gross venue revenue</div></div>
+    <div class="esc-card"><div class="ey">Year 2</div><div class="er">2%</div><div class="es">of gross venue revenue</div></div>
+    <div class="esc-card"><div class="ey">Year 3</div><div class="er">3%</div><div class="es">Standard tier reached</div></div>
+    <div class="esc-card"><div class="ey">Standard</div><div class="er">3%</div><div class="es">Steady-state going forward</div></div>
+</div>
+
+<p>Management fee paid <strong>50% cash to IX, 50% converted to IXT minted to IX's Fund NFT (Growth Trust)</strong>. Symmetric preferential-pricing engine — the party absorbing the cash discount earns the token stake. Setup fee waived for founding partners and capitalised as sweat-equity at &pound;250/hr.</p>
+
+<h2><span class="num">02</span>What Vinicon gets, structurally</h2>
+
+<table>
+    <thead><tr><th>Element</th><th>Vinicon's position</th></tr></thead>
+    <tbody>
+        <tr><td>Distribution access</td><td>Wine portfolio listed across every IX-certified venue automatically; new venues compound the footprint</td></tr>
+        <tr><td>Member activation surface</td><td>Patron-only tastings, allocation drops, pairing series funded in IXT — activation budgets compound rather than break</td></tr>
+        <tr><td>Brand-side trade education</td><td>Trade education programme funded in IXT; staff-IXT participation via venue EBT extends to brand ambassadors at venues' discretion</td></tr>
+        <tr><td>Customer migration</td><td>Vinicon's existing wine customers can self-onboard as IX Patrons (free Year 1 for the founding cohort)</td></tr>
+        <tr><td>Investment position</td><td>50% of management fee converted to IXT in IX's Fund NFT — Vinicon shares in the Growth Trust upside via this mechanism</td></tr>
+        <tr><td>First refusal on rounds</td><td>Every subsequent IX capital raise opens to founding Z partners first, ahead of external investors</td></tr>
+        <tr><td>Founding-cohort marketing edge</td><td>"Founding Z partner of IX" is a one-time-only brand asset; competitors entering at Standard tier in Y3+ can't claim it</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">03</span>Activation surface (what Vinicon does inside the network)</h2>
+
+<p>Sample of typical activation cadence at Phase 1 steady-state:</p>
+
+<table>
+    <thead><tr><th>Activation type</th><th>Frequency</th><th>Member touchpoint</th></tr></thead>
+    <tbody>
+        <tr><td>Patron-only allocation drops</td><td>Quarterly</td><td>~50 Patrons per drop, allocation pre-purchase via IXT</td></tr>
+        <tr><td>Venue pairing dinners</td><td>Monthly (rotation across IX-certified venues)</td><td>~12 Patrons per dinner, hosted by Vinicon's brand team</td></tr>
+        <tr><td>Trade education series</td><td>Quarterly per venue</td><td>Venue staff trained on Vinicon portfolio; Pillar 2 (Sustainability) + Pillar 6 (Supply Chain) score lift for the venue</td></tr>
+        <tr><td>Member discovery (passive)</td><td>Always-on</td><td>Vinicon's pourable venues appear in Patron concierge; member spend data flows back to brand</td></tr>
+        <tr><td>Brand ambassador hosting</td><td>Ad-hoc, venue-led</td><td>Vinicon ambassadors enrolled at venue level (per Master v6.1 venue-enrollment mechanic) host events at host venues</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">04</span>Activity timeline</h2>
+
+<div class="timeline">
+    <div class="tl-row"><div class="tl-when">2026 Apr</div><div class="tl-what"><strong>Founding Z conversation initiated.</strong> Stephen Lane (Vinicon) introduced to IX founding-Z programme.</div></div>
+    <div class="tl-row"><div class="tl-when">2026 Apr</div><div class="tl-what"><strong>Term sheet signed.</strong> 1/2/3% management fee escalator across Y1-Y3, &pound;15K setup waived (sweat-equity), first refusal on capital rounds.</div></div>
+    <div class="tl-row"><div class="tl-when">2026 May</div><div class="tl-what"><strong>Slot 1 of 5 confirmed.</strong> 4 remaining founding Z slots open; pipeline includes Rémy Cointreau (Jack Charlton conversation), Double Dutch, Jim &amp; Tonic, Mondo Brewing.</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>White-label network onboarding.</strong> Vinicon's wine portfolio integration into IX certified-venue listings.</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>First Patron-only activation.</strong> Q3 2026 allocation drop targeted.</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>Founding buy-in.</strong> Cash investment into IX Ecosystem Fund (amount TBD, reflects strategic value).</div></div>
+</div>
+
+<h2><span class="num">05</span>What "your founding Z position" would look like inside IX</h2>
+
+<p>Same template applies for any of the four remaining founding Z slots:</p>
+
+<ol>
+    <li><strong>Initial conversation.</strong> 30-min walkthrough of the Brand Supplier Value Props (sales-enablement brief) and the founding Z escalator economics. No sales pitch — structural fit assessment.</li>
+    <li><strong>Term sheet.</strong> Founding-Z-specific terms (1/2/3% escalator, &pound;15K setup waived, first refusal on rounds, founding buy-in into the Ecosystem Fund).</li>
+    <li><strong>Onboarding.</strong> 4–6 weeks to live. Brand portfolio integration, member-facing surface configuration, white-label network coverage.</li>
+    <li><strong>Activation begins.</strong> Patron-only events, trade education, allocation drops. Activation budget paid in IXT — compounds in the network rather than breaking as discount.</li>
+    <li><strong>Quarterly review.</strong> Member spend data, activation ROI, venue coverage, IXT-in-Fund-NFT position. First-refusal pipeline visible.</li>
+</ol>
+
+<p style="margin-top:18px;"><strong>Discuss a founding Z slot:</strong> <a href="https://initiativex.co.uk/z">initiativex.co.uk/z</a> &middot; <a href="mailto:thibault@initiativex.co.uk?subject=IX%20founding%20Z%20conversation">thibault@initiativex.co.uk</a></p>
+
+<h2><span class="num">06</span>If you want to go deeper</h2>
+<div class="reads-grid">
+    <div class="read-card">
+        <div class="read-tag">Architecture</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/intro">/intro</a></div>
+        <div class="read-desc">5-min plain-English explanation of what IX is and how the four parties connect.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Brand strategy</div>
+        <div class="read-title">Brand Supplier Value Props v2.0</div>
+        <div class="read-desc">Internal strategy doc on why ambassadors-first beats institutional-first when selling IX into big-group brands.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Z-partner</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/z">/z</a></div>
+        <div class="read-desc">White-label / Z partner programme details — economics, structure, how to formalise a slot.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Ambassador example</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/jack">/jack (private)</a></div>
+        <div class="read-desc">Per-recipient brief for Jack Charlton (Rémy Cointreau brand ambassador) — how a brand ambassador maps into the IX founding Z conversation.</div>
+    </div>
+</div>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk?subject=IX%20%E2%80%94%20founding%20Z%20conversation">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

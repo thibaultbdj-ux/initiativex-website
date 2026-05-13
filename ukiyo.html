@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHVCS9DBK0');
+      gtag('event', 'profile_view', { profile_type: 'venue', profile_name: 'ukiyo' });
+    </script>
+
+    <title>Initiative X — UKIYO London (Venue Profile Example)</title>
+    <meta name="description" content="What an IX-certified venue looks like inside the network. UKIYO London is the first live example.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
+            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
+            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
+            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
+            --accent: var(--teal);
+        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); line-height: 1.65; background: var(--warm-bg); padding: 48px 24px 120px; }
+        .container { max-width: 880px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 32px; }
+        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
+        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
+        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
+        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
+        .header-right .date { color: var(--black); margin-bottom: 2px; }
+
+        .example-banner { background: #FDF6E3; border: 1px solid #D4A574; border-radius: 8px; padding: 14px 18px; margin-bottom: 32px; font-size: 0.92rem; color: #5E4918; line-height: 1.55; }
+        .example-banner strong { color: var(--black); }
+
+        /* Hero block */
+        .hero { background: var(--charcoal); color: var(--cream); padding: 32px 36px; border-radius: 14px; margin-bottom: 28px; }
+        .hero-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
+        .hero-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.8rem; color: #fff; letter-spacing: -0.5px; }
+        .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--caramel); margin-top: 4px; }
+        .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge { display: inline-flex; align-items: center; padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 14px; }
+        .badge.cert { background: rgba(212,165,116,0.18); color: var(--caramel); border: 1px solid var(--caramel); }
+        .badge.r { background: rgba(107,138,126,0.18); color: var(--sage); border: 1px solid var(--sage); }
+        .badge.live { background: rgba(107,138,126,0.18); color: #88C599; border: 1px solid #88C599; }
+        .hero-tag-line { font-size: 0.95rem; color: rgba(244,240,235,0.85); line-height: 1.55; max-width: 700px; }
+
+        /* Snapshot metrics */
+        .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+        @media (max-width: 720px) { .snapshot { grid-template-columns: repeat(2, 1fr); } }
+        .stat { background: #fff; padding: 16px 18px; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--accent); }
+        .stat .label { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze); margin-bottom: 6px; }
+        .stat .val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 2px; }
+        .stat .sub { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-grey); }
+
+        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
+        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
+        p { margin-bottom: 12px; font-size: 0.95rem; }
+        p.lead { font-size: 1rem; color: var(--charcoal); }
+        ul { padding-left: 22px; margin-bottom: 14px; }
+        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
+        strong { color: var(--black); }
+        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
+        a:hover { color: var(--bronze); }
+
+        /* 10-pillar scores */
+        .pillars { background: #fff; padding: 22px 26px; border-radius: 10px; border: 1px solid var(--pale-grey); margin: 18px 0; }
+        .pillar-row { display: grid; grid-template-columns: 160px 1fr 60px; gap: 14px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--pale-grey); }
+        .pillar-row:last-child { border-bottom: none; }
+        .pillar-row .pname { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.88rem; color: var(--black); }
+        .pillar-row .pbar { height: 6px; background: var(--off-white); border-radius: 3px; overflow: hidden; }
+        .pillar-row .pbar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+        .pillar-row .pscore { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--black); text-align: right; font-weight: 500; }
+        @media (max-width: 640px) { .pillar-row { grid-template-columns: 1fr 50px; gap: 6px; } .pillar-row .pname { grid-column: 1; } .pillar-row .pbar { display: none; } }
+
+        /* Activity timeline */
+        .timeline { margin: 18px 0; }
+        .tl-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--pale-grey); }
+        .tl-row:last-child { border-bottom: none; }
+        .tl-when { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--bronze); }
+        .tl-what { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; }
+        .tl-what strong { color: var(--black); }
+
+        /* Investment surface table */
+        table { width: 100%; border-collapse: collapse; margin: 14px 0; background: #fff; border-radius: 6px; overflow: hidden; font-size: 0.85rem; }
+        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey); background: var(--off-white); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--pale-grey); }
+        td { padding: 11px 14px; border-bottom: 1px solid var(--pale-grey); vertical-align: top; color: var(--dark-grey); }
+        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
+        tr:last-child td { border-bottom: none; }
+
+        .reads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+        .read-card { padding: 16px 18px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); }
+        .read-card .read-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
+        .read-card .read-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 4px; }
+        .read-card .read-title a { border-bottom: none; }
+        .read-card .read-desc { font-size: 0.85rem; color: var(--mid-grey); line-height: 1.5; }
+        @media (max-width: 640px) { .reads-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 640px) {
+            body { padding: 32px 18px 96px; }
+            header { flex-direction: column; gap: 12px; }
+            .header-right { text-align: left; }
+            h2 { font-size: 1rem; }
+            .hero { padding: 24px 22px; }
+            .hero-name { font-size: 1.4rem; }
+        }
+
+        footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
+        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
+        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="header-left">
+        <div class="mark">IX</div>
+        <h1>Profile &middot; Venue</h1>
+        <div class="doc-type">UKIYO London &middot; Live Example</div>
+    </div>
+    <div class="header-right">
+        <div class="date">May 2026</div>
+        <div>InitiativeX Ltd (UK)</div>
+        <div>Companies House #17202264</div>
+        <div>Phase 1 &mdash; Founding 100</div>
+    </div>
+</header>
+
+<div class="example-banner">
+    <strong>What you're looking at.</strong> This is what an IX-certified venue's profile inside the network looks like. UKIYO London is the first live IX-certified venue. Some metrics below are real (revenue, opening date, brand); others are illustrative of what each measure looks like once Phase 1 is fully running. Where the value is projected or sample, it's flagged as such.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-row">
+        <div>
+            <div class="hero-name">UKIYO London</div>
+            <div class="hero-tag">Independent restaurant &middot; Handroll &amp; Highballs &middot; Covent Garden</div>
+        </div>
+        <div class="badge-row">
+            <span class="badge cert">Foundation tier</span>
+            <span class="badge r">R-rating: R3</span>
+            <span class="badge live">Live in network</span>
+        </div>
+    </div>
+    <div class="hero-tag-line">First IX-certified venue. Trades since 2024. Brand owned by Kinroots Capital Ltd; brand-licensed to UKIYO OpCo. The reference example for what a Foundation-tier IX venue looks like under the recommended Brand Holdco / OpCo / PropCo structure.</div>
+</section>
+
+<!-- SNAPSHOT METRICS -->
+<div class="snapshot">
+    <div class="stat">
+        <div class="label">Revenue (FY 25/26)</div>
+        <div class="val">&pound;1.4M</div>
+        <div class="sub">Real &middot; trading 24+ months</div>
+    </div>
+    <div class="stat">
+        <div class="label">Cert score</div>
+        <div class="val">52.4%</div>
+        <div class="sub">Foundation tier (40%+)</div>
+    </div>
+    <div class="stat">
+        <div class="label">R-rating</div>
+        <div class="val">R3</div>
+        <div class="sub">Trading, IC review pending R2</div>
+    </div>
+    <div class="stat">
+        <div class="label">Patron members</div>
+        <div class="val">~80</div>
+        <div class="sub">Sample &middot; Phase 1 rollout</div>
+    </div>
+</div>
+
+<h2><span class="num">01</span>What being IX-certified actually means for this venue</h2>
+
+<p>UKIYO sits inside IX as the reference example for the Foundation tier. Concretely:</p>
+<ul>
+    <li><strong>Member traffic.</strong> IX Patrons see UKIYO in the curated venue map; bookings flow through the IX concierge layer where they choose to use it.</li>
+    <li><strong>Loyalty engine.</strong> Patron spend at UKIYO earns IXT at the Master v6.1 rate (1.10% of spend). IXT can be redeemed at UKIYO or at any other IX-certified venue.</li>
+    <li><strong>Quarterly assessment.</strong> The 10-pillar score is reassessed every quarter. Improvement → tier-up to Verified (60%+) or Excellence (80%+) → lower Governance Premium in the WACC build → higher assessed Business NFT value.</li>
+    <li><strong>Capital access.</strong> Once the IX fund manager is authorised, UKIYO becomes eligible for Cashflow Notes (working capital) and Development Convertibles (refit / expansion). Stage 0 founding preferential return applies on any venue-specific raise.</li>
+    <li><strong>Brand activation surface.</strong> Z-partner brands (Vinicon today; more to come) can run member tastings, allocation drops and pairing series at UKIYO. Activation budgets paid in IXT &mdash; loops back into the venue.</li>
+</ul>
+
+<h2><span class="num">02</span>The 10-pillar Certification score</h2>
+
+<p>UKIYO's current score by pillar. Scores decay over time without re-evidencing; quarterly reassessment cycle.</p>
+
+<div class="pillars">
+    <div class="pillar-row"><div class="pname">01 Operations</div><div class="pbar"><div class="pbar-fill" style="width: 65%"></div></div><div class="pscore">65%</div></div>
+    <div class="pillar-row"><div class="pname">02 Sustainability</div><div class="pbar"><div class="pbar-fill" style="width: 48%"></div></div><div class="pscore">48%</div></div>
+    <div class="pillar-row"><div class="pname">03 Financial Health</div><div class="pbar"><div class="pbar-fill" style="width: 55%"></div></div><div class="pscore">55%</div></div>
+    <div class="pillar-row"><div class="pname">04 People &amp; HR</div><div class="pbar"><div class="pbar-fill" style="width: 60%"></div></div><div class="pscore">60%</div></div>
+    <div class="pillar-row"><div class="pname">05 Customer Experience</div><div class="pbar"><div class="pbar-fill" style="width: 70%"></div></div><div class="pscore">70%</div></div>
+    <div class="pillar-row"><div class="pname">06 Supply Chain</div><div class="pbar"><div class="pbar-fill" style="width: 50%"></div></div><div class="pscore">50%</div></div>
+    <div class="pillar-row"><div class="pname">07 Governance</div><div class="pbar"><div class="pbar-fill" style="width: 45%"></div></div><div class="pscore">45%</div></div>
+    <div class="pillar-row"><div class="pname">08 Community</div><div class="pbar"><div class="pbar-fill" style="width: 42%"></div></div><div class="pscore">42%</div></div>
+    <div class="pillar-row"><div class="pname">09 Growth</div><div class="pbar"><div class="pbar-fill" style="width: 50%"></div></div><div class="pscore">50%</div></div>
+    <div class="pillar-row"><div class="pname">10 Economic Participation</div><div class="pbar"><div class="pbar-fill" style="width: 35%"></div></div><div class="pscore">35%</div></div>
+</div>
+
+<p style="font-size:0.85rem; color:var(--mid-grey);"><em>Aggregate weighted score: <strong>52.4%</strong> &mdash; Foundation tier (40&ndash;59%). Path to Verified (60%+) is most accessible via Pillars 02, 06, 07, 08, 10 where current scores are below the venue's operational baseline.</em></p>
+
+<h2><span class="num">03</span>Inside-the-system view (sample dashboard)</h2>
+
+<p>What UKIYO's operator dashboard surfaces day-to-day. Sample data illustrative of Phase 1 steady-state &mdash; some live, some projected.</p>
+
+<table>
+    <thead><tr><th>Metric</th><th>Current (May 2026)</th><th>Phase 1 target</th></tr></thead>
+    <tbody>
+        <tr><td>Patron members visible at UKIYO</td><td>~80 (sample)</td><td>500+ by end of Founding 100</td></tr>
+        <tr><td>IXT earned by Patrons at UKIYO / month</td><td>&pound;1.5K (sample)</td><td>&pound;15K+ at Phase 1 steady-state</td></tr>
+        <tr><td>IXT redeemed at UKIYO from other venues / month</td><td>&pound;0.4K (sample)</td><td>&pound;5K+ as network compounds</td></tr>
+        <tr><td>Z-partner brand activations / quarter</td><td>0 (Vinicon onboarding)</td><td>2&ndash;3 per quarter</td></tr>
+        <tr><td>Pillar 7 (Governance) trajectory</td><td>45%</td><td>60%+ once Brand/OpCo split formalised</td></tr>
+        <tr><td>Capital facilities accessed</td><td>None yet</td><td>Cashflow Notes available post-FCA opinion</td></tr>
+        <tr><td>EBT staff IXT grants / year</td><td>0 (EBT pending)</td><td>500&ndash;2,000 IXT/year per eligible employee</td></tr>
+    </tbody>
+</table>
+
+<h2><span class="num">04</span>Activity timeline</h2>
+
+<div class="timeline">
+    <div class="tl-row"><div class="tl-when">2024 Q3</div><div class="tl-what"><strong>UKIYO opens.</strong> Independent restaurant trading under Kinroots Capital Ltd as the holding entity.</div></div>
+    <div class="tl-row"><div class="tl-when">FY 25/26</div><div class="tl-what"><strong>Trading.</strong> &pound;1.4M revenue, 69% gross margin, 30% labour cost, 1.1% net margin. Reference financial profile for a London independent restaurant at this scale.</div></div>
+    <div class="tl-row"><div class="tl-when">2026 Apr</div><div class="tl-what"><strong>IX certification application submitted.</strong> 10-pillar self-assessment + supporting evidence pack.</div></div>
+    <div class="tl-row"><div class="tl-when">2026 May</div><div class="tl-what"><strong>Foundation tier awarded.</strong> Score 52.4%. R-rating set at R3 (trading, IC review pending R2 transition).</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>Brand Holdco / OpCo split.</strong> Recommended structure per IX Venue Structural Blueprint v1.2 &mdash; will lift Pillar 7 (Governance) score and unlock Verified-tier path.</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>EBT enrollment.</strong> Staff EBT participation activation pending FCA opinion + EBT trustee appointment.</div></div>
+    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>Capital facility.</strong> Cashflow Note eligibility activates post-FCA opinion + fund manager AR/outsourcing.</div></div>
+</div>
+
+<h2><span class="num">05</span>What "your venue" would look like inside IX</h2>
+
+<p>Same template applies for any venue joining IX Phase 1:</p>
+
+<ol>
+    <li><strong>Apply for certification.</strong> 10-pillar self-assessment with evidence (financials, lease, H&amp;S, supplier list). Reviewed by IX assessment team. ~5 business days for completeness review, ~15 for full assessment.</li>
+    <li><strong>Tier awarded.</strong> Foundation (40%+), Verified (60%+), or Excellence (80%+). Score by pillar visible to the operator and to IX.</li>
+    <li><strong>Live in the member-facing layer.</strong> Patron members see the venue. IXT mechanics activate.</li>
+    <li><strong>Quarterly reassessment.</strong> Operator can improve specific pillars to lift tier &rarr; lift R-rating &rarr; lower WACC Governance Premium &rarr; better fund-side terms.</li>
+    <li><strong>Capital + brand surface activates</strong> as the regulatory + fund-manager rails come live.</li>
+</ol>
+
+<p style="margin-top:18px;"><strong>Apply to be the next certified venue:</strong> <a href="https://initiativex.co.uk/certify">initiativex.co.uk/certify</a></p>
+
+<h2><span class="num">06</span>If you want to go deeper</h2>
+<div class="reads-grid">
+    <div class="read-card">
+        <div class="read-tag">Architecture</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/intro">/intro</a></div>
+        <div class="read-desc">5-min plain-English explanation of what IX is and how the four parties (members / venues / brands / investors) connect.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Recommended structure</div>
+        <div class="read-title">Venue Structural Blueprint v1.2</div>
+        <div class="read-desc">Brand Holdco / OpCo / PropCo structure that contributes to Pillar 7 (Governance) score. Voluntary, not mandate.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Certification</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/certify">/certify</a></div>
+        <div class="read-desc">Apply to be the next IX-certified venue. Same 10-pillar process, same scoring, same network access.</div>
+    </div>
+    <div class="read-card">
+        <div class="read-tag">Founding 100</div>
+        <div class="read-title"><a href="https://initiativex.co.uk/founding">/founding</a></div>
+        <div class="read-desc">Cohort brief — what you get for being a founding-cohort venue (Year 1 free Patron membership for ops, founding-member dinners, first refusal on rounds).</div>
+    </div>
+</div>
+
+<footer>
+    <div class="mark-small">IX</div>
+    <div class="contact">
+        <a href="mailto:thibault@initiativex.co.uk?subject=IX%20%E2%80%94%20venue%20conversation">thibault@initiativex.co.uk</a>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
