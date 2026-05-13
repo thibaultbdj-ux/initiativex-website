@@ -65,7 +65,11 @@
         .party-card.investors { border-color: var(--warm-light); }
         .party-card .who { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
         .party-card .what { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--black); margin-bottom: 6px; }
-        .party-card .why { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; }
+        .party-card .why { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; margin-bottom: 12px; }
+        .party-card .party-links { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--pale-grey); display: flex; flex-direction: column; gap: 6px; }
+        .party-card .party-links a { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--black); border-bottom: 1px solid var(--bronze); display: inline-block; }
+        .party-card .party-links a:hover { color: var(--bronze); }
+        .party-card .party-links .party-example { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-grey); font-style: italic; margin-top: 2px; }
         @media (max-width: 640px) { .four-party { grid-template-columns: 1fr; } }
 
         .ixt-block { background: var(--charcoal); color: var(--cream); padding: 26px 30px; border-radius: 12px; margin: 24px 0; }
@@ -114,7 +118,7 @@
     <div class="header-left">
         <div class="mark">IX</div>
         <h1>Initiative X &mdash; in 5 minutes</h1>
-        <div class="doc-type">Plain-English Intro &middot; Read this first</div>
+        <div class="doc-type">Platform Intro &middot; Read this first</div>
     </div>
     <div class="header-right">
         <div class="date">May 2026</div>
@@ -137,22 +141,38 @@
     <div class="party-card members">
         <div class="who">Members</div>
         <div class="what">Discover and access certified venues</div>
-        <div class="why">Two tiers: Explorer (free, browse and discover) and Patron (£30/mo &mdash; full benefits, IXT earning, events, investment access).</div>
+        <div class="why">Two tiers: Explorer (free, browse and discover) and Patron (&pound;30/mo &mdash; full benefits, IXT earning, events, investment access). <a href="https://ix-pass-service-dflctrj32q-nw.a.run.app/m/IX-0001/wallet" target="_blank" rel="noopener" style="color: var(--caramel); text-decoration: underline; white-space: nowrap;">See example wallet &rarr;</a></div>
+        <div class="party-links">
+            <a href="https://initiativex.co.uk/join">Explorer profile &rarr;</a>
+            <a href="https://initiativex.co.uk/patron-agreement">Patron profile &rarr;</a>
+        </div>
     </div>
     <div class="party-card venues">
         <div class="who">Venues (operators)</div>
         <div class="what">Access infrastructure they couldn't build alone</div>
         <div class="why">Member network, certified partner pool, training, loyalty engine, capital access &mdash; on a shared standard. Free to enter; layers open as the venue progresses.</div>
+        <div class="party-links">
+            <a href="https://initiativex.co.uk/certify">Venue / certification profile &rarr;</a>
+            <span class="party-example">UKIYO London is the first IX-certified venue (live).</span>
+        </div>
     </div>
     <div class="party-card brands">
         <div class="who">Brands &amp; suppliers</div>
         <div class="what">One agreement, whole certified network</div>
         <div class="why">Drinks brands, F&amp;B suppliers, hotel groups, brand ambassadors. White-label network, member-funded activations, structured trade education delivery.</div>
+        <div class="party-links">
+            <a href="https://initiativex.co.uk/service-provider">Supplier / service-provider profile &rarr;</a>
+            <a href="https://initiativex.co.uk/z">Z-partner (brand) profile &rarr;</a>
+        </div>
     </div>
     <div class="party-card investors">
         <div class="who">Investors</div>
         <div class="what">Regulated, real-asset hospitality exposure</div>
-        <div class="why">Six investment vehicles under an FCA-authorised fund manager. Real venue cashflows + property + lending. Two access rails: retail (£100 min) and direct (£1K min).</div>
+        <div class="why">Six investment vehicles under an FCA-authorised fund manager. Real venue cashflows + property + lending. Two access rails: retail (&pound;100 min) and direct (&pound;1K min).</div>
+        <div class="party-links">
+            <a href="https://initiativex.co.uk/invest">Investment profile &rarr;</a>
+            <a href="https://initiativex.co.uk/overview">Structural read &rarr;</a>
+        </div>
     </div>
 </div>
 
