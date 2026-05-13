@@ -1,297 +1,343 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>IX — Service Provider Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #3F5A5A;
+  --teal-light: #4D6B6B;
+  --sage: #6B8A7E;
+  --bronze: #9B8B6E;
+  --bronze-light: #B8A88A;
+  --caramel: #D4A574;
+  --cream: #F4F0EB;
+  --cream-dark: #E8E2D9;
+  --bg: #F4F0EB;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(63, 90, 90, 0.15);
+  --charcoal: #1A1A1A;
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted: #A0A0A0;
+}
 
-    <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZHVCS9DBK0');
-      gtag('event', 'profile_view', { profile_type: 'supplier', profile_name: 'sample' });
-    </script>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.app{max-width:480px;margin:0 auto;padding:0 16px}
 
-    <title>Initiative X — Supplier / Service Provider Profile (Sample)</title>
-    <meta name="description" content="What an IX-certified supplier or service provider looks like inside the network. Sample / illustrative.">
-    <meta name="robots" content="noindex, nofollow">
+/* Header */
+.header{padding:20px 0;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:10px}
+.header-greeting{font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--text-secondary)}
+.header-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;padding:6px 12px;border:1px solid var(--card-border);border-radius:4px}
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* Member Card — SP uses teal gradient */
+.member-card{background:linear-gradient(135deg,#2D4545 0%,#3F5A5A 40%,#4D6B6B 100%);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;color:var(--cream)}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.card-tier{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,235,0.85)}
+.card-bottom{margin-top:0}
+.card-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-bottom:4px;color:var(--cream)}
+.card-category{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;color:rgba(244,240,235,0.6);margin-bottom:20px}
+.card-meta{display:flex;gap:24px;font-family:'DM Mono',monospace}
+.card-meta-item .label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,235,0.5);margin-bottom:2px}
+.card-meta-item .value{font-size:13px;font-weight:500;color:var(--cream)}
+.card-meta-item .value.gold{color:var(--caramel)}
 
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
-            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
-            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
-            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
-            --accent: var(--bronze);
-        }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); line-height: 1.65; background: var(--warm-bg); padding: 48px 24px 120px; }
-        .container { max-width: 880px; margin: 0 auto; }
-        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 32px; }
-        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
-        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
-        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
-        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
-        .header-right .date { color: var(--black); margin-bottom: 2px; }
+/* Wallet link */
+.wallet-link{display:block;text-align:center;padding:12px 16px;margin-top:12px;background:var(--charcoal);color:var(--cream);border-radius:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;margin-bottom:20px}
 
-        .example-banner { background: #FDF6E3; border: 1px solid #D4A574; border-radius: 8px; padding: 14px 18px; margin-bottom: 32px; font-size: 0.92rem; color: #5E4918; line-height: 1.55; }
-        .example-banner strong { color: var(--black); }
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.kpi-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:14px;text-align:center}
+.kpi-value{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:var(--text)}
+.kpi-value.gold{color:var(--caramel)}
+.kpi-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-top:4px}
 
-        .hero { background: var(--charcoal); color: var(--cream); padding: 32px 36px; border-radius: 14px; margin-bottom: 28px; }
-        .hero-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
-        .hero-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.8rem; color: #fff; letter-spacing: -0.5px; }
-        .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--caramel); margin-top: 4px; }
-        .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
-        .badge { display: inline-flex; align-items: center; padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 14px; }
-        .badge.cert { background: rgba(212,165,116,0.18); color: var(--caramel); border: 1px solid var(--caramel); }
-        .badge.r { background: rgba(155,139,110,0.22); color: var(--bronze); border: 1px solid var(--bronze); }
-        .badge.live { background: rgba(107,138,126,0.18); color: #88C599; border: 1px solid #88C599; }
-        .hero-tag-line { font-size: 0.95rem; color: rgba(244,240,235,0.85); line-height: 1.55; max-width: 700px; }
+/* Action buttons */
+.action-row{display:flex;gap:8px;margin-bottom:24px}
+.action-btn{flex:1;padding:12px;border-radius:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text)}
+.action-btn.primary{background:var(--teal);color:var(--cream);border-color:var(--teal)}
 
-        .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
-        @media (max-width: 720px) { .snapshot { grid-template-columns: repeat(2, 1fr); } }
-        .stat { background: #fff; padding: 16px 18px; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--accent); }
-        .stat .label { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze); margin-bottom: 6px; }
-        .stat .val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 2px; }
-        .stat .sub { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-grey); }
+/* Sections */
+.section{margin-bottom:20px}
+.section-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;padding-left:4px}
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px}
 
-        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
-        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
-        p { margin-bottom: 12px; font-size: 0.95rem; }
-        p.lead { font-size: 1rem; color: var(--charcoal); }
-        ul, ol { padding-left: 22px; margin-bottom: 14px; }
-        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
-        strong { color: var(--black); }
-        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
-        a:hover { color: var(--bronze); }
+/* Services list */
+.service-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--card-border)}
+.service-row:last-child{border-bottom:none}
+.service-name{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;color:var(--text)}
+.service-desc{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:2px}
+.service-price{font-family:'DM Mono',monospace;font-size:11px;color:var(--caramel);text-align:right;font-weight:500}
 
-        table { width: 100%; border-collapse: collapse; margin: 14px 0; background: #fff; border-radius: 6px; overflow: hidden; font-size: 0.85rem; }
-        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey); background: var(--off-white); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--pale-grey); }
-        td { padding: 11px 14px; border-bottom: 1px solid var(--pale-grey); vertical-align: top; color: var(--dark-grey); }
-        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
-        tr:last-child td { border-bottom: none; }
+/* Venue served */
+.venue-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:var(--cream-dark);border-radius:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-secondary);margin-right:6px;margin-bottom:6px;letter-spacing:0.05em}
 
-        .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
-        @media (max-width: 720px) { .lanes { grid-template-columns: 1fr; } }
-        .lane-card { background: #fff; padding: 18px 20px; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--accent); }
-        .lane-card .lane-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--bronze); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
-        .lane-card .lane-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 8px; }
-        .lane-card .lane-desc { font-size: 0.86rem; color: var(--dark-grey); line-height: 1.55; }
+/* Certification progress */
+.cert-bar{height:6px;background:var(--cream-dark);border-radius:3px;overflow:hidden;margin:8px 0}
+.cert-fill{height:100%;background:var(--teal);border-radius:3px}
+.cert-label{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-bottom:4px}
 
-        .timeline { margin: 18px 0; }
-        .tl-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--pale-grey); }
-        .tl-row:last-child { border-bottom: none; }
-        .tl-when { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--bronze); }
-        .tl-what { font-size: 0.92rem; color: var(--dark-grey); line-height: 1.55; }
-        .tl-what strong { color: var(--black); }
+/* Activity */
+.activity-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--card-border)}
+.activity-row:last-child{border-bottom:none}
+.activity-icon{width:32px;height:32px;border-radius:8px;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.activity-body{flex:1}
+.activity-title{font-size:13px;color:var(--text);font-weight:500}
+.activity-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:2px}
+.activity-value{font-family:'DM Mono',monospace;font-size:11px;color:var(--caramel);font-weight:500;text-align:right}
 
-        .reads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-        .read-card { padding: 16px 18px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); }
-        .read-card .read-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
-        .read-card .read-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 4px; }
-        .read-card .read-title a { border-bottom: none; }
-        .read-card .read-desc { font-size: 0.85rem; color: var(--mid-grey); line-height: 1.5; }
-        @media (max-width: 640px) { .reads-grid { grid-template-columns: 1fr; } }
+/* Milestones */
+.milestone-row{display:flex;gap:10px;align-items:center;padding:8px 0}
+.milestone-check{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.milestone-check.done{background:var(--teal);color:var(--cream)}
+.milestone-check.pending{border:1.5px solid var(--card-border)}
+.milestone-text{font-size:13px;flex:1}
+.milestone-text.done{color:var(--text);font-weight:500}
+.milestone-text.pending{color:var(--text-muted)}
+.milestone-badge{font-family:'DM Mono',monospace;font-size:10px;color:var(--caramel)}
 
-        @media (max-width: 640px) {
-            body { padding: 32px 18px 96px; }
-            header { flex-direction: column; gap: 12px; }
-            .header-right { text-align: left; }
-            h2 { font-size: 1rem; }
-            .hero { padding: 24px 22px; }
-            .hero-name { font-size: 1.4rem; }
-        }
-
-        footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
-        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
-        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
-    </style>
+/* Footer */
+.footer{padding:32px 0;text-align:center}
+.footer-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--text-muted)}
+.footer-links{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--text-muted);margin-top:8px}
+.footer-links a{color:var(--text-muted)}
+</style>
 </head>
 <body>
-<div class="container">
 
-<header>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
     <div class="header-left">
-        <div class="mark">IX</div>
-        <h1>Profile &middot; Supplier / SP</h1>
-        <div class="doc-type">Sample &middot; Beverage Consultant</div>
+      <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="rgba(63,90,90,0.3)" stroke-width="1.2"/><text x="14" y="18" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="700" fill="rgba(63,90,90,0.5)">IX</text></svg>
+      <span class="header-greeting">Welcome, [Name]</span>
     </div>
-    <div class="header-right">
-        <div class="date">May 2026</div>
-        <div>InitiativeX Ltd (UK)</div>
-        <div>Companies House #17202264</div>
-        <div>Phase 1 &mdash; Founding 100</div>
+    <a href="#settings" class="header-btn">Settings</a>
+  </div>
+
+  <!-- Member Card -->
+  <div class="member-card">
+    <div class="card-top">
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="rgba(244,240,235,0.15)" stroke-width="1"/><text x="12" y="15.5" text-anchor="middle" font-family="Space Grotesk" font-size="8" font-weight="700" fill="rgba(244,240,235,0.3)">IX</text></svg>
+      <span class="card-tier">Service Provider · Verified</span>
     </div>
-</header>
+    <div class="card-bottom">
+      <div class="card-name">[Company Name]</div>
+      <div class="card-category">[Design / Accounting / Legal / HR / Marketing / Tech]</div>
+      <div class="card-meta">
+        <div class="card-meta-item">
+          <div class="label">SP ID</div>
+          <div class="value">IX-SP-0001</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Since</div>
+          <div class="value">Apr 2026</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Network Access</div>
+          <div class="value gold">Full</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="example-banner">
-    <strong>What you're looking at.</strong> This is what an IX-certified supplier or service provider's profile inside the network looks like. <strong>Sample data — illustrative.</strong> Uses a beverage consultant as the example archetype (the same archetype as the per-recipient page at /maya). The same template applies for any SP — design, accounting, HR, legal, marketing, ops, IT, F&amp;B suppliers.
-</div>
+  <a href="#wallet" class="wallet-link">Add to Apple / Google Wallet</a>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-row">
+  <!-- KPI row -->
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-value">7</div>
+      <div class="kpi-label">Venues served</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value gold">2,150</div>
+      <div class="kpi-label">IXT earned</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value" style="color:var(--sage);">&pound;8.4K</div>
+      <div class="kpi-label">Revenue YTD</div>
+    </div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="action-row">
+    <a href="https://ix-concierge.vercel.app?role=sp" class="action-btn primary">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5a1.5 1.5 0 011.5-1.5h7A1.5 1.5 0 0113 5v4a1.5 1.5 0 01-1.5 1.5H7l-2.5 2.5V10.5H4.5A1.5 1.5 0 013 9V5z" stroke="currentColor" stroke-width="1.2"/></svg>
+      Concierge
+    </a>
+    <a href="#opportunities" class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      New opportunity
+    </a>
+  </div>
+
+  <!-- 10-Pillar Certification Status -->
+  <div class="section">
+    <div class="section-title">10-Pillar Certification (SP-adapted)</div>
+    <div class="card">
+      <div class="cert-label">
+        <span>Verified Tier</span>
+        <span>72% score</span>
+      </div>
+      <div class="cert-bar"><div class="cert-fill" style="width:72%"></div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--text-secondary);line-height:1.5;">
+        Cross Excellence threshold (80%) by completing: <strong>insurance upload</strong>, <strong>3-year track record file</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Offered -->
+  <div class="section">
+    <div class="section-title">Services in the network</div>
+    <div class="card">
+      <div class="service-row">
         <div>
-            <div class="hero-name">Sample SP &middot; Independent Beverage Consultant</div>
-            <div class="hero-tag">Service category: Beverage programme design &amp; supply chain &middot; UK / EU</div>
+          <div class="service-name">Monthly bookkeeping</div>
+          <div class="service-desc">Per-venue · Xero-based</div>
         </div>
-        <div class="badge-row">
-            <span class="badge cert">Founding SP</span>
-            <span class="badge r">Lane 2: SP Network</span>
-            <span class="badge live">Active</span>
+        <div class="service-price">from &pound;350/mo</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">VAT returns</div>
+          <div class="service-desc">Quarterly · HMRC filing</div>
         </div>
+        <div class="service-price">&pound;120/qtr</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Year-end accounts</div>
+          <div class="service-desc">Companies House + HMRC</div>
+        </div>
+        <div class="service-price">from &pound;1,200</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Payroll setup</div>
+          <div class="service-desc">Opsyte integration · PAYE/NIC</div>
+        </div>
+        <div class="service-price">&pound;450 one-off</div>
+      </div>
     </div>
-    <div class="hero-tag-line">Sample profile of a senior beverage consultant inside the IX SP Network. Project-based engagement model. Sits in Lane 2 (Service Provider Network) but with structural relevance to Lanes 1 (Operator-side scoring) and 3 (Supplier-side recommendations).</div>
-</section>
+  </div>
 
-<!-- SNAPSHOT METRICS -->
-<div class="snapshot">
-    <div class="stat">
-        <div class="label">SP tier</div>
-        <div class="val">Founding</div>
-        <div class="sub">Free Phase 1, no exclusivity</div>
+  <!-- Venues Served -->
+  <div class="section">
+    <div class="section-title">Active engagements</div>
+    <div class="card">
+      <div>
+        <span class="venue-pill">🇬🇧 UKIYO — Covent Garden</span>
+        <span class="venue-pill">🇬🇧 Vinicon</span>
+        <span class="venue-pill">🇬🇧 [Venue 3]</span>
+        <span class="venue-pill">🇬🇧 [Venue 4]</span>
+        <span class="venue-pill" style="background:transparent;border:1px dashed var(--card-border);color:var(--text-muted);">+3 prospects</span>
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">Active briefs</div>
-        <div class="val">3</div>
-        <div class="sub">Sample &middot; from certified venues</div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="section">
+    <div class="section-title">Recent activity</div>
+    <div class="card">
+      <div class="activity-row">
+        <div class="activity-icon">✓</div>
+        <div class="activity-body">
+          <div class="activity-title">Monthly bookkeeping · UKIYO</div>
+          <div class="activity-meta">Completed · 5 days ago</div>
+        </div>
+        <div class="activity-value">+&pound;350 · +40 IXT</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">→</div>
+        <div class="activity-body">
+          <div class="activity-title">New venue enquiry</div>
+          <div class="activity-meta">Submitted by IX Ops · 2 weeks ago</div>
+        </div>
+        <div class="activity-value">View</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">★</div>
+        <div class="activity-body">
+          <div class="activity-title">Featured Supplier (March)</div>
+          <div class="activity-meta">Cross-network placement · 3 weeks ago</div>
+        </div>
+        <div class="activity-value">+500 IXT</div>
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">IXT earned (12 mo)</div>
-        <div class="val">~&pound;8K</div>
-        <div class="sub">Sample &middot; on completed work</div>
+  </div>
+
+  <!-- Milestones to Excellence -->
+  <div class="section">
+    <div class="section-title">Path to Excellence tier</div>
+    <div class="card">
+      <div class="milestone-row">
+        <div class="milestone-check done">✓</div>
+        <div class="milestone-text done">First venue served</div>
+        <div class="milestone-badge">100%</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-check done">✓</div>
+        <div class="milestone-text done">Foundation certification achieved</div>
+        <div class="milestone-badge">100%</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-check done">✓</div>
+        <div class="milestone-text done">Verified tier — 5+ venues</div>
+        <div class="milestone-badge">100%</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-check pending"></div>
+        <div class="milestone-text pending">Upload professional indemnity insurance</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-check pending"></div>
+        <div class="milestone-text pending">Upload 3-year track record file</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-check pending"></div>
+        <div class="milestone-text pending">Excellence tier — 10+ venues served</div>
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">Pillar 6 impact</div>
-        <div class="val">+12pts</div>
-        <div class="sub">Avg lift across client venues</div>
+  </div>
+
+  <!-- IXT Acceptance -->
+  <div class="section">
+    <div class="section-title">IXT payment acceptance</div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-size:13px;color:var(--text);font-weight:500;">Currently accepting</div>
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--caramel);font-weight:600;">50% IXT max</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
+        You accept up to 50% of your invoice value in IXT (1 IXT = &pound;1). Balance in cash. Venues with Patron+ tier get preferential access.
+      </div>
     </div>
+  </div>
+
+  <!-- Invite -->
+  <div class="section">
+    <div class="section-title">Refer another Service Provider</div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:14px;color:var(--text);margin-bottom:8px;">Refer a vetted peer &mdash; earn 500 IXT on their certification.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--teal);font-weight:600;letter-spacing:0.1em;padding:10px;background:var(--cream-dark);border-radius:8px;">IX-SP-[YOUR-ID]</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-text">Initiative X &middot; Service Provider Network</div>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="mailto:thibault@initiativex.co.uk">Contact</a>
+    </div>
+  </div>
+
 </div>
 
-<h2><span class="num">01</span>The three lanes &mdash; how an SP fits in IX</h2>
-
-<div class="lanes">
-    <div class="lane-card">
-        <div class="lane-num">Lane 1</div>
-        <div class="lane-title">Operator-side</div>
-        <div class="lane-desc">Each IX-certified venue is scored on the 10-pillar IX Certification. <strong>Pillars 02 (Sustainability), 05 (Customer Experience), 06 (Supply Chain)</strong> all touch beverage programme work directly. A consultant operating to the IX standard <em>improves the venue's score</em> &mdash; visible to the network, audit-trail-backed.</div>
-    </div>
-    <div class="lane-card">
-        <div class="lane-num">Lane 2 &middot; primary</div>
-        <div class="lane-title">SP Network</div>
-        <div class="lane-desc">Pre-qualified leads (every newly-certified venue is a brief that needs filling), group-procurement scale across the certified base, IXT-denominated payment option. Founding SP slots free during Phase 1; no exclusivity required.</div>
-    </div>
-    <div class="lane-card">
-        <div class="lane-num">Lane 3</div>
-        <div class="lane-title">Supplier-side</div>
-        <div class="lane-desc">Drinks brands, distributors, equipment partners can join the IX certified-supplier programme. As a consultant, the SP sits between operators and suppliers — IX gives a structural place to recommend in either direction, scored and visible.</div>
-    </div>
-</div>
-
-<h2><span class="num">02</span>What "active" looks like inside the SP Network</h2>
-
-<table>
-    <thead><tr><th>Element</th><th>How it works for this SP</th></tr></thead>
-    <tbody>
-        <tr><td>Brief flow</td><td>Every newly-certified venue surfaces beverage-programme needs as an SP brief. Consultant sees relevant briefs in dashboard, accepts or declines.</td></tr>
-        <tr><td>Engagement model</td><td>Project-based — typical 4–8 week venue programme build. Consultant retains existing client base; IX is an additional channel, not a replacement.</td></tr>
-        <tr><td>Payment mix</td><td>Cash + IXT (consultant's election). Default: 50% cash, 50% IXT. IXT spendable at any IX-certified venue or held as a network position.</td></tr>
-        <tr><td>SP scoring</td><td>Performance scored on the 10-pillar standard applied to the SP role: completion quality, on-time delivery, post-engagement venue-score lift, client satisfaction. Visible across the network — defensible competitive moat.</td></tr>
-        <tr><td>Group procurement</td><td>Where the consultant orchestrates supplier relationships across multiple IX venues, group-buying terms become available — passed through to operators or split with the SP per agreement.</td></tr>
-        <tr><td>Cross-venue learning</td><td>Anonymised benchmarks across the IX-certified portfolio inform programme design. What works at one venue surfaces as a baseline elsewhere.</td></tr>
-        <tr><td>Founding SP economics</td><td>Free to join Phase 1 (no upfront cost during the founding window). No exclusivity required — clients outside IX completely unaffected.</td></tr>
-    </tbody>
-</table>
-
-<h2><span class="num">03</span>Sample dashboard view</h2>
-
-<table>
-    <thead><tr><th>Metric</th><th>This SP (sample)</th><th>What it means</th></tr></thead>
-    <tbody>
-        <tr><td>Briefs received in last 90 days</td><td>4</td><td>From newly-certified venues in the consultant's category</td></tr>
-        <tr><td>Briefs accepted</td><td>3</td><td>One declined as outside scope</td></tr>
-        <tr><td>Engagements completed (12 mo)</td><td>5</td><td>Across UKIYO + 4 sample venues</td></tr>
-        <tr><td>IXT earned on completed work</td><td>~&pound;8,000</td><td>50% IXT election; balance held + spent at IX venues</td></tr>
-        <tr><td>Average venue Pillar 6 score lift post-engagement</td><td>+12 points</td><td>Visible in venue's quarterly reassessment</td></tr>
-        <tr><td>Suppliers introduced to network</td><td>3</td><td>Each scored in Lane 3; consultant earns referral position</td></tr>
-        <tr><td>Member-facing visibility</td><td>Listed</td><td>Patron members see "designed by [consultant name]" on venue programme pages</td></tr>
-    </tbody>
-</table>
-
-<h2><span class="num">04</span>Why the SP role compounds inside IX (vs project-by-project freelance)</h2>
-
-<p>The traditional consulting model is project-by-project: define the programme, hand it over, move on. No compounding upside for the consultant beyond a referral chain. Inside IX:</p>
-<ul>
-    <li><strong>Network-visible scoring.</strong> Performance is documented and visible — competitive moat that grows with the network</li>
-    <li><strong>Compounding pipeline.</strong> Every newly-certified venue is automatically a brief surface — TAM grows passively as IX onboards venues</li>
-    <li><strong>IXT position.</strong> 50% IXT election creates a network stake that grows with the ecosystem rather than cashing out per-engagement</li>
-    <li><strong>Scored impact on venues.</strong> The consultant's work materially moves Pillar scores → R-rating → WACC Governance Premium → Business NFT valuation. Documented contribution beyond the engagement fee.</li>
-    <li><strong>Brief curation cost = zero.</strong> No more sales effort — qualified briefs surface automatically</li>
-</ul>
-
-<h2><span class="num">05</span>Activity timeline (sample)</h2>
-
-<div class="timeline">
-    <div class="tl-row"><div class="tl-when">2026 Q1</div><div class="tl-what"><strong>Founding SP application submitted.</strong> Consultant joins under Phase 1 founding terms (free, no exclusivity).</div></div>
-    <div class="tl-row"><div class="tl-when">2026 Q1</div><div class="tl-what"><strong>First brief: UKIYO London.</strong> Beverage programme refresh — Pillar 6 score lift +15pts post-engagement.</div></div>
-    <div class="tl-row"><div class="tl-when">2026 Q2</div><div class="tl-what"><strong>Two new briefs.</strong> From subsequent IX-certified venues. One accepted, one declined as outside scope.</div></div>
-    <div class="tl-row"><div class="tl-when">2026 Q2</div><div class="tl-what"><strong>First IXT payment received.</strong> 50% of engagement fee converted; held in dashboard, partly redeemed at IX venues, partly held.</div></div>
-    <div class="tl-row"><div class="tl-when">2026 Q3</div><div class="tl-what"><strong>Three suppliers introduced.</strong> Wine, spirits, NA-bev — all scored in Lane 3. Consultant earns referral position on each.</div></div>
-    <div class="tl-row"><div class="tl-when">Pending</div><div class="tl-what"><strong>Group procurement activation.</strong> Consultant orchestrates supplier-pricing across 3+ IX venues — group terms available.</div></div>
-</div>
-
-<h2><span class="num">06</span>What "your SP profile" would look like inside IX</h2>
-
-<ol>
-    <li><strong>Apply for SP Network.</strong> Submit at <a href="https://initiativex.co.uk/service-provider">initiativex.co.uk/service-provider</a>. Free to join during Phase 1.</li>
-    <li><strong>Categorisation + verification.</strong> Service category, geography, capacity, references. Lightweight — IX is not a heavy-handed gatekeeper for SP onboarding.</li>
-    <li><strong>Brief flow activates.</strong> Newly-certified venues in your category surface as briefs in your dashboard. Accept or decline.</li>
-    <li><strong>Engagement.</strong> Standard SP engagement contract per IX SP Network Agreement v2.0. Cash + IXT election per project.</li>
-    <li><strong>Quarterly review.</strong> SP scoring updated based on completed work; venue Pillar score lifts visible; IXT balance + cross-venue brief flow tracked.</li>
-</ol>
-
-<p style="margin-top:18px;"><strong>Apply for the SP Network:</strong> <a href="https://initiativex.co.uk/service-provider">initiativex.co.uk/service-provider</a></p>
-
-<h2><span class="num">07</span>If you want to go deeper</h2>
-<div class="reads-grid">
-    <div class="read-card">
-        <div class="read-tag">Architecture</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/intro">/intro</a></div>
-        <div class="read-desc">5-min plain-English explanation of what IX is and how the four parties connect.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">SP application</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/service-provider">/service-provider</a></div>
-        <div class="read-desc">Apply to join the SP Network. Founding terms during Phase 1.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">Per-recipient example</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/maya">/maya (private)</a></div>
-        <div class="read-desc">Per-recipient brief sent to a working senior beverage consultant. The asks at the bottom of that page show what an SP-side conversation actually looks like.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">Cohort</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/founding">/founding</a></div>
-        <div class="read-desc">What you get for being part of the founding-cohort SP roster.</div>
-    </div>
-</div>
-
-<footer>
-    <div class="mark-small">IX</div>
-    <div class="contact">
-        <a href="mailto:thibault@initiativex.co.uk?subject=IX%20%E2%80%94%20SP%20Network%20conversation">thibault@initiativex.co.uk</a>
-    </div>
-</footer>
-
-</div>
 </body>
 </html>

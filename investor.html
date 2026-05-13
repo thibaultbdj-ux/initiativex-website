@@ -1,274 +1,401 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>IX — Investor Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --bronze: #9B8B6E;
+  --bronze-light: #B8A88A;
+  --caramel: #D4A574;
+  --cream: #F4F0EB;
+  --cream-dark: #E8E2D9;
+  --bg: #F4F0EB;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(10, 10, 10, 0.12);
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted: #A0A0A0;
+  --sage: #6B8A7E;
+  --red: #C0392B;
+}
 
-    <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHVCS9DBK0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZHVCS9DBK0');
-      gtag('event', 'profile_view', { profile_type: 'investor', profile_name: 'sample' });
-    </script>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.app{max-width:480px;margin:0 auto;padding:0 16px}
 
-    <title>Initiative X — Investor Profile (Sample)</title>
-    <meta name="description" content="What an IX investor's profile inside the platform looks like. Sample/illustrative.">
-    <meta name="robots" content="noindex, nofollow">
+/* Header */
+.header{padding:20px 0;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:10px}
+.header-greeting{font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--text-secondary)}
+.header-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;padding:6px 12px;border:1px solid var(--card-border);border-radius:4px}
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* Member Card — Investor uses deep charcoal with bronze */
+.member-card{background:linear-gradient(135deg,#0A0A0A 0%,#1A1A1A 50%,#2A2A2A 100%);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;color:var(--cream);border:1px solid rgba(155,139,110,0.3)}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.card-tier{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--caramel)}
+.card-bottom{margin-top:0}
+.card-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-bottom:4px;color:var(--cream)}
+.card-subtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;color:rgba(244,240,235,0.6);margin-bottom:20px}
+.card-meta{display:flex;gap:24px;font-family:'DM Mono',monospace}
+.card-meta-item .label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,235,0.5);margin-bottom:2px}
+.card-meta-item .value{font-size:13px;font-weight:500;color:var(--cream)}
+.card-meta-item .value.gold{color:var(--caramel)}
 
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --black:#0A0A0A; --charcoal:#1A1A1A; --dark-grey:#333; --mid-grey:#666; --light-grey:#999;
-            --pale-grey:#E8E8E8; --off-white:#F5F5F5; --warm-bg:#F8F6F3;
-            --bronze:#9B8B6E; --warm-light:#B8A88A; --teal:#3F5A5A; --teal-light:#4D6B6B;
-            --sage:#6B8A7E; --caramel:#D4A574; --cream:#F4F0EB;
-            --accent: var(--warm-light);
-        }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); line-height: 1.65; background: var(--warm-bg); padding: 48px 24px 120px; }
-        .container { max-width: 880px; margin: 0 auto; }
-        header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--black); padding-bottom: 20px; margin-bottom: 32px; }
-        .header-left .mark { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--black); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; color: var(--black); margin-bottom: 10px; }
-        .header-left h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 2px; }
-        .header-left .doc-type { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bronze); }
-        .header-right { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mid-grey); text-align: right; letter-spacing: 0.05em; }
-        .header-right .date { color: var(--black); margin-bottom: 2px; }
+/* Regulatory banner */
+.reg-banner{background:rgba(212,165,116,0.1);border-left:3px solid var(--caramel);padding:10px 14px;margin:16px 0;border-radius:4px;font-size:12px;color:var(--text-secondary);line-height:1.5}
+.reg-banner strong{color:var(--text)}
 
-        .example-banner { background: #FDF6E3; border: 1px solid #D4A574; border-radius: 8px; padding: 14px 18px; margin-bottom: 32px; font-size: 0.92rem; color: #5E4918; line-height: 1.55; }
-        .example-banner strong { color: var(--black); }
+/* Portfolio summary */
+.portfolio-hero{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin-bottom:16px;text-align:center}
+.portfolio-value{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:var(--text);letter-spacing:-1px}
+.portfolio-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px}
+.portfolio-delta{font-family:'DM Mono',monospace;font-size:12px;color:var(--sage);font-weight:500;margin-top:4px}
+.portfolio-delta.down{color:var(--red)}
 
-        .hero { background: var(--charcoal); color: var(--cream); padding: 32px 36px; border-radius: 14px; margin-bottom: 28px; }
-        .hero-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
-        .hero-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.8rem; color: #fff; letter-spacing: -0.5px; }
-        .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--caramel); margin-top: 4px; }
-        .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
-        .badge { display: inline-flex; align-items: center; padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 14px; }
-        .badge.cert { background: rgba(212,165,116,0.18); color: var(--caramel); border: 1px solid var(--caramel); }
-        .badge.r { background: rgba(184,168,138,0.18); color: var(--warm-light); border: 1px solid var(--warm-light); }
-        .badge.live { background: rgba(107,138,126,0.18); color: #88C599; border: 1px solid #88C599; }
-        .hero-tag-line { font-size: 0.95rem; color: rgba(244,240,235,0.85); line-height: 1.55; max-width: 700px; }
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.kpi-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:14px;text-align:center}
+.kpi-value{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:var(--text)}
+.kpi-value.gold{color:var(--caramel)}
+.kpi-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-top:4px}
 
-        .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
-        @media (max-width: 720px) { .snapshot { grid-template-columns: repeat(2, 1fr); } }
-        .stat { background: #fff; padding: 16px 18px; border-radius: 8px; border: 1px solid var(--pale-grey); border-top: 3px solid var(--accent); }
-        .stat .label { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze); margin-bottom: 6px; }
-        .stat .val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--black); margin-bottom: 2px; }
-        .stat .sub { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-grey); }
+/* Action buttons */
+.action-row{display:flex;gap:8px;margin-bottom:24px}
+.action-btn{flex:1;padding:12px;border-radius:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text)}
+.action-btn.primary{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
 
-        h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--black); margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--pale-grey); letter-spacing: -0.005em; }
-        h2 .num { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.75rem; color: var(--bronze); margin-right: 10px; letter-spacing: 0.1em; }
-        p { margin-bottom: 12px; font-size: 0.95rem; }
-        p.lead { font-size: 1rem; color: var(--charcoal); }
-        ul, ol { padding-left: 22px; margin-bottom: 14px; }
-        li { font-size: 0.93rem; color: var(--dark-grey); margin-bottom: 6px; }
-        strong { color: var(--black); }
-        a { color: var(--black); border-bottom: 1px solid var(--bronze); text-decoration: none; }
-        a:hover { color: var(--bronze); }
+/* Sections */
+.section{margin-bottom:20px}
+.section-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;padding-left:4px}
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px}
 
-        table { width: 100%; border-collapse: collapse; margin: 14px 0; background: #fff; border-radius: 6px; overflow: hidden; font-size: 0.85rem; }
-        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-grey); background: var(--off-white); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--pale-grey); }
-        td { padding: 11px 14px; border-bottom: 1px solid var(--pale-grey); vertical-align: top; color: var(--dark-grey); }
-        td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--black); }
-        tr:last-child td { border-bottom: none; }
+/* Holdings */
+.holding-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--card-border)}
+.holding-row:last-child{border-bottom:none}
+.holding-name{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;color:var(--text);margin-bottom:2px}
+.holding-vehicle{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.05em}
+.holding-values{text-align:right}
+.holding-value{font-family:'DM Mono',monospace;font-size:14px;color:var(--text);font-weight:600}
+.holding-delta{font-family:'DM Mono',monospace;font-size:10px;color:var(--sage);margin-top:2px}
+.holding-delta.down{color:var(--red)}
 
-        .stage0-card { background: #fff; border: 1px solid var(--pale-grey); border-left: 3px solid var(--caramel); padding: 18px 22px; border-radius: 6px; margin: 18px 0; }
-        .stage0-card .s-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--caramel); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
-        .stage0-card .s-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--black); margin-bottom: 8px; }
+/* Stage tag */
+.stage-tag{display:inline-block;padding:2px 8px;border-radius:3px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:0.05em;margin-right:4px}
+.stage-R1{background:#3F5A5A;color:var(--cream)}
+.stage-R2{background:#6B8A7E;color:var(--cream)}
+.stage-R3{background:var(--bronze-light);color:var(--charcoal)}
+.stage-R4{background:var(--caramel);color:var(--charcoal)}
+.stage-R5{background:#8B4557;color:var(--cream)}
 
-        .reads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-        .read-card { padding: 16px 18px; background: #fff; border-radius: 6px; border: 1px solid var(--pale-grey); }
-        .read-card .read-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bronze); margin-bottom: 6px; }
-        .read-card .read-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.97rem; color: var(--black); margin-bottom: 4px; }
-        .read-card .read-title a { border-bottom: none; }
-        .read-card .read-desc { font-size: 0.85rem; color: var(--mid-grey); line-height: 1.5; }
-        @media (max-width: 640px) { .reads-grid { grid-template-columns: 1fr; } }
+/* Preferential tracker */
+.pref-card{background:linear-gradient(135deg,rgba(212,165,116,0.08) 0%,rgba(212,165,116,0.02) 100%);border:1px solid rgba(212,165,116,0.3);border-radius:12px;padding:16px;margin-bottom:16px}
+.pref-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:var(--text);margin-bottom:8px}
+.pref-bar{height:6px;background:var(--cream-dark);border-radius:3px;overflow:hidden;margin:8px 0}
+.pref-fill{height:100%;background:var(--caramel);border-radius:3px}
+.pref-meta{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:4px}
 
-        @media (max-width: 640px) {
-            body { padding: 32px 18px 96px; }
-            header { flex-direction: column; gap: 12px; }
-            .header-right { text-align: left; }
-            h2 { font-size: 1rem; }
-            .hero { padding: 24px 22px; }
-            .hero-name { font-size: 1.4rem; }
-        }
+/* Activity */
+.activity-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--card-border)}
+.activity-row:last-child{border-bottom:none}
+.activity-icon{width:32px;height:32px;border-radius:8px;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.activity-body{flex:1}
+.activity-title{font-size:13px;color:var(--text);font-weight:500}
+.activity-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:2px}
+.activity-value{font-family:'DM Mono',monospace;font-size:11px;color:var(--caramel);font-weight:500;text-align:right}
 
-        footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--pale-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        footer .mark-small { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.2px solid var(--light-grey); border-radius: 50%; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 10px; color: var(--light-grey); letter-spacing: 0.5px; }
-        footer .contact { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--mid-grey); }
-        footer .contact a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--bronze); }
-    </style>
+/* Footer */
+.footer{padding:32px 0;text-align:center}
+.footer-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--text-muted)}
+.footer-links{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--text-muted);margin-top:8px}
+.footer-links a{color:var(--text-muted)}
+</style>
 </head>
 <body>
-<div class="container">
 
-<header>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
     <div class="header-left">
-        <div class="mark">IX</div>
-        <h1>Profile &middot; Investor</h1>
-        <div class="doc-type">Sample / Illustrative</div>
+      <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="rgba(10,10,10,0.3)" stroke-width="1.2"/><text x="14" y="18" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="700" fill="rgba(10,10,10,0.5)">IX</text></svg>
+      <span class="header-greeting">Good evening, [Name]</span>
     </div>
-    <div class="header-right">
-        <div class="date">May 2026</div>
-        <div>InitiativeX Ltd (UK)</div>
-        <div>Companies House #17202264</div>
-        <div>Phase 1 &mdash; Founding 100</div>
+    <a href="#settings" class="header-btn">Settings</a>
+  </div>
+
+  <!-- Member Card -->
+  <div class="member-card">
+    <div class="card-top">
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="rgba(212,165,116,0.4)" stroke-width="1"/><text x="12" y="15.5" text-anchor="middle" font-family="Space Grotesk" font-size="8" font-weight="700" fill="rgba(212,165,116,0.6)">IX</text></svg>
+      <span class="card-tier">Investor · Strategic</span>
     </div>
-</header>
+    <div class="card-bottom">
+      <div class="card-name">[Investor Name]</div>
+      <div class="card-subtitle">Founding 100 · KYC Verified · Sophisticated Self-Certified</div>
+      <div class="card-meta">
+        <div class="card-meta-item">
+          <div class="label">Investor ID</div>
+          <div class="value">IX-INV-0001</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Since</div>
+          <div class="value">Apr 2026</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Tier</div>
+          <div class="value gold">Strategic</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="example-banner">
-    <strong>What you're looking at.</strong> This is what an IX investor's view inside the platform looks like. <strong>Sample data — illustrative only.</strong> No live investment products are currently offered; the IX fund manager is pending FCA opinion + AR/outsourcing arrangement. This page describes the post-authorisation steady-state so prospective Founding 100 investors can see the shape of the system before committing.
-</div>
+  <!-- Regulatory banner -->
+  <div class="reg-banner">
+    <strong>Regulatory status:</strong> All investments shown are subject to FCA opinion pending. Phase 2 features (cash withdrawal of IXT, investment platform) activate post-authorisation. See Investor Terms.
+  </div>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-row">
+  <!-- Portfolio Hero -->
+  <div class="portfolio-hero">
+    <div class="portfolio-label">Portfolio Value</div>
+    <div class="portfolio-value">&pound;157,340</div>
+    <div class="portfolio-delta">+&pound;3,420 · +2.2% this quarter</div>
+  </div>
+
+  <!-- KPI row -->
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-value">4</div>
+      <div class="kpi-label">Holdings</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value gold">8,940</div>
+      <div class="kpi-label">IXT balance</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value" style="color:var(--sage);">&pound;4.2K</div>
+      <div class="kpi-label">Distributions YTD</div>
+    </div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="action-row">
+    <a href="#subscribe" class="action-btn primary">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Subscribe
+    </a>
+    <a href="#statements" class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.2"/></svg>
+      Statements
+    </a>
+  </div>
+
+  <!-- Founding Preferential Tracker -->
+  <div class="pref-card">
+    <div class="pref-title">Founding Preferential Return · UKIYO Covent Garden</div>
+    <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:4px;">
+      6% p.a. cumulative · paid from UKIYO cashflow only · satisfied at full principal + preference return.
+    </div>
+    <div class="pref-bar"><div class="pref-fill" style="width:18%"></div></div>
+    <div class="pref-meta">
+      <span>&pound;3,420 returned</span>
+      <span>Est. Q2 2029 satisfaction</span>
+    </div>
+  </div>
+
+  <!-- Holdings -->
+  <div class="section">
+    <div class="section-title">Holdings</div>
+    <div class="card">
+      <div class="holding-row">
         <div>
-            <div class="hero-name">Sample Investor &middot; J. Smith</div>
-            <div class="hero-tag">Patron-tier member &middot; Founding 100 cohort &middot; UK</div>
+          <div class="holding-name">UKIYO Covent Garden · Business NFT</div>
+          <div class="holding-vehicle"><span class="stage-tag stage-R3">R3</span> Vehicle F · Development Convertible</div>
         </div>
-        <div class="badge-row">
-            <span class="badge cert">Founding 100</span>
-            <span class="badge r">Direct rail (L2)</span>
-            <span class="badge live">Patron tier</span>
+        <div class="holding-values">
+          <div class="holding-value">&pound;60,000</div>
+          <div class="holding-delta">+1.2% QoQ</div>
         </div>
+      </div>
+      <div class="holding-row">
+        <div>
+          <div class="holding-name">IX Growth Trust · IXF Units</div>
+          <div class="holding-vehicle"><span class="stage-tag stage-R3">R3</span> Vehicle A · Fund equity</div>
+        </div>
+        <div class="holding-values">
+          <div class="holding-value">&pound;50,000</div>
+          <div class="holding-delta">+2.8% QoQ</div>
+        </div>
+      </div>
+      <div class="holding-row">
+        <div>
+          <div class="holding-name">IX Participation Note · 36mo</div>
+          <div class="holding-vehicle">Vehicle B · 8% fixed coupon · Matures Apr 2029</div>
+        </div>
+        <div class="holding-values">
+          <div class="holding-value">&pound;25,000</div>
+          <div class="holding-delta">+2.0% YTD</div>
+        </div>
+      </div>
+      <div class="holding-row">
+        <div>
+          <div class="holding-name">IX Cashflow Note · UKIYO Q2</div>
+          <div class="holding-vehicle"><span class="stage-tag stage-R3">R3</span> Vehicle E · 14% APR · Matures Oct 2026</div>
+        </div>
+        <div class="holding-values">
+          <div class="holding-value">&pound;22,340</div>
+          <div class="holding-delta">+5.8% YTD</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-tag-line">A sample retail investor accessing IX via the Direct rail (L2 — under appointed AIFM, &pound;1K minimum entry). Holding mixed exposure across three vehicles, with one Stage 0 founding preferential return position on a venue-specific raise.</div>
-</section>
+  </div>
 
-<!-- SNAPSHOT METRICS -->
-<div class="snapshot">
-    <div class="stat">
-        <div class="label">Total committed</div>
-        <div class="val">&pound;25K</div>
-        <div class="sub">Sample &middot; across 3 vehicles</div>
+  <!-- IXT Election -->
+  <div class="section">
+    <div class="section-title">IXT election · interest payments</div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-size:13px;color:var(--text);font-weight:500;">Current election</div>
+        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--caramel);font-weight:600;">50% IXT / 50% Cash</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
+        You receive 50% of interest payments in IXT (1 IXT = &pound;1) and 50% in cash. Strategic tier unlocks up to 100% IXT election for additional risk bonus.
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">NAV today</div>
-        <div class="val">&pound;26.4K</div>
-        <div class="sub">+5.6% since subscription</div>
+  </div>
+
+  <!-- Risk Profile -->
+  <div class="section">
+    <div class="section-title">Risk exposure by rating</div>
+    <div class="card">
+      <div style="display:flex;gap:8px;align-items:stretch;">
+        <div style="flex:1;text-align:center;padding:10px;background:var(--cream-dark);border-radius:8px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-bottom:4px;">R3</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);">&pound;132K</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);margin-top:2px;">84%</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:10px;background:var(--cream-dark);border-radius:8px;opacity:0.6;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-bottom:4px;">R2</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);">&pound;25K</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);margin-top:2px;">16%</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:10px;background:var(--cream-dark);border-radius:8px;opacity:0.3;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-bottom:4px;">R1</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);">&mdash;</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);margin-top:2px;">0%</div>
+        </div>
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">IXT held</div>
-        <div class="val">1,240</div>
-        <div class="sub">&pound;1,240 floor (1:1 Rule)</div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="section">
+    <div class="section-title">Recent activity</div>
+    <div class="card">
+      <div class="activity-row">
+        <div class="activity-icon">£</div>
+        <div class="activity-body">
+          <div class="activity-title">Q1 2026 distribution · UKIYO</div>
+          <div class="activity-meta">Founding preferential payment · 2 weeks ago</div>
+        </div>
+        <div class="activity-value">+&pound;1,620</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">📊</div>
+        <div class="activity-body">
+          <div class="activity-title">UKIYO NAV refresh</div>
+          <div class="activity-meta">Stage R3 &middot; Foundation tier &middot; Equity +1.2% QoQ</div>
+        </div>
+        <div class="activity-value">View</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">→</div>
+        <div class="activity-body">
+          <div class="activity-title">Subscribed · Cashflow Note Q2</div>
+          <div class="activity-meta">&pound;20,000 principal &middot; 14% APR &middot; 6-month term</div>
+        </div>
+        <div class="activity-value">Active</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">◎</div>
+        <div class="activity-body">
+          <div class="activity-title">IXT election updated</div>
+          <div class="activity-meta">Changed from 100% cash to 50/50 split</div>
+        </div>
+        <div class="activity-value">Saved</div>
+      </div>
     </div>
-    <div class="stat">
-        <div class="label">Stage 0 status</div>
-        <div class="val">Active</div>
-        <div class="sub">UKIYO venue raise</div>
+  </div>
+
+  <!-- Documents -->
+  <div class="section">
+    <div class="section-title">Your documents</div>
+    <div class="card">
+      <div class="activity-row">
+        <div class="activity-icon">📄</div>
+        <div class="activity-body">
+          <div class="activity-title">Subscription Agreement · 2026</div>
+          <div class="activity-meta">Executed Apr 2026 &middot; Token Subscription v2.0</div>
+        </div>
+        <div class="activity-value">Download</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">📄</div>
+        <div class="activity-body">
+          <div class="activity-title">Information Memorandum · UKIYO</div>
+          <div class="activity-meta">v2.0 &middot; incl. Founding Preferential Return</div>
+        </div>
+        <div class="activity-value">Download</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">📄</div>
+        <div class="activity-body">
+          <div class="activity-title">Appropriateness test · COBS 10A</div>
+          <div class="activity-meta">Passed Apr 2026 &middot; Valid 12 months</div>
+        </div>
+        <div class="activity-value">View</div>
+      </div>
+      <div class="activity-row">
+        <div class="activity-icon">📄</div>
+        <div class="activity-body">
+          <div class="activity-title">Self-certification · Sophisticated</div>
+          <div class="activity-meta">Valid 12 months &middot; renews Apr 2027</div>
+        </div>
+        <div class="activity-value">View</div>
+      </div>
     </div>
+  </div>
+
+  <!-- Advisor contact -->
+  <div class="section">
+    <div class="section-title">Your advisor</div>
+    <div class="card" style="display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--charcoal);display:flex;align-items:center;justify-content:center;color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;">TB</div>
+      <div style="flex:1;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;color:var(--text);">Thibault Bouquet de Jolinière</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:2px;">Your named contact · Strategic tier</div>
+      </div>
+      <a href="mailto:thibault@initiativex.co.uk" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);border:1px solid var(--charcoal);padding:6px 10px;border-radius:6px;text-decoration:none;">Email</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-text">Initiative X &middot; Investor Portal</div>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/risk">Risk Disclosure</a> &middot; <a href="mailto:thibault@initiativex.co.uk">Contact</a>
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);margin-top:16px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.5;">
+      Capital at risk. Past performance is not indicative of future results. Investments shown may be illiquid. See your Subscription Agreement and the Information Memorandum for full terms. Subject to FCA opinion pending.
+    </div>
+  </div>
+
 </div>
 
-<h2><span class="num">01</span>Portfolio inside IX</h2>
-
-<p>What this sample investor holds, across the six available vehicles. Sample numbers — none of these are live subscriptions today.</p>
-
-<table>
-    <thead><tr><th>Vehicle</th><th>Position</th><th>Subscribed</th><th>Current NAV</th><th>Status</th></tr></thead>
-    <tbody>
-        <tr><td>A. IXF Units</td><td>Fund equity</td><td>&pound;10,000</td><td>&pound;10,560</td><td>NAV-linked, quarterly mark</td></tr>
-        <tr><td>B. Participation Notes</td><td>Senior bond, 8% APR</td><td>&pound;5,000</td><td>&pound;5,200</td><td>Q2 coupon paid in IXT (investor election)</td></tr>
-        <tr><td>C. Direct Business NFT (UKIYO)</td><td>Founding investor tranche</td><td>&pound;10,000</td><td>&pound;10,650</td><td>Stage 0 active &mdash; 6% p.a. cumulative pref</td></tr>
-        <tr><td>D. PropCo Notes</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>Not held</td></tr>
-        <tr><td>E. Cashflow Notes</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>Not held</td></tr>
-        <tr><td>F. Development Convertibles</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>Not held</td></tr>
-    </tbody>
-</table>
-
-<h2><span class="num">02</span>Stage 0 founding preferential return — what it looks like in practice</h2>
-
-<div class="stage0-card">
-    <div class="s-label">Active position &middot; UKIYO venue-specific raise</div>
-    <div class="s-title">Sample investor holds &pound;10K in the UKIYO Direct Business NFT founding tranche</div>
-    <p style="margin-bottom: 10px; font-size: 0.92rem;">The Stage 0 Founding Preferential Return is the per-venue ringfenced 6% p.a. cumulative preference. For this position:</p>
-    <ul style="margin-bottom: 10px;">
-        <li><strong>Distributable cashflow source:</strong> UKIYO OpCo only — not pooled with other venues</li>
-        <li><strong>Stage 0 entitlement:</strong> 100% of UKIYO's distributable cashflow flows to founding investors until 6% p.a. cumulative + principal repaid</li>
-        <li><strong>Position in the per-venue waterfall:</strong> Stage 0 satisfied first; only then does Stage 1 (return of capital pari passu) → Stage 2 (10% IX carry) → Stage 3 (20%) → Stage 4 (25% above 2× MOIC) trigger</li>
-        <li><strong>Cross-subsidy protection:</strong> founding investors in UKIYO receive no preferential return from other venues' cashflow, and pooled-vehicle LPs (IXF Units holders) are not diluted by UKIYO's per-venue founding tranche</li>
-    </ul>
-    <p style="font-size: 0.88rem; color: var(--mid-grey); font-style: italic;">Per Articles of Association v2.1 Article 34. Visible in the investor dashboard as a per-venue line item with current preferential return accrual against the 6% p.a. cumulative target.</p>
-</div>
-
-<h2><span class="num">03</span>Quarterly NAV statement (sample)</h2>
-
-<p>What an investor receives at the end of each quarter. Sample — illustrative.</p>
-
-<table>
-    <thead><tr><th>Quarter</th><th>Portfolio NAV</th><th>IXF NAV / unit</th><th>Distributions</th><th>IXT earned</th></tr></thead>
-    <tbody>
-        <tr><td>Q1 2026</td><td>&pound;25,000</td><td>£1.00 (subscription)</td><td>—</td><td>—</td></tr>
-        <tr><td>Q2 2026</td><td>&pound;25,420</td><td>£1.05</td><td>&pound;100 (Participation Note coupon — IXT)</td><td>100</td></tr>
-        <tr><td>Q3 2026</td><td>&pound;25,890</td><td>£1.06</td><td>&pound;200 (UKIYO distribution toward Stage 0 pref)</td><td>—</td></tr>
-        <tr><td>Q4 2026</td><td>&pound;26,410</td><td>£1.07</td><td>&pound;100 (Participation Note coupon — IXT)</td><td>100</td></tr>
-    </tbody>
-</table>
-
-<p style="font-size:0.85rem; color:var(--mid-grey);"><em>Disclosure: NAV may decrease as well as increase. The 1:1 Rule (1 IXT = &pound;1 floor) applies regardless of NAV fluctuation. Where operational value is below £1.00 per IXT, the floor holds via the Ecosystem Fund cover ratio (minimum 1.5×). Per Reg Compliance Framework v2.1.</em></p>
-
-<h2><span class="num">04</span>What this investor sees in their dashboard</h2>
-
-<ul>
-    <li><strong>Portfolio overview</strong> — NAV by vehicle, IXT balance, all-time return, distributions paid</li>
-    <li><strong>Per-venue exposure</strong> — for any Direct Business NFT or venue-specific position, the venue's stage (R5→R1), certification tier, governance rating (G1→G5), and Founding Preferential Return accrual</li>
-    <li><strong>Capex Evidence File status</strong> — for venues they're invested in directly, whether the operator has maintained the file required under the Methodology v2.0</li>
-    <li><strong>Stage 0 tracker</strong> — current preferential return accrual per venue position, with payback timeline projection</li>
-    <li><strong>IXT activity</strong> — earned, redeemed, held; can spend at any IX-certified venue or convert at the Patron-tier withdrawal feature (8% fee, &pound;2K/quarter cap, post-FCA authorisation)</li>
-    <li><strong>Document vault</strong> — Quarterly NAV statements, fund report and accounts, capex evidence, certification reassessments, all dated and timestamped</li>
-    <li><strong>Founding cohort access</strong> — first refusal on subsequent capital rounds, founding-member dinner invites, Patron-tier benefits</li>
-</ul>
-
-<h2><span class="num">05</span>What "your investor profile" would look like inside IX</h2>
-
-<ol>
-    <li><strong>Express interest.</strong> Submit the form at <a href="https://initiativex.co.uk/invest">initiativex.co.uk/invest</a>. Not a subscription — register-of-interest only while the FCA opinion is pending.</li>
-    <li><strong>Founding 100 onboarding.</strong> Patron tier setup (£30/mo, free Year 1 for the cohort), KYC, investor categorisation per FCA rules.</li>
-    <li><strong>Vehicle selection.</strong> Once authorisation is live: choose from six vehicles by risk profile, lock-up tolerance, and minimum cheque size.</li>
-    <li><strong>Founding investor terms.</strong> Where you subscribe to a venue-specific raise (Direct Business NFT, Development Convertibles for that venue, venue-specific Participation Notes), Stage 0 founding preferential return applies on that venue's distributable cashflow — ringfenced.</li>
-    <li><strong>Quarterly NAV cadence + first-refusal pipeline</strong> activates once the fund manager is appointed and the rail is live.</li>
-</ol>
-
-<p style="margin-top:18px;"><strong>Express interest:</strong> <a href="https://initiativex.co.uk/invest">initiativex.co.uk/invest</a></p>
-
-<h2><span class="num">06</span>If you want to go deeper</h2>
-<div class="reads-grid">
-    <div class="read-card">
-        <div class="read-tag">Architecture</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/intro">/intro</a></div>
-        <div class="read-desc">5-min plain-English explanation of what IX is and how the four parties connect.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">Structural</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/overview">/overview</a></div>
-        <div class="read-desc">6 vehicles, 5-stage waterfall, build status by track, valuation methodology in plain English.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">Regulatory</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/fca">/fca</a></div>
-        <div class="read-desc">FCA Opinion Instruction Letter v1.1 — 21 questions IX is asking counsel before any subscription opens.</div>
-    </div>
-    <div class="read-card">
-        <div class="read-tag">Cohort</div>
-        <div class="read-title"><a href="https://initiativex.co.uk/founding">/founding</a></div>
-        <div class="read-desc">What you get for being a founding-cohort investor (Year 1 free Patron, first refusal on rounds, founding dinners).</div>
-    </div>
-</div>
-
-<footer>
-    <div class="mark-small">IX</div>
-    <div class="contact">
-        <a href="mailto:thibault@initiativex.co.uk?subject=IX%20%E2%80%94%20investor%20conversation">thibault@initiativex.co.uk</a>
-    </div>
-</footer>
-
-</div>
 </body>
 </html>

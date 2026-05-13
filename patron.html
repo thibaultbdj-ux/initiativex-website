@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>IX — Patron Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #9B8B6E;
+  --teal-light: #B8A88A;
+  --sage: #8A7B64;
+  --caramel: #D4A574;
+  --cream: #F4F0EB;
+  --cream-dark: #E8E2D9;
+  --bg: #F4F0EB;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(155, 139, 110, 0.15);
+  --charcoal: #1A1A1A;
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted: #A0A0A0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header */
+.header {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-greeting {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.header-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+}
+
+/* Member Card */
+.member-card {
+  background: linear-gradient(135deg, #8A7B64 0%, #9B8B6E 40%, #B8A88A 100%);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.7/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(244,240,235,0.06);
+  border-radius: 50%;
+}
+
+.member-card::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(244,240,235,0.04);
+  border-radius: 50%;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.card-tier {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--caramel);
+}
+
+.card-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.card-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 28px;
+}
+
+.card-meta-item .label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244,240,235,0.4);
+}
+
+.card-meta-item .value {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--cream);
+}
+
+.card-meta-item .value.gold { color: var(--caramel); }
+
+.wallet-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+/* KPI row */
+.kpi-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.kpi-box {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.kpi-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.kpi-value.gold { color: var(--caramel); }
+.kpi-value.sage { color: var(--sage); }
+
+.kpi-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Sections */
+.section { margin-top: 24px; }
+
+.section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Action buttons */
+.action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--charcoal);
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.15s;
+}
+
+.action-btn:hover { border-color: var(--teal); }
+
+.action-btn.primary {
+  background: rgba(155, 139, 110, 0.1);
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+/* Activity feed */
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.activity-item:last-child { border-bottom: none; }
+
+.activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.activity-icon.visit { background: rgba(63,90,90,0.3); color: var(--teal-light); }
+.activity-icon.reward { background: rgba(212,165,116,0.15); color: var(--caramel); }
+.activity-icon.referral { background: rgba(107,138,126,0.2); color: var(--sage); }
+
+.activity-text {
+  flex: 1;
+}
+
+.activity-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.activity-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.activity-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Redeem */
+.redeem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.redeem-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.redeem-item:hover { border-color: var(--caramel); }
+.redeem-item.locked { opacity: 0.3; cursor: not-allowed; }
+
+.redeem-cost {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--caramel);
+}
+
+.redeem-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Saved places */
+.place-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.place-item:last-child { border-bottom: none; }
+
+.place-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.place-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--sage);
+  padding: 3px 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* Referral */
+.referral-code {
+  display: block;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--caramel);
+  background: var(--cream-dark);
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px dashed var(--card-border);
+  margin: 12px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.referral-code:hover { border-color: var(--caramel); }
+
+/* Progress milestones */
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.milestone:last-child { border-bottom: none; }
+
+.milestone-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.milestone-check.done { background: var(--teal); }
+.milestone-check.pending { border: 1.5px solid var(--card-border); }
+
+.milestone-text {
+  font-size: 13px;
+  flex: 1;
+}
+
+.milestone-text.done { color: var(--cream); }
+.milestone-text.pending { color: var(--text-muted); }
+
+.milestone-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--caramel);
+}
+
+/* Reward tiers */
+.reward-tiers {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+
+.reward-tier {
+  flex: 1;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.reward-tier.active { background: var(--teal); }
+.reward-tier.locked { background: var(--cream-dark); border: 1px solid var(--card-border); }
+
+/* Map */
+.map-container {
+  height: 240px;
+  background: var(--cream-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-pin {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -100%);
+}
+
+.map-pin-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.map-pin-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.map-pin-ghost {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--text-muted);
+  opacity: 0.3;
+}
+
+/* Footer */
+.footer {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.footer-links {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.footer-links a { color: var(--text-muted); }
+
+/* Progress bar */
+.progress-track {
+  height: 4px;
+  background: var(--cream-dark);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s;
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="rgba(244,240,235,0.3)" stroke-width="1.2"/><text x="14" y="18" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="700" fill="rgba(244,240,235,0.5)">IX</text></svg>
+      <span class="header-greeting">Good evening, Thibault</span>
+    </div>
+    <a href="#" class="header-btn">Settings</a>
+  </div>
+
+  <!-- Member Card -->
+  <div class="member-card">
+    <div class="card-top">
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="rgba(244,240,235,0.15)" stroke-width="1"/><text x="12" y="15.5" text-anchor="middle" font-family="Space Grotesk" font-size="8" font-weight="700" fill="rgba(244,240,235,0.3)">IX</text></svg>
+      <span class="card-tier">Patron Founding</span>
+    </div>
+    <div class="card-bottom">
+      <div class="card-name">Thibault Bouquet de Joliniere</div>
+      <div class="card-meta">
+        <div class="card-meta-item">
+          <div class="label">Member</div>
+          <div class="value">IX-0001</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Since</div>
+          <div class="value">Apr 2026</div>
+        </div>
+        <div class="card-meta-item">
+          <div class="label">Rewards</div>
+          <div class="value gold">820 IXR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="https://storage.googleapis.com/ix-passes/passes/IX-0001.pkpass?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=ix-wallet-pass%40grand-aloe-491907-v7.iam.gserviceaccount.com%2F20260416%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260416T121729Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&response-content-type=application%2Fvnd.apple.pkpass&X-Goog-Signature=957be4d21ff989a2e4b20ac61e161f03bb221dcee9232b547f6a50a53489da4fc8f113ff0056a5cc6343b788369e2c73298a462c495fc92ca8bc849e9cc30cdff71d79d867f1d4964db95eaf56371cfba49f1e1fe8964aee5e96c6b13dcf937a5ebc10ed8e671d5ccfc76421b59f2ede739bdaa7fb68788ff9c439f46bfd5abb2b7cce2ff95d93abc6b92b6b06e5f505735b64c8a401efa202b60c5ce62332651bbea062d8873bfb9d8e24be5b45605360361b22128d4870f56bb2a8a735d5ca58947a524db18f71ebd54ba748f19216ba5b813a486c286d58e295ab9329e3197a299aee806e4b745177b120ac5752796d4c3837bac7039d4cb38dfd7fe8764a" class="wallet-link">Add to Apple / Google Wallet</a>
+
+  <!-- KPI row -->
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-value">12</div>
+      <div class="kpi-label">Visits</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value gold">820</div>
+      <div class="kpi-label">IXR Earned</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-value" style="color:var(--sage);">&pound;145</div>
+      <div class="kpi-label">Saved</div>
+    </div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="action-row">
+    <a href="https://ix-concierge.vercel.app?email=thibault@initiativex.co.uk" class="action-btn primary">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5a1.5 1.5 0 011.5-1.5h7A1.5 1.5 0 0113 5v4a1.5 1.5 0 01-1.5 1.5H7l-2.5 2.5V10.5H4.5A1.5 1.5 0 013 9V5z" stroke="currentColor" stroke-width="1.2"/></svg>
+      Concierge
+    </a>
+    <a href="#redeem" class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.2"/></svg>
+      Redeem
+    </a>
+  </div>
+
+  <!-- Concierge Chat -->
+  <div class="section">
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div id="chatMessages" style="min-height:120px;max-height:300px;overflow-y:auto;padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="var(--cream)" stroke-width="0.8"/><text x="6" y="8" text-anchor="middle" font-family="Space Grotesk" font-size="4.5" font-weight="700" fill="var(--cream)">IX</text></svg>
+          </div>
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Concierge</div>
+            <div style="font-size:14px;color:var(--text);line-height:1.5;">Welcome back, Thibault. What can I do for you?</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--card-border);padding:12px;display:flex;gap:8px;">
+        <input id="chatInput" type="text" placeholder="Ask the concierge..." style="flex:1;padding:10px 14px;border:1px solid var(--card-border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--bg);outline:none;" onkeydown="if(event.key==='Enter')sendChat()">
+        <button onclick="sendChat()" style="padding:10px 16px;background:var(--teal);color:white;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;cursor:pointer;">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  async function sendChat() {
+    const input = document.getElementById('chatInput');
+    const messages = document.getElementById('chatMessages');
+    const text = input.value.trim();
+    if (!text) return;
+
+    messages.innerHTML += `<div style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;justify-content:flex-end;">
+      <div style="background:var(--cream-dark);padding:10px 14px;border-radius:12px 12px 2px 12px;font-size:14px;color:var(--text);max-width:80%;">${text}</div>
+    </div>`;
+    input.value = '';
+    messages.scrollTop = messages.scrollHeight;
+
+    const typingId = 'typing-' + Date.now();
+    messages.innerHTML += `<div id="${typingId}" style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="var(--cream)" stroke-width="0.8"/><text x="6" y="8" text-anchor="middle" font-family="Space Grotesk" font-size="4.5" font-weight="700" fill="var(--cream)">IX</text></svg>
+      </div>
+      <div style="font-size:14px;color:var(--text-muted);">...</div>
+    </div>`;
+    messages.scrollTop = messages.scrollHeight;
+
+    try {
+      const res = await fetch('https://ix-concierge.vercel.app/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, sessionId: 'patron-' + Math.random().toString(36).slice(2) }),
+      });
+      const data = await res.json();
+      const el = document.getElementById(typingId);
+      if (el) el.querySelector('div:last-child').innerHTML = `<div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Concierge</div><div style="font-size:14px;color:var(--text);line-height:1.5;">${data.message.replace(/\n/g,'<br>')}</div>`;
+    } catch (err) {
+      const el = document.getElementById(typingId);
+      if (el) el.querySelector('div:last-child').textContent = 'Unable to reach concierge.';
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }
+  </script>
+
+  <!-- Recent Activity -->
+  <div class="section">
+    <div class="section-title">Recent Activity</div>
+    <div class="card">
+      <div class="activity-item">
+        <div class="activity-icon visit">&#x1f37d;</div>
+        <div class="activity-text">
+          <div class="activity-title">Visited UKIYO</div>
+          <div class="activity-sub">Counter seat, omakase</div>
+        </div>
+        <div class="activity-time">2d ago</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon reward">&#x2b50;</div>
+        <div class="activity-text">
+          <div class="activity-title">Rewards earned</div>
+          <div class="activity-sub">+4 IXR from UKIYO visit</div>
+        </div>
+        <div class="activity-time">2d ago</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon referral">&#x1f517;</div>
+        <div class="activity-text">
+          <div class="activity-title">Invite opened</div>
+          <div class="activity-sub">Stephen Lane viewed your invite</div>
+        </div>
+        <div class="activity-time">5d ago</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Redeem -->
+  <div class="section" id="redeem">
+    <div class="section-title">Redeem</div>
+    <div class="redeem-grid">
+      <div class="redeem-item"><div class="redeem-cost">5</div><div class="redeem-label">Welcome drink</div></div>
+      <div class="redeem-item"><div class="redeem-cost">15</div><div class="redeem-label">Appetiser or dessert</div></div>
+      <div class="redeem-item"><div class="redeem-cost">30</div><div class="redeem-label">Main dish or cocktails</div></div>
+      <div class="redeem-item locked"><div class="redeem-cost">50</div><div class="redeem-label">Omakase experience</div></div>
+    </div>
+  </div>
+
+  <!-- Referral -->
+  <div class="section">
+    <div class="section-title">Invite a friend</div>
+    <div class="card" style="padding:20px 0;text-align:center;">
+      <p style="font-size:13px;color:var(--text-secondary);padding:0 16px;">Share your code — you both earn <span style="color:var(--caramel);">10 IXR</span></p>
+      <div class="referral-code" onclick="navigator.clipboard.writeText('IX-TBJ-2026');this.textContent='Copied!';setTimeout(()=>this.textContent='IX-TBJ-2026',2000)">IX-TBJ-2026</div>
+      <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);padding:0 16px;">7 of 10 invites remaining</p>
+    </div>
+  </div>
+
+  <!-- Saved places -->
+  <div class="section">
+    <div class="section-title">Your places</div>
+    <div class="card">
+      <div class="place-item">
+        <div class="place-icon" style="background:#0B0B0B;"><span style="font-family:'Courier Prime',monospace;font-size:12px;font-weight:700;color:#C8A96E;">U</span></div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:500;">UKIYO</div>
+          <div style="font-size:11px;color:var(--text-muted);">Covent Garden</div>
+        </div>
+        <span class="place-badge">Visited</span>
+      </div>
+      <div class="place-item">
+        <div class="place-icon" style="background:var(--teal);"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--cream);">V</span></div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:500;">Vinicon</div>
+          <div style="font-size:11px;color:var(--text-muted);">Wine partner</div>
+        </div>
+        <span class="place-badge" style="color:var(--caramel);">Member</span>
+      </div>
+      <div class="place-item" style="opacity:0.4;">
+        <div class="place-icon" style="background:var(--card-border);"><span style="font-size:16px;color:var(--text-muted);">+</span></div>
+        <div style="flex:1;">
+          <div style="font-size:13px;color:var(--text-muted);">Suggest a venue</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="section">
+    <div class="section-title">IX Network</div>
+    <div class="card" style="padding:0;overflow:hidden;border-radius:12px;">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+      <div id="ixMap" style="height:280px;width:100%;"></div>
+      <div style="padding:12px 16px;display:flex;gap:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);border-top:1px solid var(--card-border);">
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:#0B0B0B;border:2px solid #C8A96E;display:inline-block;"></span> Venue</span>
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;"></span> Partner</span>
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;border:1.5px dashed var(--text-muted);display:inline-block;"></span> Coming</span>
+      </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+    (function() {
+      const map = L.map('ixMap', { zoomControl: false, attributionControl: false }).setView([51.5118, -0.1225], 14);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
+
+      // Custom pin factory
+      function ixPin(type) {
+        const styles = {
+          venue: { bg: '#0B0B0B', border: '#C8A96E', text: '#C8A96E', size: 32 },
+          partner: { bg: '#3F5A5A', border: '#6B8A7E', text: '#F4F0EB', size: 28 },
+          coming: { bg: 'transparent', border: '#A0A0A0', text: '#A0A0A0', size: 22 },
+        };
+        const s = styles[type];
+        return L.divIcon({
+          className: '',
+          iconSize: [s.size, s.size],
+          iconAnchor: [s.size/2, s.size/2],
+          html: `<div style="width:${s.size}px;height:${s.size}px;border-radius:50%;background:${s.bg};border:2px ${type==='coming'?'dashed':'solid'} ${s.border};display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.2);"><span style="font-family:'Space Grotesk',sans-serif;font-size:${s.size*0.35}px;font-weight:700;color:${s.text};">${type==='venue'?'U':type==='partner'?'V':'?'}</span></div>`,
+        });
+      }
+
+      // Venues (gold/black pin)
+      L.marker([51.5118, -0.1225], { icon: ixPin('venue') })
+        .addTo(map)
+        .bindPopup('<strong style="font-family:Courier Prime,monospace;">UKIYO</strong><br><span style="font-size:12px;color:#666;">8 Slingsby Place, WC2E</span><br><span style="font-size:11px;color:#C8A96E;">IX Certified Venue</span>');
+
+      // Partners (teal pin)
+      L.marker([51.5145, -0.1180], { icon: ixPin('partner') })
+        .addTo(map)
+        .bindPopup('<strong>Vinicon</strong><br><span style="font-size:12px;color:#666;">Wine supplier & partner</span><br><span style="font-size:11px;color:#3F5A5A;">IX Partner</span>');
+
+      // Coming soon (ghost pins)
+      L.marker([51.5090, -0.1300], { icon: ixPin('coming') }).addTo(map);
+      L.marker([51.5155, -0.1100], { icon: ixPin('coming') }).addTo(map);
+      L.marker([51.5080, -0.1180], { icon: ixPin('coming') }).addTo(map);
+    })();
+    </script>
+  </div>
+
+  <!-- Messages -->
+  <div class="section">
+    <div class="section-title">Messages</div>
+    <a href="https://ix-circle-so.circle.so" target="_blank" class="card" style="padding:16px;display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);transition:border-color 0.15s;">
+      <div style="width:40px;height:40px;border-radius:10px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 5a2 2 0 012-2h8a2 2 0 012 2v5a2 2 0 01-2 2H8l-3 3v-3H5a2 2 0 01-2-2V5z" stroke="var(--cream)" stroke-width="1.2"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:14px;font-weight:500;">IX Chat</div>
+        <div style="font-size:12px;color:var(--text-muted);">Private messages, groups, vertical channels</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;"></span>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">5 new</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Community -->
+  <div class="section">
+    <div class="section-title">Community</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div style="display:flex;border-bottom:1px solid var(--card-border);overflow-x:auto;">
+        <button onclick="switchChannel(this)" class="channel-tab" style="flex:1;padding:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;border:none;background:none;color:var(--teal);cursor:pointer;border-bottom:2px solid var(--teal);font-weight:500;">All</button>
+        <button onclick="switchChannel(this)" class="channel-tab" style="flex:1;padding:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;border:none;background:none;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;">Your World</button>
+        <button onclick="switchChannel(this)" class="channel-tab" style="flex:1;padding:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;border:none;background:none;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;">Events</button>
+        <button onclick="switchChannel(this)" class="channel-tab" style="flex:1;padding:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;border:none;background:none;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;">Debates</button>
+      </div>
+
+      <div style="max-height:400px;overflow-y:auto;">
+        <div style="padding:14px 16px;border-bottom:1px solid var(--card-border);display:flex;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:#0B0B0B;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'Courier Prime',monospace;font-size:10px;font-weight:700;color:#C8A96E;">U</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:13px;font-weight:500;">UKIYO</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">2h ago</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-secondary);margin-top:4px;line-height:1.5;">New spring omakase menu launching this weekend. 8 courses, seasonal fish from Tsukiji. First 10 IX members get a complimentary sake flight.</p>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x2764; 12</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x1f4ac; 3</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x2934; Share</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:14px 16px;border-bottom:1px solid var(--card-border);display:flex;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--caramel);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:10px;font-weight:700;color:white;">IX</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:13px;font-weight:500;">Community debate</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--caramel);">Live</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-secondary);margin-top:4px;line-height:1.5;">What makes a great IX venue? Share your top 3 criteria.</p>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">18 responses</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x1f4ac; Join</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:14px 16px;border-bottom:1px solid var(--card-border);display:flex;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:12px;font-weight:600;color:var(--cream);">V</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:13px;font-weight:500;">Vinicon</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">1d ago</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-secondary);margin-top:4px;line-height:1.5;">Burgundy 2025 en primeur allocations open next week. Patron members get priority. DM the concierge to register interest.</p>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x2764; 21</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x1f4ac; 7</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:14px 16px;display:flex;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:12px;font-weight:600;color:white;">AM</span>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:13px;font-weight:500;">Anna Mitchell</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">3d ago</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Suggested <strong style="color:var(--text);">Endo at Rotunda</strong> for the IX network.</p>
+            <div style="display:flex;gap:16px;margin-top:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);cursor:pointer;">&#x2B06; Upvote &#x2022; 6</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);cursor:pointer;">&#x1f4ac; 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--card-border);padding:12px 16px;display:flex;gap:8px;">
+        <input type="text" placeholder="Share something with the community..." style="flex:1;padding:10px 14px;border:1px solid var(--card-border);border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;">
+        <button style="padding:10px 14px;background:var(--teal);color:white;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function switchChannel(btn) {
+    document.querySelectorAll('.channel-tab').forEach(t => {
+      t.style.color = 'var(--text-muted)';
+      t.style.borderBottomColor = 'transparent';
+    });
+    btn.style.color = 'var(--teal)';
+    btn.style.borderBottomColor = 'var(--teal)';
+  }
+  </script>
+
+  <!-- Your Badges -->
+  <div class="section">
+    <div class="section-title">Your Badges</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;flex:1;min-width:90px;">
+        <div style="font-size:24px;margin-bottom:4px;">&#x1f31f;</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;">Founding</div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;flex:1;min-width:90px;">
+        <div style="font-size:24px;margin-bottom:4px;">&#x1f4dd;</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;">Reviewer</div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;flex:1;min-width:90px;opacity:0.3;">
+        <div style="font-size:24px;margin-bottom:4px;">&#x1f50d;</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;">Scout</div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:16px;text-align:center;flex:1;min-width:90px;opacity:0.3;">
+        <div style="font-size:24px;margin-bottom:4px;">&#x1f91d;</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;">Insider</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Value Shared -->
+  <div class="section">
+    <div class="section-title">Value Shared</div>
+    <div class="card" style="padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
+        <span style="font-size:14px;color:var(--text-secondary);">Your network contribution</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);">Last 90 days</span>
+      </div>
+      <div style="display:flex;gap:16px;margin-bottom:20px;">
+        <div style="flex:1;text-align:center;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--teal);">3</div>
+          <div style="font-size:11px;color:var(--text-muted);">Referrals</div>
+        </div>
+        <div style="flex:1;text-align:center;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--teal);">5</div>
+          <div style="font-size:11px;color:var(--text-muted);">Reviews</div>
+        </div>
+        <div style="flex:1;text-align:center;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--caramel);">1</div>
+          <div style="font-size:11px;color:var(--text-muted);">Venue suggested</div>
+        </div>
+      </div>
+      <div style="padding:16px;background:var(--cream);border-radius:8px;">
+        <div style="font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:var(--text-secondary);text-align:center;">
+          Your participation helps the IX network grow. As the network expands, so does the value we share back with you.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Private Events -->
+  <div class="section">
+    <div class="section-title">Private Events</div>
+    <div class="card">
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(155,139,110,0.15);color:var(--teal);">&#x1f37e;</div>
+        <div class="activity-text">
+          <div class="activity-title">IX Founding Dinner</div>
+          <div class="activity-sub">UKIYO &middot; 28 May 2026, 7pm</div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--caramel);padding:3px 8px;border:1px solid var(--card-border);border-radius:8px;">RSVP</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(155,139,110,0.15);color:var(--teal);">&#x1f377;</div>
+        <div class="activity-text">
+          <div class="activity-title">Vinicon En Primeur Tasting</div>
+          <div class="activity-sub">Private venue &middot; Jun 2026</div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);padding:3px 8px;border:1px solid var(--card-border);border-radius:8px;">Coming</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Investment -->
+  <div class="section">
+    <div class="section-title">Investment</div>
+    <div class="card" style="padding:20px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#9B8B6E" stroke-width="1"/><text x="8" y="11" text-anchor="middle" font-family="Space Grotesk" font-size="6" font-weight="700" fill="#9B8B6E">IX</text></svg>
+        </div>
+        <div>
+          <div style="font-size:14px;font-weight:500;">IX Growth Fund</div>
+          <div style="font-size:12px;color:var(--text-muted);">Patron access after 6 months</div>
+        </div>
+      </div>
+      <div class="progress-track" style="margin-bottom:8px;">
+        <div class="progress-fill" style="width:33%;background:var(--teal);"></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);">2 of 6 months &middot; Investment access unlocks Aug 2026</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7.5" fill="none" stroke="var(--text-muted)" stroke-width="1"/><text x="9" y="12" text-anchor="middle" font-family="Space Grotesk" font-size="7" font-weight="700" fill="var(--text-muted)">IX</text></svg>
+    <div class="footer-links">&copy; IX. All rights reserved. &middot; <a href="https://initiativex.co.uk/terms.html">Terms</a> &middot; <a href="https://initiativex.co.uk/privacy.html">Privacy</a></div>
+  </div>
+
+</div>
+
+</body>
+</html>
